@@ -55,3 +55,10 @@ This project is currently under development and will be enhanced with more featu
 ## 🤝 Contributions
 
 This project is currently a personal learning project. Contributions and suggestions are welcome after the first stable version.
+
+## 👨‍💻 Author
+
+Raj Mund
+BCA Student | Web Development & UI Enthusiast
+
+
