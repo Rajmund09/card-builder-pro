@@ -51,3 +51,7 @@ This project is currently under development and will be enhanced with more featu
 1. Clone the repository  
    ```bash
    git clone https://github.com/your-username/card-builder-pro.git
+
+## 🤝 Contributions
+
+This project is currently a personal learning project. Contributions and suggestions are welcome after the first stable version.
