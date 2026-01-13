@@ -2,8 +2,17 @@
 
 Card Builder Pro is a web-based application that allows users to create and customize different types of cards such as business cards, birthday cards, invitations, and more using themes, colors, fonts, and live previews.
 
-🚧 **Project Status:** Work in Progress  
-This project is currently under development and will be enhanced with more features and optimizations in the coming days.
+## 🔄 Project Update
+
+**Current Progress (Latest Update):**
+- Added a premium landing page with modern UI and animations
+- Implemented typewriter text effect for multiple card types
+- Added interactive hero card stack with hover & floating animations
+- Improved responsiveness for mobile and tablet screens
+- Added smooth scrolling navigation and animated statistics
+
+🚧 This project is still under active development.  
+More features, optimizations, and the complete card builder functionality will be added soon.
 
 ---
 
