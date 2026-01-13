@@ -1,838 +1,1287 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Card Builder</title>
+    <title>CardCraft Pro - Create Stunning Cards</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
-}
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #f97316;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.hidden {
-    display: none !important;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
 
-/* Header */
-header {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
+        section {
+            padding: 80px 0;
+        }
 
-/* Card Type Selection */
-.card-type-section, .theme-section, .builder-section {
-    background-color: white;
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+        }
 
-.card-type-section h2, .theme-section h2, .builder-section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 0.5rem;
-}
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
 
-.card-type-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+        }
 
-.card-type {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
 
-.card-type:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-color: #4a6fa5;
-    background-color: #eef5ff;
-}
+        .btn-secondary:hover {
+            background-color: rgba(79, 70, 229, 0.05);
+            transform: translateY(-3px);
+        }
 
-.card-type .icon {
-    font-size: 2.5rem;
-    color: #4a6fa5;
-    margin-bottom: 1rem;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
 
-.card-type h3 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
 
-.card-type p {
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-/* Theme Selection */
-.theme-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
 
-.theme-option {
-    height: 150px;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            transition: var(--transition);
+        }
 
-.theme-option:hover {
-    transform: scale(1.05);
-}
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
 
-/* Builder Section */
-.builder-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-@media (max-width: 900px) {
-    .builder-container {
-        grid-template-columns: 1fr;
-    }
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
 
-.card-preview-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
 
-.card-preview {
-    width: 100%;
-    max-width: 400px;
-    height: 250px;
-    background-color: #4a6fa5;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    margin-bottom: 1.5rem;
-    position: relative;
-    overflow: hidden;
-}
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
 
-.card-content {
-    z-index: 2;
-    position: relative;
-}
+        .logo-text span {
+            color: var(--primary);
+        }
 
-.preview-controls {
-    display: flex;
-    gap: 1rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-.customization-controls {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    padding: 1.5rem;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
 
-.control-group {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #e0e0e0;
-}
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-.control-group h3 {
-    margin-bottom: 1rem;
-    color: #2c3e50;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
 
-.control {
-    margin-bottom: 1rem;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.control label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #444;
-}
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
 
-.control-input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-}
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--dark);
+            cursor: pointer;
+        }
 
-textarea.control-input {
-    min-height: 80px;
-    resize: vertical;
-}
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #fdf2f8 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-.builder-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><path fill="%234f46e5" d="M0,500C150,500,350,500,500,400C650,300,750,100,900,100C1050,100,1150,300,1300,400C1450,500,1650,500,1800,400C1950,300,2050,100,2200,100C2350,100,2450,300,2500,400C2550,500,2750,500,3000,400C3250,300,3350,100,3500,100C3650,100,3750,300,3900,400C4050,500,4250,500,4400,400C4550,300,4650,100,4800,100C4950,100,5050,300,5200,400C5350,500,5550,500,5700,400C5850,300,5950,100,6100,100C6250,100,6350,300,6500,400C6650,500,6850,500,7000,400C7150,300,7250,100,7400,100C7550,100,7650,300,7800,400C7950,500,8150,500,8300,400C8450,300,8550,100,8700,100C8850,100,8950,300,9100,400C9250,500,9450,500,9600,400C9750,300,9850,100,10000,100L10000,10000L0,10000Z"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
 
-/* Buttons */
-.btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
 
-.btn.primary {
-    background-color: #4a6fa5;
-    color: white;
-}
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
 
-.btn.primary:hover {
-    background-color: #3a5a8a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 111, 165, 0.3);
-}
+        .hero-content h1 .typewriter-text {
+            color: var(--primary);
+            display: inline-block;
+            min-width: 300px;
+        }
 
-.btn.secondary {
-    background-color: #f1f1f1;
-    color: #333;
-}
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
 
-.btn.secondary:hover {
-    background-color: #e0e0e0;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
 
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
-    padding: 2rem 0;
-    margin-top: 3rem;
-    text-align: center;
-}
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+        }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-}
+        .stat {
+            text-align: center;
+        }
 
-.footer-links a {
-    color: #bdc3c7;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
 
-.footer-links a:hover {
-    color: white;
-}
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Cards Display */
+        .hero-cards {
+            position: relative;
+            height: 500px;
+        }
+
+        .card-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-item {
+            position: absolute;
+            width: 320px;
+            height: 200px;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            z-index: 10;
+        }
+
+        .card-item:nth-child(1) {
+            top: 20px;
+            left: 0;
+            background: linear-gradient(135deg, #4f46e5, #7c73e6);
+            color: white;
+            z-index: 5;
+        }
+
+        .card-item:nth-child(2) {
+            top: 60px;
+            left: 40px;
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            z-index: 4;
+        }
+
+        .card-item:nth-child(3) {
+            top: 100px;
+            left: 80px;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            z-index: 3;
+        }
+
+        .card-item:nth-child(4) {
+            top: 140px;
+            left: 120px;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            color: white;
+            z-index: 2;
+        }
+
+        .card-item:nth-child(5) {
+            top: 180px;
+            left: 160px;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            color: white;
+            z-index: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--light-gray);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Create Options Section */
+        .create-options {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .option-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .option-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .option-card:hover .option-image img {
+            transform: scale(1.05);
+        }
+
+        .option-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .option-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .option-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-column p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .contact-info li i {
+            margin-right: 10px;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-container, .options-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-cards {
+                height: 400px;
+            }
+            
+            .card-item {
+                width: 280px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .cta-buttons {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .card-item {
+                width: 240px;
+                height: 160px;
+            }
+            
+            .card-item:nth-child(1) {
+                left: 0;
+            }
+            
+            .card-item:nth-child(2) {
+                left: 20px;
+            }
+            
+            .card-item:nth-child(3) {
+                left: 40px;
+            }
+            
+            .card-item:nth-child(4) {
+                left: 60px;
+            }
+            
+            .card-item:nth-child(5) {
+                left: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding-top: 140px;
+            }
+            
+            .card-item {
+                width: 220px;
+                height: 150px;
+            }
+        }
+
+        /* Animation for typewriter effect */
+        .typewriter-text {
+            border-right: 3px solid var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--primary); }
+        }
+
+        /* Floating animation for cards */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .card-item:nth-child(1) { animation: float 6s ease-in-out infinite; }
+        .card-item:nth-child(2) { animation: float 7s ease-in-out infinite 0.5s; }
+        .card-item:nth-child(3) { animation: float 8s ease-in-out infinite 1s; }
+        .card-item:nth-child(4) { animation: float 9s ease-in-out infinite 1.5s; }
+        .card-item:nth-child(5) { animation: float 10s ease-in-out infinite 2s; }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1><i class="fas fa-layer-group"></i> Card Builder Pro</h1>
-            <p>Create beautiful cards for any occasion in minutes</p>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <div class="logo-text">Card<span>Craft</span> Pro</div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#create">Create</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            
+            <div class="cta-buttons">
+                <a href="card-builder.html" class="btn btn-primary">Start Creating</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Card Type Selection -->
-        <section class="card-type-section">
-            <h2>What type of card would you like to build?</h2>
-            <div class="card-type-grid">
-                <div class="card-type" data-type="business">
-                    <div class="icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Business Card</h3>
-                    <p>Professional cards for networking</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Build Your <span class="typewriter-text" id="typewriter">Business Cards</span></h1>
+                <p>Create stunning, professional cards for any occasion in minutes. Our intuitive card builder makes it easy to design, customize, and download beautiful cards that impress.</p>
+                
+                <div class="hero-buttons">
+                    <a href="card-builder.html" class="btn btn-primary">
+                        <i class="fas fa-play-circle"></i> Start Creating Free
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
                 </div>
-                <div class="card-type" data-type="birthday">
-                    <div class="icon"><i class="fas fa-birthday-cake"></i></div>
-                    <h3>Birthday Card</h3>
-                    <p>Celebrate special days</p>
-                </div>
-                <div class="card-type" data-type="holiday">
-                    <div class="icon"><i class="fas fa-gift"></i></div>
-                    <h3>Holiday Card</h3>
-                    <p>Seasonal greetings</p>
-                </div>
-                <div class="card-type" data-type="wedding">
-                    <div class="icon"><i class="fas fa-ring"></i></div>
-                    <h3>Wedding Card</h3>
-                    <p>Invitations and announcements</p>
-                </div>
-                <div class="card-type" data-type="thankyou">
-                    <div class="icon"><i class="fas fa-heart"></i></div>
-                    <h3>Thank You Card</h3>
-                    <p>Show your appreciation</p>
-                </div>
-                <div class="card-type" data-type="invitation">
-                    <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                    <h3>Invitation Card</h3>
-                    <p>Event invites</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Theme Selection (Initially Hidden) -->
-        <section class="theme-section hidden">
-            <h2>Choose a Theme</h2>
-            <div class="theme-grid"></div>
-            <button id="backToCardTypes" class="btn secondary">
-                <i class="fas fa-arrow-left"></i> Back to Card Types
-            </button>
-        </section>
-
-        <!-- Card Builder (Initially Hidden) -->
-        <section class="builder-section hidden">
-            <h2>Design Your Card</h2>
-            <div class="builder-container">
-                <!-- Card Preview -->
-                <div class="card-preview-container">
-                    <div class="card-preview">
-                        <div class="card-content">
-                            <h3 id="preview-title">Your Name</h3>
-                            <p id="preview-text">Your text goes here</p>
-                            <div class="contact-info" id="preview-contact">
-                                <p>Email: example@email.com</p>
-                                <p>Phone: (123) 456-7890</p>
-                            </div>
-                        </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="stat1">0</span>
+                        <span class="stat-label">Cards Created</span>
                     </div>
-                    <div class="preview-controls">
-                        <button id="download-btn" class="btn primary">
-                            <i class="fas fa-download"></i> Download Card
-                        </button>
-                        <button id="reset-btn" class="btn secondary">
-                            <i class="fas fa-redo"></i> Reset
-                        </button>
+                    <div class="stat">
+                        <span class="stat-number" id="stat2">0</span>
+                        <span class="stat-label">Happy Customers</span>
                     </div>
-                </div>
-
-                <!-- Customization Controls -->
-                <div class="customization-controls">
-                    <div class="control-group">
-                        <h3><i class="fas fa-palette"></i> Design</h3>
-                        <div class="control">
-                            <label for="theme-select">Card Theme:</label>
-                            <select id="theme-select" class="control-input">
-                                <option value="modern">Modern</option>
-                                <option value="elegant">Elegant</option>
-                                <option value="fun">Fun</option>
-                                <option value="minimal">Minimal</option>
-                                <option value="colorful">Colorful</option>
-                            </select>
-                        </div>
-                        <div class="control">
-                            <label for="color-picker">Card Color:</label>
-                            <input type="color" id="color-picker" class="control-input" value="#4a6fa5">
-                        </div>
-                        <div class="control">
-                            <label for="font-select">Font Style:</label>
-                            <select id="font-select" class="control-input">
-                                <option value="Arial, sans-serif">Arial</option>
-                                <option value="'Times New Roman', serif">Times New Roman</option>
-                                <option value="'Courier New', monospace">Courier New</option>
-                                <option value="'Georgia', serif">Georgia</option>
-                                <option value="'Comic Sans MS', cursive">Comic Sans</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <h3><i class="fas fa-edit"></i> Content</h3>
-                        <div class="control">
-                            <label for="title-input">Title/Name:</label>
-                            <input type="text" id="title-input" class="control-input" placeholder="Enter title or name">
-                        </div>
-                        <div class="control">
-                            <label for="text-input">Card Message:</label>
-                            <textarea id="text-input" class="control-input" placeholder="Enter your card message"></textarea>
-                        </div>
-                        <div class="control">
-                            <label for="contact-input">Contact Info:</label>
-                            <textarea id="contact-input" class="control-input" placeholder="Enter contact information"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <h3><i class="fas fa-image"></i> Images</h3>
-                        <div class="control">
-                            <label for="bg-image">Background Image:</label>
-                            <input type="file" id="bg-image" class="control-input" accept="image/*">
-                        </div>
-                        <div class="control">
-                            <label for="logo-image">Logo/Icon:</label>
-                            <input type="file" id="logo-image" class="control-input" accept="image/*">
-                        </div>
-                        <button id="add-image-btn" class="btn secondary">
-                            <i class="fas fa-plus"></i> Add Sample Image
-                        </button>
-                    </div>
-
-                    <div class="builder-buttons">
-                        <button id="save-design" class="btn primary">
-                            <i class="fas fa-save"></i> Save Design
-                        </button>
-                        <button id="new-card" class="btn secondary">
-                            <i class="fas fa-plus-circle"></i> Start New Card
-                        </button>
+                    <div class="stat">
+                        <span class="stat-number" id="stat3">0</span>
+                        <span class="stat-label">Design Templates</span>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+            
+            <div class="hero-cards">
+                <div class="card-stack">
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="card-title">Business Cards</h3>
+                        <p class="card-description">Professional networking cards</p>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h3 class="card-title">Birthday Cards</h3>
+                        <p class="card-description">Celebrate special occasions</p>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3 class="card-title">Hospital Cards</h3>
+                        <p class="card-description">Get well soon messages</p>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3 class="card-title">Wedding Cards</h3>
+                        <p class="card-description">Elegant invitations</p>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="card-title">Thank You Cards</h3>
+                        <p class="card-description">Show your appreciation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>We offer a wide range of card creation services to meet all your personal and professional needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Custom Card Design</h3>
+                    <p>Create unique, personalized cards with our easy-to-use design tools and templates.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 500+ Professional Templates</li>
+                        <li><i class="fas fa-check"></i> Custom Color Schemes</li>
+                        <li><i class="fas fa-check"></i> Font & Typography Options</li>
+                        <li><i class="fas fa-check"></i> Image Upload & Editing</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Professional Printing</h3>
+                    <p>Get your designs professionally printed with high-quality materials and finishes.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Premium Paper Stocks</li>
+                        <li><i class="fas fa-check"></i> Matte & Glossy Finishes</li>
+                        <li><i class="fas fa-check"></i> Embossing & Foil Stamping</li>
+                        <li><i class="fas fa-check"></i> Fast Shipping Worldwide</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>AI-Powered Suggestions</h3>
+                    <p>Let our AI suggest designs, layouts, and content based on your needs and preferences.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Smart Design Recommendations</li>
+                        <li><i class="fas fa-check"></i> Content Writing Assistance</li>
+                        <li><i class="fas fa-check"></i> Layout Optimization</li>
+                        <li><i class="fas fa-check"></i> Color Harmony Suggestions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Options Section -->
+    <section class="create-options" id="create">
+        <div class="container">
+            <div class="section-title">
+                <h2>Start Creating Today</h2>
+                <p>Choose what you want to create with our powerful, easy-to-use tools</p>
+            </div>
+            
+            <div class="options-container">
+                <div class="option-card">
+                    <div class="option-image">
+                        <!-- Using a placeholder image, in real implementation would be actual image -->
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #4f46e5, #8b5cf6);display:flex;align-items:center;justify-content:center;color:white;font-size:4rem;">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                    </div>
+                    <div class="option-content">
+                        <div class="option-badge">Most Popular</div>
+                        <h3>Create Custom Cards</h3>
+                        <p>Design beautiful cards for business, personal events, holidays, and special occasions. Choose from hundreds of templates or start from scratch.</p>
+                        <a href="card-builder.html" class="btn btn-primary" style="align-self: flex-start;">
+                            <i class="fas fa-arrow-right"></i> Open Card Builder
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-image">
+                        <!-- Using a placeholder image, in real implementation would be actual image -->
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg, #10b981, #34d399);display:flex;align-items:center;justify-content:center;color:white;font-size:4rem;">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                    <div class="option-content">
+                        <div class="option-badge">Coming Soon</div>
+                        <h3>Build Your Website</h3>
+                        <p>Create a stunning website for your business or personal brand. Our website builder makes it easy with drag-and-drop functionality.</p>
+                        <a href="#" class="btn btn-secondary" style="align-self: flex-start; opacity: 0.7; cursor: not-allowed;">
+                            <i class="fas fa-clock"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
-            <p>Dynamic Card Builder &copy; <span id="current-year"></span> - Create beautiful cards for any occasion</p>
-            <div class="footer-links">
-                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
-                <a href="#"><i class="fas fa-share-alt"></i> Share</a>
-                <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">Card<span>Craft</span> Pro</a>
+                    <p>We help individuals and businesses create stunning, professional cards for any occasion. Our mission is to make beautiful design accessible to everyone.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#create"><i class="fas fa-chevron-right"></i> Create</a></li>
+                        <li><a href="card-builder.html"><i class="fas fa-chevron-right"></i> Card Builder</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Templates</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Card Types</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Business Cards</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Birthday Cards</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Wedding Cards</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Thank You Cards</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Holiday Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Design Street, Creative City, CC 10001</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@cardcraftpro.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 25px; font-size: 1rem;">Subscribe to Newsletter</h4>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CardCraft Pro. All rights reserved. | <a href="#" style="color: #94a3b8;">Privacy Policy</a> | <a href="#" style="color: #94a3b8;">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
     <script>
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentDidLoad', function() {
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-    
-    // DOM Elements
-    const cardTypeSection = document.querySelector('.card-type-section');
-    const themeSection = document.querySelector('.theme-section');
-    const builderSection = document.querySelector('.builder-section');
-    const cardTypeGrid = document.querySelector('.card-type-grid');
-    const themeGrid = document.querySelector('.theme-grid');
-    const backToCardTypesBtn = document.getElementById('backToCardTypes');
-    const newCardBtn = document.getElementById('new-card');
-    const resetBtn = document.getElementById('reset-btn');
-    const saveDesignBtn = document.getElementById('save-design');
-    const downloadBtn = document.getElementById('download-btn');
-    const addImageBtn = document.getElementById('add-image-btn');
-    
-    // Preview elements
-    const cardPreview = document.querySelector('.card-preview');
-    const previewTitle = document.getElementById('preview-title');
-    const previewText = document.getElementById('preview-text');
-    const previewContact = document.getElementById('preview-contact');
-    
-    // Input elements
-    const themeSelect = document.getElementById('theme-select');
-    const colorPicker = document.getElementById('color-picker');
-    const fontSelect = document.getElementById('font-select');
-    const titleInput = document.getElementById('title-input');
-    const textInput = document.getElementById('text-input');
-    const contactInput = document.getElementById('contact-input');
-    const bgImageInput = document.getElementById('bg-image');
-    const logoImageInput = document.getElementById('logo-image');
-    
-    // Current card data
-    let currentCardType = '';
-    let currentTheme = 'modern';
-    let cardBackgroundImage = '';
-    let cardLogo = '';
-    
-    // Theme data
-    const themes = {
-        modern: { 
-            name: 'Modern', 
-            color: '#4a6fa5', 
-            gradient: 'linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%)',
-            font: 'Arial, sans-serif'
-        },
-        elegant: { 
-            name: 'Elegant', 
-            color: '#8b7355', 
-            gradient: 'linear-gradient(135deg, #8b7355 0%, #5d4c3c 100%)',
-            font: "'Times New Roman', serif"
-        },
-        fun: { 
-            name: 'Fun', 
-            color: '#e74c3c', 
-            gradient: 'linear-gradient(135deg, #e74c3c 0%, #f39c12 100%)',
-            font: "'Comic Sans MS', cursive"
-        },
-        minimal: { 
-            name: 'Minimal', 
-            color: '#34495e', 
-            gradient: 'linear-gradient(135deg, #34495e 0%, #2c3e50 100%)',
-            font: 'Arial, sans-serif'
-        },
-        colorful: { 
-            name: 'Colorful', 
-            color: '#9b59b6', 
-            gradient: 'linear-gradient(135deg, #9b59b6 0%, #3498db 100%)',
-            font: 'Arial, sans-serif'
-        }
-    };
-    
-    // Card type data with default content
-    const cardTypes = {
-        business: {
-            title: 'John Doe',
-            text: 'Marketing Manager',
-            contact: 'Email: john.doe@example.com\nPhone: (123) 456-7890\nWebsite: www.johndoe.com',
-            defaultTheme: 'modern'
-        },
-        birthday: {
-            title: 'Happy Birthday!',
-            text: 'Wishing you a day filled with happiness and joy!',
-            contact: '',
-            defaultTheme: 'fun'
-        },
-        holiday: {
-            title: 'Season\'s Greetings',
-            text: 'Wishing you peace, joy, and happiness this holiday season.',
-            contact: '',
-            defaultTheme: 'colorful'
-        },
-        wedding: {
-            title: 'Save the Date',
-            text: 'Join us as we celebrate our wedding day!',
-            contact: 'Date: October 15, 2023\nVenue: Grand Garden Resort',
-            defaultTheme: 'elegant'
-        },
-        thankyou: {
-            title: 'Thank You',
-            text: 'We appreciate your kindness and support.',
-            contact: 'With gratitude,\nThe Johnson Family',
-            defaultTheme: 'minimal'
-        },
-        invitation: {
-            title: 'You\'re Invited!',
-            text: 'Please join us for a celebration of our 10th anniversary.',
-            contact: 'Date: November 20, 2023\nTime: 6:00 PM\nLocation: City Convention Center',
-            defaultTheme: 'elegant'
-        }
-    };
-    
-    // Initialize theme options
-    function initializeThemes() {
-        themeGrid.innerHTML = '';
+        // DOM Elements
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const typewriterText = document.getElementById('typewriter');
+        const stat1 = document.getElementById('stat1');
+        const stat2 = document.getElementById('stat2');
+        const stat3 = document.getElementById('stat3');
         
-        for (const themeId in themes) {
-            const theme = themes[themeId];
-            const themeOption = document.createElement('div');
-            themeOption.className = 'theme-option';
-            themeOption.dataset.theme = themeId;
-            themeOption.style.background = theme.gradient;
-            
-            themeOption.innerHTML = `
-                <h3>${theme.name}</h3>
-                <p>Click to select</p>
-            `;
-            
-            themeOption.addEventListener('click', function() {
-                selectTheme(themeId);
-            });
-            
-            themeGrid.appendChild(themeOption);
-        }
-    }
-    
-    // Select card type
-    cardTypeGrid.addEventListener('click', function(e) {
-        const cardTypeElement = e.target.closest('.card-type');
-        if (cardTypeElement) {
-            currentCardType = cardTypeElement.dataset.type;
-            cardTypeSection.classList.add('hidden');
-            themeSection.classList.remove('hidden');
-            
-            // Initialize themes for this card type
-            initializeThemes();
-        }
-    });
-    
-    // Select theme
-    function selectTheme(themeId) {
-        currentTheme = themeId;
-        themeSection.classList.add('hidden');
-        builderSection.classList.remove('hidden');
-        
-        // Set up card with selected type and theme
-        setupCardBuilder();
-    }
-    
-    // Back to card types
-    backToCardTypesBtn.addEventListener('click', function() {
-        themeSection.classList.add('hidden');
-        cardTypeSection.classList.remove('hidden');
-    });
-    
-    // Start new card
-    newCardBtn.addEventListener('click', function() {
-        builderSection.classList.add('hidden');
-        cardTypeSection.classList.remove('hidden');
-        resetCard();
-    });
-    
-    // Reset card
-    resetBtn.addEventListener('click', resetCard);
-    
-    // Setup card builder with selected type and theme
-    function setupCardBuilder() {
-        const cardData = cardTypes[currentCardType];
-        const themeData = themes[currentTheme];
-        
-        // Set default values
-        titleInput.value = cardData.title;
-        textInput.value = cardData.text;
-        contactInput.value = cardData.contact;
-        themeSelect.value = currentTheme;
-        colorPicker.value = themeData.color;
-        fontSelect.value = themeData.font;
-        
-        // Update preview
-        updatePreview();
-        
-        // Set theme-specific styling
-        applyTheme(themeData);
-    }
-    
-    // Apply theme to card
-    function applyTheme(themeData) {
-        cardPreview.style.background = themeData.gradient;
-        cardPreview.style.fontFamily = themeData.font;
-        colorPicker.value = themeData.color;
-    }
-    
-    // Update card preview
-    function updatePreview() {
-        previewTitle.textContent = titleInput.value || 'Your Title';
-        previewText.textContent = textInput.value || 'Your message goes here';
-        
-        // Format contact info with line breaks
-        if (contactInput.value.trim()) {
-            const contactLines = contactInput.value.split('\n');
-            previewContact.innerHTML = contactLines.map(line => `<p>${line}</p>`).join('');
-        } else {
-            previewContact.innerHTML = '';
-        }
-        
-        // Apply selected color
-        if (colorPicker.value) {
-            cardPreview.style.background = colorPicker.value;
-        }
-        
-        // Apply selected font
-        if (fontSelect.value) {
-            cardPreview.style.fontFamily = fontSelect.value;
-        }
-    }
-    
-    // Reset card to defaults
-    function resetCard() {
-        const cardData = cardTypes[currentCardType];
-        const themeData = themes[currentTheme];
-        
-        titleInput.value = cardData.title;
-        textInput.value = cardData.text;
-        contactInput.value = cardData.contact;
-        themeSelect.value = currentTheme;
-        colorPicker.value = themeData.color;
-        fontSelect.value = themeData.font;
-        
-        // Reset background images
-        cardBackgroundImage = '';
-        cardLogo = '';
-        cardPreview.style.backgroundImage = '';
-        
-        // Clear file inputs
-        bgImageInput.value = '';
-        logoImageInput.value = '';
-        
-        updatePreview();
-        applyTheme(themeData);
-    }
-    
-    // Save design
-    saveDesignBtn.addEventListener('click', function() {
-        const cardData = {
-            type: currentCardType,
-            theme: currentTheme,
-            title: titleInput.value,
-            text: textInput.value,
-            contact: contactInput.value,
-            color: colorPicker.value,
-            font: fontSelect.value,
-            timestamp: new Date().toISOString()
-        };
-        
-        // In a real app, this would save to a server or localStorage
-        localStorage.setItem('lastCardDesign', JSON.stringify(cardData));
-        
-        alert('Design saved successfully!');
-    });
-    
-    // Download card
-    downloadBtn.addEventListener('click', function() {
-        // In a real implementation, this would use a library like html2canvas
-        // to convert the card preview to an image for download
-        alert('In a full implementation, this would download your card as an image. For now, you can take a screenshot of your design.');
-        
-        // Simulated download
-        const cardData = {
-            type: currentCardType,
-            theme: currentTheme,
-            title: titleInput.value,
-            text: textInput.value,
-            contact: contactInput.value
-        };
-        
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(cardData, null, 2));
-        const downloadAnchor = document.createElement('a');
-        downloadAnchor.setAttribute("href", dataStr);
-        downloadAnchor.setAttribute("download", `card-design-${Date.now()}.json`);
-        document.body.appendChild(downloadAnchor);
-        downloadAnchor.click();
-        downloadAnchor.remove();
-    });
-    
-    // Add sample image
-    addImageBtn.addEventListener('click', function() {
-        const sampleImages = [
-            'url("https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80")',
-            'url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80")',
-            'url("https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80")'
+        // Typewriter text animation
+        const cardTypes = [
+            "Business Cards",
+            "Hospital Cards", 
+            "Birthday Cards",
+            "Wedding Cards",
+            "Thank You Cards",
+            "Invitation Cards",
+            "Holiday Cards"
         ];
         
-        const randomImage = sampleImages[Math.floor(Math.random() * sampleImages.length)];
-        cardPreview.style.backgroundImage = `${randomImage}, ${cardPreview.style.background}`;
-        cardPreview.style.backgroundSize = 'cover';
-        cardPreview.style.backgroundBlendMode = 'overlay';
-    });
-    
-    // Handle background image upload
-    bgImageInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                cardBackgroundImage = event.target.result;
-                cardPreview.style.backgroundImage = `url(${cardBackgroundImage}), ${cardPreview.style.background}`;
-                cardPreview.style.backgroundSize = 'cover';
-                cardPreview.style.backgroundBlendMode = 'overlay';
-            };
-            reader.readAsDataURL(file);
+        let currentTypeIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        
+        function typeWriter() {
+            const currentText = cardTypes[currentTypeIndex];
+            
+            if (isDeleting) {
+                // Deleting text
+                typewriterText.textContent = currentText.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                typingSpeed = 50;
+            } else {
+                // Adding text
+                typewriterText.textContent = currentText.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                typingSpeed = 100;
+            }
+            
+            // If text is complete
+            if (!isDeleting && currentCharIndex === currentText.length) {
+                // Pause at the end of typing
+                typingSpeed = 2000;
+                isDeleting = true;
+            } 
+            // If text is deleted
+            else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                // Move to next card type
+                currentTypeIndex = (currentTypeIndex + 1) % cardTypes.length;
+                typingSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typingSpeed);
         }
-    });
-    
-    // Handle logo image upload
-    logoImageInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                cardLogo = event.target.result;
-                // In a full implementation, we would add this as an overlay on the card
-                alert('Logo uploaded! In a full implementation, this would appear on your card.');
-            };
-            reader.readAsDataURL(file);
+        
+        // Start typewriter effect after page loads
+        setTimeout(typeWriter, 1000);
+        
+        // Counter animation for stats
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
         }
-    });
-    
-    // Event listeners for real-time updates
-    titleInput.addEventListener('input', updatePreview);
-    textInput.addEventListener('input', updatePreview);
-    contactInput.addEventListener('input', updatePreview);
-    colorPicker.addEventListener('input', updatePreview);
-    fontSelect.addEventListener('change', updatePreview);
-    
-    themeSelect.addEventListener('change', function() {
-        currentTheme = themeSelect.value;
-        const themeData = themes[currentTheme];
-        applyTheme(themeData);
-        updatePreview();
-    });
-    
-    // Initialize the app
-    initializeThemes();
-    
-    // Check for saved design
-    const savedDesign = localStorage.getItem('lastCardDesign');
-    if (savedDesign) {
-        console.log('Saved design found:', JSON.parse(savedDesign));
-    }
-});
-
-// Fix for DOMContentLoaded typo in the original code
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the app when DOM is ready
-    const event = new Event('DOMContentDidLoad');
-    document.dispatchEvent(event);
-});    </script>
+        
+        // Start counter animations when stats come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(stat1, 12543, 2000);
+                    animateCounter(stat2, 8920, 2000);
+                    animateCounter(stat3, 567, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(document.querySelector('.hero-stats'));
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            const ctaButtons = document.querySelector('.cta-buttons');
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+                ctaButtons.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                ctaButtons.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                
+                ctaButtons.style.flexDirection = 'column';
+                ctaButtons.style.position = 'absolute';
+                ctaButtons.style.top = 'calc(100% + 160px)';
+                ctaButtons.style.left = '0';
+                ctaButtons.style.width = '100%';
+                ctaButtons.style.padding = '20px';
+                ctaButtons.style.backgroundColor = 'white';
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.querySelector('.nav-links');
+                    const ctaButtons = document.querySelector('.cta-buttons');
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                        ctaButtons.style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // Card hover effect
+        document.querySelectorAll('.card-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                // Get the card title
+                const cardTitle = this.querySelector('.card-title').textContent;
+                // Update the typewriter text to show this card type
+                typewriterText.textContent = cardTitle;
+                typewriterText.style.borderRight = '3px solid var(--primary)';
+                
+                // Pause the automatic typewriter
+                clearTimeout(typewriterTimer);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                // Restart the automatic typewriter
+                typewriterTimer = setTimeout(typeWriter, 1000);
+            });
+        });
+        
+        let typewriterTimer;
+        
+        // Newsletter form submission
+        document.querySelector('.newsletter-form button').addEventListener('click', function() {
+            const emailInput = document.querySelector('.newsletter-form input');
+            const email = emailInput.value.trim();
+            
+            if (email && validateEmail(email)) {
+                alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+            }
+        });
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add some random floating effect to cards
+            const cards = document.querySelectorAll('.card-item');
+            cards.forEach(card => {
+                // Randomize the animation delay slightly for each card
+                const randomDelay = Math.random() * 2;
+                card.style.animationDelay = `${randomDelay}s`;
+            });
+        });
+    </script>
 </body>
 </html>
