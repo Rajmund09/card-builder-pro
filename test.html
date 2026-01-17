@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metallic Portrait Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #e6e6e6;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            perspective: 1000px;
+            cursor: pointer;
+            justify-self: center;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateX(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, #0a0a0a, #2a2a2a);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+        }
+
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 30%,
+                transparent 50%
+            );
+            transform: rotate(30deg);
+        }
+
+        .portrait {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+            margin-bottom: 20px;
+            position: relative;
+            border: 4px solid #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .portrait::after {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #2a2a2a, #0a0a0a);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .name {
+            color: #e6e6e6;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .title {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .card-back {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            transform: rotateX(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+
+        .card-back::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(100, 100, 100, 0.1) 50%,
+                transparent 70%
+            );
+            z-index: 1;
+        }
+
+        .card-back h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .card-back p {
+            color: #bbb;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            z-index: 2;
+            position: relative;
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #888;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 20px;
+            }
+            
+            .card {
+                width: 150px;
+                height: 200px;
+            }
+            
+            .portrait {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .name {
+                font-size: 1rem;
+            }
+            
+            .title {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 15px;
+            }
+            
+            .card {
+                width: 130px;
+                height: 180px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Metallic Portrait Cards</h1>
+        <p>Hover over any card to see the 180° rotation effect. Each card flips to reveal additional information.</p>
+    </div>
+
+    <div class="cards-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">ALEX MORGAN</div>
+                    <div class="title">Lead Engineer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Metallurgy & Material Science with 12 years experience in advanced alloy development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">SAMANTHA REED</div>
+                    <div class="title">Design Director</div>
+                </div>
+                <div class="card-back">
+                    <h3>Specialization</h3>
+                    <p>Industrial design with focus on metallic finishes and ergonomic structures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">MARCUS CHEN</div>
+                    <div class="title">Quality Control</div>
+                </div>
+                <div class="card-back">
+                    <h3>Role</h3>
+                    <p>Ensuring all metallic components meet industry standards and durability requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">JULIA PARK</div>
+                    <div class="title">Fabrication Head</div>
+                </div>
+                <div class="card-back">
+                    <h3>Department</h3>
+                    <p>Oversees precision cutting and shaping of metallic materials for custom projects.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">DAVID ROSS</div>
+                    <div class="title">Research Lead</div>
+                </div>
+                <div class="card-back">
+                    <h3>Research Area</h3>
+                    <p>Developing new metallic composites with enhanced strength-to-weight ratios.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">LENA VOGEL</div>
+                    <div class="title">Surface Specialist</div>
+                </div>
+                <div class="card-back">
+                    <h3>Expertise</h3>
+                    <p>Advanced metallic coatings and finishes for corrosion resistance and aesthetics.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">OMAR KHALID</div>
+                    <div class="title">Operations Manager</div>
+                </div>
+                <div class="card-back">
+                    <h3>Responsibilities</h3>
+                    <p>Coordinates production schedules and ensures efficient workflow in the metal shop.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="portrait"></div>
+                    <div class="name">NINA SANTOS</div>
+                    <div class="title">CAD Designer</div>
+                </div>
+                <div class="card-back">
+                    <h3>Tools</h3>
+                    <p>Creates precise 3D models and technical drawings for complex metallic components.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Hover over cards to see the 180° rotation effect | Metallic Portrait Cards Collection</p>
+    </div>
+
+    <script>
+        // Add subtle animation to cards on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach((card, index) => {
+                // Stagger the appearance of cards
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
