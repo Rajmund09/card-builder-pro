@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         /* ===== CSS Variables - Glass Dark Theme ===== */
         :root {
@@ -18,29 +21,29 @@
             --accent: #8b5cf6;
             --warning: #f59e0b;
             --danger: #ef4444;
-            
+
             --bg-dark: #0a0a0f;
             --bg-darker: #07070b;
             --bg-card: rgba(20, 20, 30, 0.7);
             --bg-card-hover: rgba(30, 30, 45, 0.9);
             --border-color: rgba(255, 255, 255, 0.08);
             --border-light: rgba(255, 255, 255, 0.12);
-            
+
             --text-primary: #ffffff;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
-            
+
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            
+
             --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6);
             --gradient-accent: linear-gradient(135deg, #10b981, #0d9488);
             --gradient-dark: linear-gradient(135deg, #0a0a0f, #1e1b2e);
-            
+
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.2s ease;
-            
+
             --border-radius: 16px;
             --border-radius-lg: 24px;
             --border-radius-xl: 32px;
@@ -68,7 +71,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: var(--text-primary);
@@ -81,7 +89,8 @@
             transition: var(--transition-fast);
         }
 
-        ul, ol {
+        ul,
+        ol {
             list-style: none;
         }
 
@@ -390,7 +399,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 30%),
                 radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.1) 0%, transparent 30%),
                 radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.1) 0%, transparent 30%);
@@ -554,7 +563,9 @@
             z-index: 1;
         }
 
-        .loader-card-header, .loader-card-body, .loader-card-footer {
+        .loader-card-header,
+        .loader-card-body,
+        .loader-card-footer {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
         }
@@ -687,7 +698,8 @@
             transition: var(--transition);
         }
 
-        .filter-btn:hover, .filter-btn.active {
+        .filter-btn:hover,
+        .filter-btn.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
@@ -902,7 +914,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
             z-index: 0;
@@ -1044,7 +1056,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
             z-index: 0;
@@ -1313,6 +1325,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -1323,6 +1336,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1334,6 +1348,7 @@
                 opacity: 0;
                 transform: translateX(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1345,6 +1360,7 @@
                 opacity: 0;
                 transform: translateX(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1352,10 +1368,13 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
             }
+
             50% {
                 transform: scale(1.05);
                 box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
@@ -1363,21 +1382,28 @@
         }
 
         @keyframes cardFloat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             33% {
                 transform: translateY(-20px) rotate(1deg);
             }
+
             66% {
                 transform: translateY(10px) rotate(-1deg);
             }
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
@@ -1387,6 +1413,7 @@
             0% {
                 background-position: -1000px 0;
             }
+
             100% {
                 background-position: 1000px 0;
             }
@@ -1419,60 +1446,66 @@
 
         /* ===== Responsive Design ===== */
         @media (max-width: 1200px) {
-            .hero-container, .options-container {
+
+            .hero-container,
+            .options-container {
                 gap: 60px;
             }
-            
+
             .hero-content h1 {
                 font-size: 3.5rem;
             }
-            
+
             .section-title h2 {
                 font-size: 3rem;
             }
         }
 
         @media (max-width: 992px) {
-            .hero-container, .options-container {
+
+            .hero-container,
+            .options-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .hero-content h1 {
                 font-size: 3rem;
             }
-            
+
             .card-loader {
                 order: -1;
                 margin-bottom: 60px;
                 height: 350px;
             }
-            
+
             .loader-card {
                 width: 250px;
                 height: 180px;
             }
-            
+
             .nav-links {
                 gap: 25px;
             }
         }
 
         @media (max-width: 768px) {
+
             /* Mobile Menu */
-            .nav-links, .nav-cta {
+            .nav-links,
+            .nav-cta {
                 display: none;
             }
-            
+
             .mobile-menu-btn {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            
+
             .mobile-menu {
                 display: none;
                 position: fixed;
@@ -1486,14 +1519,14 @@
                 padding: 30px;
                 z-index: 999;
             }
-            
+
             .mobile-nav-links {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
                 margin-bottom: 30px;
             }
-            
+
             .mobile-nav-links a {
                 padding: 15px;
                 border-radius: 12px;
@@ -1502,76 +1535,77 @@
                 font-weight: 600;
                 transition: var(--transition);
             }
-            
+
             .mobile-nav-links a.active {
                 background: rgba(99, 102, 241, 0.2);
                 color: var(--primary);
             }
-            
+
             .mobile-nav-links a:hover {
                 background: rgba(255, 255, 255, 0.1);
             }
-            
+
             /* Hero Section */
             .hero {
                 padding-top: 160px;
                 padding-bottom: 100px;
             }
-            
+
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-content p {
                 font-size: 1.1rem;
             }
-            
+
             .section-title h2 {
                 font-size: 2.5rem;
             }
-            
+
             .section-title p {
                 font-size: 1.1rem;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .hero-stats {
                 flex-direction: column;
                 gap: 30px;
             }
-            
+
             /* Services & Templates */
-            .services-grid, .templates-grid {
+            .services-grid,
+            .templates-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .card-loader {
                 height: 300px;
             }
-            
+
             .loader-card {
                 width: 220px;
                 height: 160px;
             }
-            
+
             /* CTA Section */
             .cta-section {
                 padding: 60px 30px;
             }
-            
+
             .cta-content h2 {
                 font-size: 2.5rem;
             }
-            
+
             /* Footer */
             .footer-content {
                 gap: 40px;
             }
-            
+
             .scroll-top {
                 bottom: 20px;
                 right: 20px;
@@ -1585,56 +1619,57 @@
             .container {
                 padding: 0 20px;
             }
-            
+
             section {
                 padding: 70px 0;
             }
-            
+
             .hero {
                 padding-top: 140px;
             }
-            
+
             .hero-content h1 {
                 font-size: 2.2rem;
             }
-            
+
             .section-title h2 {
                 font-size: 2.2rem;
             }
-            
+
             .option-card h3 {
                 font-size: 1.8rem;
             }
-            
-            .option-content, .option-header {
+
+            .option-content,
+            .option-header {
                 padding: 30px 25px;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
             }
-            
+
             .footer-bottom-links {
                 justify-content: center;
             }
-            
+
             .card-loader {
                 height: 250px;
             }
-            
+
             .loader-card {
                 width: 200px;
                 height: 140px;
                 padding: 20px;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
             }
@@ -1644,25 +1679,25 @@
             .hero-content h1 {
                 font-size: 1.8rem;
             }
-            
+
             .btn {
                 padding: 14px 24px;
                 font-size: 0.95rem;
             }
-            
+
             .card-loader {
                 height: 220px;
             }
-            
+
             .loader-card {
                 width: 180px;
                 height: 130px;
             }
-            
+
             .template-filters {
                 gap: 10px;
             }
-            
+
             .filter-btn {
                 padding: 10px 16px;
                 font-size: 0.9rem;
@@ -1670,14 +1705,32 @@
         }
 
         /* Animation delays */
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-        .delay-6 { animation-delay: 0.6s; }
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-6 {
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
+
 <body>
     <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop">
@@ -1693,7 +1746,7 @@
                 </div>
                 <div class="logo-text">Card<span>Craft</span> Pro</div>
             </a>
-            
+
             <nav class="nav-links">
                 <a href="#home" class="active">Home</a>
                 <a href="#services">Services</a>
@@ -1702,11 +1755,11 @@
                 <a href="#testimonials">Testimonials</a>
                 <a href="#faq">FAQ</a>
             </nav>
-            
+
             <div class="nav-cta">
                 <a href="card.html" class="btn btn-primary">Start Creating</a>
             </div>
-            
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1734,8 +1787,9 @@
         <div class="container hero-container">
             <div class="hero-content animate-fade-left">
                 <h1>Create Stunning <span class="typewriter-text" id="typewriter">Business Cards</span></h1>
-                <p class="delay-1">Premium card creation platform with glassmorphic designs, advanced tools, and professional printing services. Transform your ideas into beautiful, tangible cards.</p>
-                
+                <p class="delay-1">Premium card creation platform with glassmorphic designs, advanced tools, and
+                    professional printing services. Transform your ideas into beautiful, tangible cards.</p>
+
                 <div class="hero-buttons delay-2">
                     <a href="card.html" class="btn btn-primary">
                         <i class="fas fa-play-circle"></i> Start Designing Free
@@ -1744,7 +1798,7 @@
                         <i class="fas fa-eye"></i> Browse Templates
                     </a>
                 </div>
-                
+
                 <div class="hero-features delay-3">
                     <div class="hero-feature">
                         <i class="fas fa-bolt"></i>
@@ -1759,7 +1813,7 @@
                         <span>Free Shipping Worldwide</span>
                     </div>
                 </div>
-                
+
                 <div class="hero-stats delay-4">
                     <div class="stat">
                         <span class="stat-number" id="stat1">0</span>
@@ -1775,7 +1829,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="card-loader animate-fade-right">
                 <div class="loader-card">
                     <div class="loader-card-header"></div>
@@ -1818,7 +1872,7 @@
                 <h2>Premium Services</h2>
                 <p>Comprehensive card creation services with professional tools, printing, and delivery</p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card animate-fade-up delay-1">
                     <div class="service-icon">
@@ -1833,7 +1887,7 @@
                         <li><i class="fas fa-check"></i> Image Upload & Editing</li>
                     </ul>
                 </div>
-                
+
                 <div class="service-card animate-fade-up delay-2">
                     <div class="service-icon">
                         <i class="fas fa-print"></i>
@@ -1847,7 +1901,7 @@
                         <li><i class="fas fa-check"></i> 24-Hour Express Service</li>
                     </ul>
                 </div>
-                
+
                 <div class="service-card animate-fade-up delay-3">
                     <div class="service-icon">
                         <i class="fas fa-robot"></i>
@@ -1877,7 +1931,7 @@
                 <h2>Premium Templates</h2>
                 <p>Browse our curated collection of professionally designed card templates</p>
             </div>
-            
+
             <div class="template-filters" id="templateFilters">
                 <button class="filter-btn active" data-filter="all">All Templates</button>
                 <button class="filter-btn" data-filter="business">Business</button>
@@ -1885,7 +1939,7 @@
                 <button class="filter-btn" data-filter="event">Events</button>
                 <button class="filter-btn" data-filter="premium">Premium</button>
             </div>
-            
+
             <div class="templates-grid" id="templatesGrid">
                 <!-- Templates will be loaded by JavaScript -->
             </div>
@@ -1904,7 +1958,7 @@
                 <h2>Start Creating Today</h2>
                 <p>Powerful tools for all your card creation needs</p>
             </div>
-            
+
             <div class="options-container">
                 <div class="option-card animate-fade-up">
                     <div class="option-header">
@@ -1912,12 +1966,14 @@
                         <h3>Interactive Card Builder</h3>
                     </div>
                     <div class="option-image">
-                        <div style="width:100%;height:100%;background:linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:4rem;">
+                        <div
+                            style="width:100%;height:100%;background:linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:4rem;">
                             <i class="fas fa-magic"></i>
                         </div>
                     </div>
                     <div class="option-content">
-                        <p>Our advanced card builder makes design easy with drag-and-drop functionality, real-time previews, and professional templates. No design experience needed.</p>
+                        <p>Our advanced card builder makes design easy with drag-and-drop functionality, real-time
+                            previews, and professional templates. No design experience needed.</p>
                         <div style="margin-top: auto;">
                             <a href="card.html" class="btn btn-primary">
                                 <i class="fas fa-arrow-right"></i> Launch Card Builder
@@ -1925,19 +1981,21 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="option-card animate-fade-up delay-2">
                     <div class="option-header">
                         <div class="option-badge">Coming Soon</div>
                         <h3>Bulk Card Creator</h3>
                     </div>
                     <div class="option-image">
-                        <div style="width:100%;height:100%;background:linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(13, 148, 136, 0.2));display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:4rem;">
+                        <div
+                            style="width:100%;height:100%;background:linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(13, 148, 136, 0.2));display:flex;align-items:center;justify-content:center;color:var(--secondary);font-size:4rem;">
                             <i class="fas fa-layer-group"></i>
                         </div>
                     </div>
                     <div class="option-content">
-                        <p>Create multiple cards at once for events, teams, or businesses. Upload spreadsheets, customize designs in bulk, and manage large-scale projects efficiently.</p>
+                        <p>Create multiple cards at once for events, teams, or businesses. Upload spreadsheets,
+                            customize designs in bulk, and manage large-scale projects efficiently.</p>
                         <div style="margin-top: auto;">
                             <a href="#" class="btn btn-secondary">
                                 <i class="fas fa-clock"></i> Coming Soon
@@ -1961,14 +2019,17 @@
                 <h2>Client Success Stories</h2>
                 <p>See what our customers say about their experience with CardCraft Pro</p>
             </div>
-            
+
             <div class="testimonial-slider">
                 <div class="testimonial-card animate-fade-up">
                     <div class="testimonial-content">
-                        "CardCraft Pro transformed how we create marketing materials. The templates are professional, the interface is intuitive, and the print quality exceeded our expectations. Our brand consistency has never been better!"
+                        "CardCraft Pro transformed how we create marketing materials. The templates are professional,
+                        the interface is intuitive, and the print quality exceeded our expectations. Our brand
+                        consistency has never been better!"
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" alt="Alex Johnson" class="author-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" alt="Alex Johnson"
+                            class="author-avatar">
                         <div class="author-info">
                             <h4>Alex Johnson</h4>
                             <p>Marketing Director, TechFlow Inc.</p>
@@ -1991,7 +2052,7 @@
                 <h2>Frequently Asked Questions</h2>
                 <p>Find answers to common questions about our services and features</p>
             </div>
-            
+
             <div class="faq-container" id="faqContainer">
                 <!-- FAQ items will be loaded by JavaScript -->
             </div>
@@ -2003,7 +2064,8 @@
         <div class="container">
             <div class="cta-content animate-fade-up">
                 <h2>Ready to Create Amazing Cards?</h2>
-                <p>Join thousands of satisfied customers who trust CardCraft Pro for their card creation needs. Start your free trial today!</p>
+                <p>Join thousands of satisfied customers who trust CardCraft Pro for their card creation needs. Start
+                    your free trial today!</p>
                 <div class="cta-buttons">
                     <a href="card.html" class="btn btn-primary">
                         <i class="fas fa-play-circle"></i> Start Free Trial
@@ -2022,7 +2084,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <a href="#" class="footer-logo">Card<span>Craft</span> Pro</a>
-                    <p>Premium card creation platform with professional tools, glassmorphic designs, and global printing services.</p>
+                    <p>Premium card creation platform with professional tools, glassmorphic designs, and global printing
+                        services.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -2031,7 +2094,7 @@
                         <a href="#"><i class="fab fa-pinterest-p"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
@@ -2042,7 +2105,7 @@
                         <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Card Types</h3>
                     <ul class="footer-links">
@@ -2053,7 +2116,7 @@
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Holiday Cards</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
@@ -2070,7 +2133,7 @@
                             <span>support@cardcraftpro.com</span>
                         </li>
                     </ul>
-                    
+
                     <h4 style="margin-top: 25px; font-size: 1rem;">Newsletter</h4>
                     <div class="newsletter-form">
                         <input type="email" placeholder="Your Email" id="newsletterEmail">
@@ -2080,7 +2143,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2023 CardCraft Pro. All rights reserved.</p>
                 <div class="footer-bottom-links">
@@ -2111,7 +2174,7 @@
         // ===== Typewriter Effect =====
         const cardTypes = [
             "Business Cards",
-            "Hospital Cards", 
+            "Hospital Cards",
             "Birthday Cards",
             "Wedding Cards",
             "Thank You Cards",
@@ -2119,15 +2182,15 @@
             "Holiday Cards",
             "Premium Cards"
         ];
-        
+
         let currentTypeIndex = 0;
         let currentCharIndex = 0;
         let isDeleting = false;
         let typingSpeed = 100;
-        
+
         function typeWriter() {
             const currentText = cardTypes[currentTypeIndex];
-            
+
             if (isDeleting) {
                 typewriterText.textContent = currentText.substring(0, currentCharIndex - 1);
                 currentCharIndex--;
@@ -2137,7 +2200,7 @@
                 currentCharIndex++;
                 typingSpeed = 100;
             }
-            
+
             if (!isDeleting && currentCharIndex === currentText.length) {
                 typingSpeed = 2000;
                 isDeleting = true;
@@ -2146,7 +2209,7 @@
                 currentTypeIndex = (currentTypeIndex + 1) % cardTypes.length;
                 typingSpeed = 500;
             }
-            
+
             setTimeout(typeWriter, typingSpeed);
         }
 
@@ -2157,10 +2220,10 @@
             const timer = setInterval(() => {
                 start += increment;
                 if (start >= target) {
-                    element.textContent = target >= 1000 ? (target/1000).toFixed(1) + 'K' : target;
+                    element.textContent = target >= 1000 ? (target / 1000).toFixed(1) + 'K' : target;
                     clearInterval(timer);
                 } else {
-                    element.textContent = start >= 1000 ? (start/1000).toFixed(1) + 'K' : Math.floor(start);
+                    element.textContent = start >= 1000 ? (start / 1000).toFixed(1) + 'K' : Math.floor(start);
                 }
             }, 16);
         }
@@ -2179,14 +2242,14 @@
 
         function renderTemplates(filter = 'all') {
             templatesGrid.innerHTML = '';
-            const filteredTemplates = filter === 'all' 
-                ? templates 
+            const filteredTemplates = filter === 'all'
+                ? templates
                 : templates.filter(t => t.category === filter);
-            
+
             filteredTemplates.forEach((template, index) => {
                 const templateCard = document.createElement('div');
                 templateCard.className = `template-card animate-fade-up delay-${(index % 3) + 1}`;
-                
+
                 // Random gradient colors
                 const colors = [
                     'rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3)',
@@ -2195,7 +2258,7 @@
                     'rgba(236, 72, 153, 0.3), rgba(219, 39, 119, 0.3)'
                 ];
                 const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                
+
                 templateCard.innerHTML = `
                     <div class="template-preview">
                         <div style="width:100%;height:100%;background:linear-gradient(135deg, ${randomColor});"></div>
@@ -2297,8 +2360,8 @@
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
-                if (mobileMenu.style.display === 'block' && 
-                    !mobileMenu.contains(e.target) && 
+                if (mobileMenu.style.display === 'block' &&
+                    !mobileMenu.contains(e.target) &&
                     !mobileMenuBtn.contains(e.target)) {
                     mobileMenu.style.display = 'none';
                     document.body.style.overflow = '';
@@ -2317,16 +2380,16 @@
         // ===== Smooth Scrolling =====
         function initSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
+
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         const headerHeight = header.offsetHeight;
                         const targetPosition = targetElement.offsetTop - headerHeight;
-                        
+
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -2352,10 +2415,10 @@
                     templateFilters.querySelectorAll('.filter-btn').forEach(btn => {
                         btn.classList.remove('active');
                     });
-                    
+
                     // Add active class to clicked button
                     e.target.classList.add('active');
-                    
+
                     // Filter templates
                     const filter = e.target.dataset.filter;
                     renderTemplates(filter);
@@ -2369,12 +2432,12 @@
                 if (e.target.closest('.faq-question')) {
                     const faqItem = e.target.closest('.faq-item');
                     const isActive = faqItem.classList.contains('active');
-                    
+
                     // Close all FAQ items
                     document.querySelectorAll('.faq-item').forEach(item => {
                         item.classList.remove('active');
                     });
-                    
+
                     // Open clicked item if it wasn't already active
                     if (!isActive) {
                         faqItem.classList.add('active');
@@ -2388,19 +2451,19 @@
             newsletterSubmit.addEventListener('click', (e) => {
                 e.preventDefault();
                 const email = newsletterEmail.value.trim();
-                
+
                 if (validateEmail(email)) {
                     // Show loading state
                     const originalContent = newsletterSubmit.innerHTML;
                     newsletterSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                    
+
                     // Simulate API call
                     setTimeout(() => {
                         newsletterSubmit.innerHTML = '<i class="fas fa-check"></i>';
                         newsletterSubmit.style.background = 'var(--secondary)';
                         alert(`Thank you for subscribing! You'll receive our newsletter soon.`);
                         newsletterEmail.value = '';
-                        
+
                         // Reset button after 2 seconds
                         setTimeout(() => {
                             newsletterSubmit.innerHTML = originalContent;
@@ -2424,7 +2487,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Start typewriter effect
             setTimeout(typeWriter, 1000);
-            
+
             // Initialize all systems
             initHeaderScroll();
             initMobileMenu();
@@ -2432,18 +2495,18 @@
             initTemplateFiltering();
             initFAQToggle();
             initNewsletter();
-            
+
             // Render dynamic content
             renderTemplates();
             renderFAQ();
-            
+
             // Animate stats when page loads
             setTimeout(() => {
                 animateCounter(stat1, 12543, 2000);
                 animateCounter(stat2, 8920, 2000);
                 animateCounter(stat3, 567, 2000);
             }, 1000);
-            
+
             // Add scroll animations
             const observerOptions = {
                 threshold: 0.1,
@@ -2462,32 +2525,32 @@
             document.querySelectorAll('.service-card, .template-card, .option-card, .faq-item').forEach(el => {
                 observer.observe(el);
             });
-            
+
             // Add hover effects to cards
             document.querySelectorAll('.service-card, .template-card, .option-card').forEach(card => {
                 card.addEventListener('mouseenter', () => {
                     card.classList.add('glass-card-hover');
                 });
-                
+
                 card.addEventListener('mouseleave', () => {
                     card.classList.remove('glass-card-hover');
                 });
             });
-            
+
             // Add keyboard shortcut for search
             document.addEventListener('keydown', (e) => {
                 if (e.key === '/' && !e.target.matches('input, textarea')) {
                     e.preventDefault();
                     alert('Press Cmd/Ctrl + K to search our templates.');
                 }
-                
+
                 // Escape key closes mobile menu
                 if (e.key === 'Escape' && mobileMenu.style.display === 'block') {
                     mobileMenu.style.display = 'none';
                     document.body.style.overflow = '';
                 }
             });
-            
+
             // Add pulse animation to CTA button every 10 seconds
             setInterval(() => {
                 const ctaBtn = document.querySelector('.cta-section .btn-primary');
@@ -2510,4 +2573,5 @@
         });
     </script>
 </body>
+
 </html>
