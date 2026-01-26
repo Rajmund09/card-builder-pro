@@ -95,6 +95,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
         .container {
@@ -320,25 +321,7 @@
             padding: 22px 0;
             transition: var(--transition);
         }
-.design-canvas {
-    position: relative;
-}
 
-.design-canvas::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.88);
-    z-index: 1;
-}
-
-.design-canvas > * {
-    position: relative;
-    z-index: 2;
-}
         header.scrolled {
             padding: 16px 0;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -509,6 +492,36 @@
             flex-wrap: wrap;
         }
 
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .hero-stats .stat {
+            text-align: center;
+        }
+
+        .hero-stats .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .hero-stats .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* Card Showcase Animation */
         .card-showcase {
             position: relative;
@@ -519,110 +532,150 @@
             align-items: center;
         }
 
-/* Replace the showcase-card gradient backgrounds with image styles */
-.showcase-card {
-    position: absolute;
-    width: 300px;
-    height: 200px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.6s ease;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+        .showcase-card {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-/* Remove the gradient backgrounds and add overlay */
-.showcase-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(10, 10, 15, 0.85), rgba(20, 20, 30, 0.75));
-    z-index: 1;
-}
+        .showcase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 10, 15, 0.85), rgba(20, 20, 30, 0.75));
+            z-index: 1;
+        }
 
-.showcase-card > * {
-    position: relative;
-    z-index: 2;
-}
+        .showcase-card > * {
+            position: relative;
+            z-index: 2;
+        }
 
-/* Add specific images for each card */
-.showcase-card:nth-child(1) {
-    background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Professional business card background */
-}
+        /* Add specific images for each card */
+        .showcase-card:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');
+            transform: translateX(-50%) rotate(-5deg);
+            z-index: 5;
+        }
 
-.showcase-card:nth-child(2) {
-    background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Luxury event card */
-}
+        .showcase-card:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');
+            transform: translateX(-25%) rotate(-2deg);
+            z-index: 4;
+        }
 
-.showcase-card:nth-child(3) {
-    background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Tech business card */
-}
+        .showcase-card:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');
+            transform: translateX(0) rotate(0deg);
+            z-index: 3;
+        }
 
-.showcase-card:nth-child(4) {
-    background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Creative card */
-}
+        .showcase-card:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');
+            transform: translateX(25%) rotate(2deg);
+            z-index: 2;
+        }
 
-.showcase-card:nth-child(5) {
-    background-image: url('https://images.unsplash.com/photo-1556740738-6ebd604924b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Finance business card */
-}
+        .showcase-card:nth-child(5) {
+            background-image: url('https://images.unsplash.com/photo-1556740738-6ebd604924b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');
+            transform: translateX(50%) rotate(5deg);
+            z-index: 1;
+        }
 
-/* Update the design canvas preview */
-.design-canvas {
-    width: 350px;
-    height: 220px;
-    background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-}
+        .card-showcase:hover .showcase-card:nth-child(1) {
+            transform: translateX(-60%) rotate(-10deg) translateY(-20px);
+        }
 
-.design-canvas::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.92);
-    z-index: 1;
-}
+        .card-showcase:hover .showcase-card:nth-child(2) {
+            transform: translateX(-30%) rotate(-5deg) translateY(-10px);
+        }
 
-.design-canvas > * {
-    position: relative;
-    z-index: 2;
-}
+        .card-showcase:hover .showcase-card:nth-child(3) {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
 
-/* Update design content colors for better contrast */
-.design-text h4 {
-    font-size: 1.2rem;
-    color: #222;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
+        .card-showcase:hover .showcase-card:nth-child(4) {
+            transform: translateX(30%) rotate(5deg) translateY(-10px);
+        }
 
-.design-text p {
-    font-size: 0.9rem;
-    color: #444;
-    line-height: 1.5;
-}
+        .card-showcase:hover .showcase-card:nth-child(5) {
+            transform: translateX(60%) rotate(10deg) translateY(-20px);
+        }
 
-.contact-item span {
-    font-size: 0.85rem;
-    color: #333;
-}
+        /* Card Content Styles */
+        .design-content {
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .design-logo {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.9);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .design-text h4 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .design-text p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .design-contact {
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item i {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .contact-item span {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
         /* ===== Creative Features Showcase ===== */
         .features-showcase {
             background: var(--bg-darker);
@@ -788,61 +841,30 @@
         .design-canvas {
             width: 350px;
             height: 220px;
-            background: white;
+            background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
+            transition: all 0.5s ease;
         }
 
-        .design-content {
-            padding: 30px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .design-canvas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.92);
+            z-index: 1;
         }
 
-        .design-logo {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .design-text h4 {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .design-text p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .design-contact {
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-
-        .contact-item i {
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-
-        .contact-item span {
-            font-size: 0.85rem;
-            color: #555;
+        .design-canvas > * {
+            position: relative;
+            z-index: 2;
         }
 
         /* ===== Interactive Templates Gallery ===== */
@@ -853,6 +875,7 @@
         .gallery-controls {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 20px;
             margin-bottom: 40px;
             flex-wrap: wrap;
@@ -881,6 +904,28 @@
             background: var(--primary);
             border-color: var(--primary);
             transform: translateY(-3px);
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .gallery-grid {
@@ -923,14 +968,14 @@
             position: relative;
         }
 
-        .gallery-preview img {
+        .gallery-preview .template-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
 
-        .gallery-item:hover .gallery-preview img {
+        .gallery-item:hover .gallery-preview .template-img {
             transform: scale(1.1);
         }
 
@@ -1135,6 +1180,57 @@
             letter-spacing: 1px;
         }
 
+        /* ===== Testimonials ===== */
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .testimonial-content {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         /* ===== Enhanced CTA Section ===== */
         .cta-section {
             position: relative;
@@ -1269,6 +1365,77 @@
             border-color: var(--primary);
         }
 
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+        }
+
+        .contact-info li i {
+            color: var(--primary);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
         .footer-bottom {
             border-top: 1px solid var(--border-color);
             padding-top: 40px;
@@ -1277,6 +1444,55 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== Scroll to Top Button ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         /* ===== Mobile Menu ===== */
@@ -1305,6 +1521,17 @@
             flex-direction: column;
             gap: 15px;
             margin-bottom: 30px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--primary);
         }
 
         /* ===== Animations ===== */
@@ -1369,6 +1596,16 @@
             }
         }
 
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
         /* Animation classes */
         .animate-fade-in {
             animation: fadeIn 0.8s ease both;
@@ -1394,6 +1631,23 @@
             animation: float 20s ease-in-out infinite;
         }
 
+        /* Delay classes */
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
         /* ===== Responsive Design ===== */
         @media (max-width: 1200px) {
             .hero-container {
@@ -1413,6 +1667,7 @@
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 60px;
             }
             
             .footer-content {
@@ -1431,6 +1686,10 @@
             
             .nav-links {
                 gap: 25px;
+            }
+            
+            .hero-stats {
+                justify-content: center;
             }
         }
 
@@ -1473,10 +1732,28 @@
                 align-items: stretch;
             }
             
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
             /* Services & Templates */
             .features-grid,
-            .gallery-grid {
+            .gallery-grid,
+            .pricing-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Card Showcase */
+            .card-showcase {
+                height: 300px;
+            }
+            
+            .showcase-card {
+                width: 250px;
+                height: 170px;
+                padding: 20px;
             }
             
             /* CTA Section */
@@ -1490,6 +1767,22 @@
             
             .interactive-stats {
                 padding: 60px 30px;
+                margin: 60px auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            /* Design Preview */
+            .preview-container {
+                max-width: 100%;
+            }
+            
+            .design-canvas {
+                width: 300px;
+                height: 190px;
             }
         }
 
@@ -1532,6 +1825,51 @@
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .card-showcase {
+                height: 250px;
+            }
+            
+            .showcase-card {
+                width: 200px;
+                height: 140px;
+                padding: 15px;
+            }
+            
+            .design-logo {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+            
+            .design-text h4 {
+                font-size: 1rem;
+            }
+            
+            .design-text p {
+                font-size: 0.8rem;
+            }
+            
+            .contact-item span {
+                font-size: 0.7rem;
+            }
+            
+            .design-canvas {
+                width: 280px;
+                height: 180px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 400px) {
@@ -1547,6 +1885,101 @@
             .gallery-controls {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+            
+            .card-showcase {
+                height: 220px;
+            }
+            
+            .showcase-card {
+                width: 180px;
+                height: 120px;
+                padding: 10px;
+            }
+            
+            .design-logo {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 8px;
+                font-size: 1rem;
+            }
+            
+            .design-text h4 {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .design-text p {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
+            
+            .contact-item {
+                gap: 5px;
+                margin-bottom: 5px;
+            }
+            
+            .contact-item i {
+                font-size: 0.7rem;
+            }
+            
+            .contact-item span {
+                font-size: 0.65rem;
+            }
+            
+            .design-canvas {
+                width: 250px;
+                height: 160px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Mobile specific adjustments for showcase cards */
+        @media (max-width: 768px) {
+            .card-showcase:hover .showcase-card:nth-child(1) {
+                transform: translateX(-55%) rotate(-8deg) translateY(-15px);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(2) {
+                transform: translateX(-27.5%) rotate(-4deg) translateY(-8px);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(3) {
+                transform: translateY(-10px) scale(1.03);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(4) {
+                transform: translateX(27.5%) rotate(4deg) translateY(-8px);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(5) {
+                transform: translateX(55%) rotate(8deg) translateY(-15px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card-showcase:hover .showcase-card:nth-child(1) {
+                transform: translateX(-52.5%) rotate(-6deg) translateY(-10px);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(2) {
+                transform: translateX(-26.25%) rotate(-3deg) translateY(-5px);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(3) {
+                transform: translateY(-8px) scale(1.02);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(4) {
+                transform: translateX(26.25%) rotate(3deg) translateY(-5px);
+            }
+            
+            .card-showcase:hover .showcase-card:nth-child(5) {
+                transform: translateX(52.5%) rotate(6deg) translateY(-10px);
             }
         }
     </style>
@@ -1629,7 +2062,7 @@
                     </a>
                 </div>
 
-                <div class="hero-stats animate-fade-up delay-2" style="display: flex; gap: 40px; margin-top: 50px;">
+                <div class="hero-stats animate-fade-up delay-2">
                     <div class="stat">
                         <span class="stat-number" id="stat1">0</span>
                         <span class="stat-label">Cards Created</span>
@@ -1648,7 +2081,7 @@
             <div class="card-showcase animate-fade-right">
                 <div class="showcase-card">
                     <div class="design-content">
-                        <div class="design-logo"></div>
+                        <div class="design-logo"><i class="fas fa-briefcase"></i></div>
                         <div class="design-text">
                             <h4>Alex Morgan</h4>
                             <p>Creative Director<br>Digital Solutions Inc.</p>
@@ -1667,7 +2100,7 @@
                 </div>
                 <div class="showcase-card">
                     <div class="design-content">
-                        <div class="design-logo" style="background: var(--gradient-secondary);"></div>
+                        <div class="design-logo"><i class="fas fa-calendar-alt"></i></div>
                         <div class="design-text">
                             <h4>Sarah Johnson</h4>
                             <p>Event Planner<br>Luxury Events Worldwide</p>
@@ -1686,7 +2119,7 @@
                 </div>
                 <div class="showcase-card">
                     <div class="design-content">
-                        <div class="design-logo" style="background: var(--gradient-gold);"></div>
+                        <div class="design-logo"><i class="fas fa-code"></i></div>
                         <div class="design-text">
                             <h4>Michael Chen</h4>
                             <p>Senior Developer<br>Tech Innovations LLC</p>
@@ -1705,7 +2138,7 @@
                 </div>
                 <div class="showcase-card">
                     <div class="design-content">
-                        <div class="design-logo" style="background: var(--gradient-accent);"></div>
+                        <div class="design-logo"><i class="fas fa-paint-brush"></i></div>
                         <div class="design-text">
                             <h4>Emma Wilson</h4>
                             <p>Marketing Specialist<br>Creative Minds Agency</p>
@@ -1724,7 +2157,7 @@
                 </div>
                 <div class="showcase-card">
                     <div class="design-content">
-                        <div class="design-logo" style="background: linear-gradient(135deg, #ec4899, #be185d);"></div>
+                        <div class="design-logo"><i class="fas fa-chart-line"></i></div>
                         <div class="design-text">
                             <h4>David Park</h4>
                             <p>Financial Advisor<br>Wealth Management Group</p>
@@ -2072,7 +2505,7 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const typewriterText = document.getElementById('typewriter');
-        const scrollTopBtn = document.createElement('div');
+        const scrollTopBtn = document.getElementById('scrollTop');
         const stat1 = document.getElementById('stat1');
         const stat2 = document.getElementById('stat2');
         const stat3 = document.getElementById('stat3');
@@ -2085,12 +2518,6 @@
         const previewTitle = document.getElementById('previewTitle');
         const previewPhone = document.getElementById('previewPhone');
         const previewEmail = document.getElementById('previewEmail');
-
-        // Create scroll to top button
-        scrollTopBtn.className = 'scroll-top';
-        scrollTopBtn.id = 'scrollTop';
-        scrollTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-        document.body.appendChild(scrollTopBtn);
 
         // ===== Enhanced Typewriter Effect =====
         const cardTypes = [
@@ -2161,87 +2588,88 @@
             { id: 8, category: 'creative', name: 'Photographer Portfolio', price: '$59', rating: 4.7, premium: true, description: 'Showcase for photography professionals' }
         ];
 
-// Replace the template rendering in renderTemplates function
-function renderTemplates(filter = 'all') {
-    templatesGrid.innerHTML = '';
-    const filteredTemplates = filter === 'all'
-        ? templates
-        : templates.filter(t => t.category === filter);
+        const templateImages = [
+            'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1556740738-6ebd604924b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+        ];
 
-    const templateImages = [
-        'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Modern business
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Elegant personal
-        'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Luxury wedding
-        'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Artistic
-        'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Startup tech
-        'https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Minimalist
-        'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80', // Corporate event
-        'https://images.unsplash.com/photo-1556740738-6ebd604924b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'  // Photography
-    ];
+        function renderTemplates(filter = 'all') {
+            templatesGrid.innerHTML = '';
+            const filteredTemplates = filter === 'all'
+                ? templates
+                : templates.filter(t => t.category === filter);
 
-    filteredTemplates.forEach((template, index) => {
-        const templateCard = document.createElement('div');
-        templateCard.className = `gallery-item animate-fade-up delay-${(index % 4) + 1}`;
-        
-        templateCard.innerHTML = `
-            ${template.premium ? '<div class="gallery-item-badge">PREMIUM</div>' : ''}
-            <div class="gallery-preview">
-                <div style="width:100%;height:100%;background-image:url('${templateImages[template.id - 1]}');background-size:cover;background-position:center;position:relative;">
-                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(10,10,15,0.3);"></div>
-                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:2rem;">
-                        <i class="fas fa-layer-group"></i>
+            filteredTemplates.forEach((template, index) => {
+                const templateCard = document.createElement('div');
+                templateCard.className = `gallery-item animate-fade-up delay-${(index % 4) + 1}`;
+                
+                templateCard.innerHTML = `
+                    ${template.premium ? '<div class="gallery-item-badge">PREMIUM</div>' : ''}
+                    <div class="gallery-preview">
+                        <img src="${templateImages[template.id - 1]}" alt="${template.name}" class="template-img" loading="lazy">
                     </div>
-                </div>
-            </div>
-            <div class="gallery-info">
-                <h4>${template.name}</h4>
-                <p>${template.description}</p>
-                <div class="gallery-meta">
-                    <div style="font-weight:700;color:var(--primary);font-size:1.2rem;">${template.price}</div>
-                    <div style="display:flex;align-items:center;gap:5px;color:var(--warning);">
-                        <i class="fas fa-star"></i>
-                        <span>${template.rating}</span>
+                    <div class="gallery-info">
+                        <h4>${template.name}</h4>
+                        <p>${template.description}</p>
+                        <div class="gallery-meta">
+                            <div style="font-weight:700;color:var(--primary);font-size:1.2rem;">${template.price}</div>
+                            <div style="display:flex;align-items:center;gap:5px;color:var(--warning);">
+                                <i class="fas fa-star"></i>
+                                <span>${template.rating}</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" style="width:100%;margin-top:15px;" onclick="previewTemplate(${template.id})">
+                            <i class="fas fa-eye"></i> Preview
+                        </button>
                     </div>
-                </div>
-                <button class="btn btn-outline" style="width:100%;margin-top:15px;" onclick="previewTemplate(${template.id})">
-                    <i class="fas fa-eye"></i> Preview
-                </button>
-            </div>
-        `;
-        
-        templatesGrid.appendChild(templateCard);
-    });
-}
+                `;
+                
+                templatesGrid.appendChild(templateCard);
+            });
+        }
+
         // ===== Interactive Preview Functions =====
-function previewTemplate(templateId) {
-    const template = templates.find(t => t.id === templateId);
-    if (!template) return;
-    
-    // Professional background images for each template category
-    const categoryImages = {
-        'business': 'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'personal': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'event': 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'creative': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    };
-    
-    // Update design canvas with image background
-    designCanvas.style.backgroundImage = `url('${categoryImages[template.category] || categoryImages.business}')`;
-    designCanvas.style.backgroundSize = 'cover';
-    designCanvas.style.backgroundPosition = 'center';
-    
-    // Update logo with semi-transparent background
-    previewLogo.style.background = `rgba(99, 102, 241, 0.9)`;
-    
-    // Animate the preview
-    designCanvas.style.transform = 'scale(1.05)';
-    setTimeout(() => {
-        designCanvas.style.transform = 'scale(1)';
-    }, 300);
-    
-    // Show notification
-    showNotification(`Now previewing: ${template.name}`);
-}
+        function previewTemplate(templateId) {
+            const template = templates.find(t => t.id === templateId);
+            if (!template) return;
+            
+            const categoryImages = {
+                'business': 'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                'personal': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                'event': 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                'creative': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            };
+            
+            designCanvas.style.backgroundImage = `url('${categoryImages[template.category] || categoryImages.business}')`;
+            
+            // Set logo icon based on category
+            const logoIcons = {
+                'business': 'fas fa-briefcase',
+                'personal': 'fas fa-user-circle',
+                'event': 'fas fa-calendar-alt',
+                'creative': 'fas fa-paint-brush'
+            };
+            
+            previewLogo.innerHTML = `<i class="${logoIcons[template.category] || 'fas fa-star'}"></i>`;
+            previewLogo.style.background = 'rgba(99, 102, 241, 0.9)';
+            
+            // Animate the preview
+            designCanvas.style.transform = 'scale(1.05)';
+            designCanvas.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.4)';
+            setTimeout(() => {
+                designCanvas.style.transform = 'scale(1)';
+                designCanvas.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+            }, 300);
+            
+            showNotification(`Now previewing: ${template.name}`);
+        }
+
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.style.cssText = `
@@ -2270,55 +2698,56 @@ function previewTemplate(templateId) {
         }
 
         // ===== Interactive Design Preview =====
-function initDesignPreview() {
-    const names = ['Alex Morgan', 'Sarah Johnson', 'Michael Chen', 'Emma Wilson'];
-    const titles = [
-        'Creative Director\nDigital Solutions Inc.',
-        'Senior Developer\nTech Innovations LLC',
-        'Marketing Specialist\nCreative Minds Agency',
-        'Event Planner\nLuxury Events Worldwide'
-    ];
-    const phones = ['+1 (555) 123-4567', '+1 (555) 987-6543', '+1 (555) 456-7890', '+1 (555) 234-5678'];
-    const emails = ['alex@digitalsolutions.com', 'sarah@luxuryevents.com', 'michael@techinnovations.com', 'emma@creativeminds.com'];
-    
-    const professionalImages = [
-        'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-    ];
-    
-    let currentIndex = 0;
-    
-    // Rotate preview content every 5 seconds
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % names.length;
-        
-        // Update background image
-        designCanvas.style.backgroundImage = `url('${professionalImages[currentIndex]}')`;
-        
-        // Update text content
-        previewName.textContent = names[currentIndex];
-        previewTitle.textContent = titles[currentIndex];
-        previewPhone.textContent = phones[currentIndex];
-        previewEmail.textContent = emails[currentIndex];
-        
-        // Update logo color based on index
-        const colors = [
-            'rgba(99, 102, 241, 0.9)',
-            'rgba(16, 185, 129, 0.9)',
-            'rgba(245, 158, 11, 0.9)',
-            'rgba(236, 72, 153, 0.9)'
-        ];
-        previewLogo.style.background = colors[currentIndex];
-        
-        // Animate change
-        designCanvas.style.opacity = '0.8';
-        setTimeout(() => {
-            designCanvas.style.opacity = '1';
-        }, 300);
-    }, 5000);
-}
+        function initDesignPreview() {
+            const names = ['Alex Morgan', 'Sarah Johnson', 'Michael Chen', 'Emma Wilson'];
+            const titles = [
+                'Creative Director<br>Digital Solutions Inc.',
+                'Senior Developer<br>Tech Innovations LLC',
+                'Marketing Specialist<br>Creative Minds Agency',
+                'Event Planner<br>Luxury Events Worldwide'
+            ];
+            const phones = ['+1 (555) 123-4567', '+1 (555) 987-6543', '+1 (555) 456-7890', '+1 (555) 234-5678'];
+            const emails = ['alex@digitalsolutions.com', 'sarah@luxuryevents.com', 'michael@techinnovations.com', 'emma@creativeminds.com'];
+            const logoIcons = ['fas fa-briefcase', 'fas fa-code', 'fas fa-paint-brush', 'fas fa-calendar-alt'];
+            const colors = ['rgba(99, 102, 241, 0.9)', 'rgba(16, 185, 129, 0.9)', 'rgba(245, 158, 11, 0.9)', 'rgba(236, 72, 153, 0.9)'];
+            
+            const professionalImages = [
+                'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            ];
+            
+            let currentIndex = 0;
+            
+            function updatePreview() {
+                currentIndex = (currentIndex + 1) % names.length;
+                
+                designCanvas.style.backgroundImage = `url('${professionalImages[currentIndex]}')`;
+                
+                previewLogo.innerHTML = `<i class="${logoIcons[currentIndex]}"></i>`;
+                previewLogo.style.background = colors[currentIndex];
+                previewName.textContent = names[currentIndex];
+                previewTitle.innerHTML = titles[currentIndex];
+                previewPhone.textContent = phones[currentIndex];
+                previewEmail.textContent = emails[currentIndex];
+                
+                designCanvas.style.opacity = '0.8';
+                designCanvas.style.transform = 'scale(1.02)';
+                
+                setTimeout(() => {
+                    designCanvas.style.opacity = '1';
+                    designCanvas.style.transform = 'scale(1)';
+                }, 300);
+            }
+            
+            // Initial setup
+            updatePreview();
+            
+            // Rotate preview content every 5 seconds
+            setInterval(updatePreview, 5000);
+        }
+
         // ===== Header Scroll Effect =====
         function initHeaderScroll() {
             window.addEventListener('scroll', () => {
@@ -2411,11 +2840,9 @@ function initDesignPreview() {
                     ? templates 
                     : templates.filter(t => t.category === currentFilter);
                 
-                // Rotate templates (move last to first)
                 const last = filteredTemplates.pop();
                 filteredTemplates.unshift(last);
                 
-                // Re-render
                 renderTemplates(currentFilter);
             });
             
@@ -2425,11 +2852,9 @@ function initDesignPreview() {
                     ? templates 
                     : templates.filter(t => t.category === currentFilter);
                 
-                // Rotate templates (move first to last)
                 const first = filteredTemplates.shift();
                 filteredTemplates.push(first);
                 
-                // Re-render
                 renderTemplates(currentFilter);
             });
         }
@@ -2470,20 +2895,36 @@ function initDesignPreview() {
 
         // ===== Animated Stats =====
         function initAnimatedStats() {
-            // Hero stats
             setTimeout(() => {
                 animateCounter(stat1, 12543, 2000);
                 animateCounter(stat2, 8920, 2000);
                 animateCounter(stat3, 567, 2000);
             }, 1000);
             
-            // Interactive stats
             setTimeout(() => {
                 animateCounter(document.getElementById('totalUsers'), 15420, 2000);
                 animateCounter(document.getElementById('cardsCreated'), 89256, 2000);
                 animateCounter(document.getElementById('countries'), 89, 2000);
                 animateCounter(document.getElementById('satisfaction'), 98, 2000, '%');
             }, 2500);
+        }
+
+        // ===== Card Showcase Hover Animation =====
+        function initCardShowcaseAnimation() {
+            const showcase = document.querySelector('.card-showcase');
+            const cards = document.querySelectorAll('.showcase-card');
+            
+            showcase.addEventListener('mouseenter', () => {
+                cards.forEach(card => {
+                    card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            });
+            
+            showcase.addEventListener('mouseleave', () => {
+                cards.forEach(card => {
+                    card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            });
         }
 
         // ===== Initialize Everything =====
@@ -2500,54 +2941,10 @@ function initDesignPreview() {
             initNewsletter();
             initDesignPreview();
             initAnimatedStats();
+            initCardShowcaseAnimation();
             
             // Render initial content
             renderTemplates();
-            
-            // Add CSS for animations
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-                .scroll-top {
-                    position: fixed;
-                    bottom: 40px;
-                    right: 40px;
-                    width: 60px;
-                    height: 60px;
-                    background: var(--glass-bg);
-                    color: var(--text-primary);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: var(--transition);
-                    z-index: 999;
-                    border: 1px solid var(--border-color);
-                    backdrop-filter: blur(10px);
-                }
-                .scroll-top.visible {
-                    opacity: 1;
-                    visibility: visible;
-                }
-                .scroll-top:hover {
-                    background: var(--primary);
-                    color: white;
-                    transform: translateY(-5px);
-                    border-color: var(--primary);
-                }
-            `;
-            document.head.appendChild(style);
             
             // Add intersection observer for animations
             const observer = new IntersectionObserver((entries) => {
@@ -2558,7 +2955,7 @@ function initDesignPreview() {
                 });
             }, { threshold: 0.1 });
             
-            document.querySelectorAll('.feature-card, .pricing-card, .stat-item, .testimonial-card').forEach(el => {
+            document.querySelectorAll('.feature-card, .pricing-card, .stat-item, .testimonial-card, .gallery-item').forEach(el => {
                 observer.observe(el);
             });
             
