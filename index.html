@@ -2252,35 +2252,6 @@ function previewTemplate(templateId) {
         }
 
         // ===== Interactive Design Preview =====
-        function initDesignPreview() {
-            const names = ['Alex Morgan', 'Sarah Johnson', 'Michael Chen', 'Emma Wilson'];
-            const titles = [
-                'Creative Director\nDigital Solutions Inc.',
-                'Senior Developer\nTech Innovations LLC',
-                'Marketing Specialist\nCreative Minds Agency',
-                'Event Planner\nLuxury Events Worldwide'
-            ];
-            const phones = ['+1 (555) 123-4567', '+1 (555) 987-6543', '+1 (555) 456-7890', '+1 (555) 234-5678'];
-            const emails = ['alex@digitalsolutions.com', 'sarah@luxuryevents.com', 'michael@techinnovations.com', 'emma@creativeminds.com'];
-            
-            let currentIndex = 0;
-            
-            // Rotate preview content every 5 seconds
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % names.length;
-                
-                previewName.textContent = names[currentIndex];
-                previewTitle.textContent = titles[currentIndex];
-                previewPhone.textContent = phones[currentIndex];
-                previewEmail.textContent = emails[currentIndex];
-                
-                // Animate change
-                designCanvas.style.opacity = '0.8';
-                setTimeout(() => {
-                    designCanvas.style.opacity = '1';
-                }, 300);
-            }, 5000);
-        }
 
         // ===== Header Scroll Effect =====
         function initHeaderScroll() {
