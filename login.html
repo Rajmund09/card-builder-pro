@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Login | Metallic Glass Theme</title>
+    <title>Secure Access | Metallic Glass Theme</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -24,6 +24,9 @@
             --text-color: #f0f0f0;
             --error-color: #ff4d4d;
             --success-color: #4dffb8;
+            --character-1: #4d94ff;
+            --character-2: #ff6b6b;
+            --character-3: #4dffb8;
         }
 
         body {
@@ -44,8 +47,8 @@
             display: flex;
             flex-direction: row;
             width: 100%;
-            max-width: 1200px;
-            height: 700px;
+            max-width: 1300px;
+            height: 750px;
             background: var(--secondary-bg);
             border-radius: 20px;
             overflow: hidden;
@@ -63,6 +66,7 @@
             flex-direction: column;
             justify-content: center;
             z-index: 2;
+            min-width: 500px;
         }
 
         .logo {
@@ -129,23 +133,32 @@
         .form-container {
             position: relative;
             overflow: hidden;
+            min-height: 520px;
         }
 
         .form {
             display: flex;
             flex-direction: column;
             transition: transform 0.5s ease;
+            position: absolute;
+            width: 100%;
+            top: 0;
         }
 
         .form.hidden {
             transform: translateX(-100%);
-            position: absolute;
-            top: 0;
-            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .form.active {
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: all;
         }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             position: relative;
         }
 
@@ -210,6 +223,15 @@
             color: var(--accent-color);
         }
 
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .row .input-group {
+            flex: 1;
+        }
+
         .remember-me {
             display: flex;
             align-items: center;
@@ -237,6 +259,8 @@
             overflow: hidden;
             z-index: 1;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
@@ -264,6 +288,26 @@
             left: 100%;
         }
 
+        .create-account-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .create-account-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+        }
+
         .error-message {
             color: var(--error-color);
             font-size: 0.9rem;
@@ -278,9 +322,9 @@
             display: none;
         }
 
-        /* Right side - Animated Character */
+        /* Right side - Animated Characters */
         .character-section {
-            flex: 1;
+            flex: 1.2;
             background: rgba(10, 10, 10, 0.7);
             display: flex;
             flex-direction: column;
@@ -291,44 +335,79 @@
             overflow: hidden;
         }
 
-        .character-container {
-            width: 300px;
-            height: 300px;
+        .characters-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100%;
+            height: 400px;
             position: relative;
-            margin-bottom: 30px;
+        }
+
+        .character-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 180px;
         }
 
         .character {
-            width: 100%;
-            height: 100%;
+            width: 140px;
+            height: 180px;
             position: relative;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .character:hover {
+            transform: translateY(-10px);
+        }
+
+        .character-1 {
+            --char-color: var(--character-1);
+        }
+
+        .character-2 {
+            --char-color: var(--character-2);
+        }
+
+        .character-3 {
+            --char-color: var(--character-3);
+        }
+
+        .character-body {
+            width: 100px;
+            height: 120px;
+            background: var(--char-color);
+            border-radius: 50% 50% 40% 40%;
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .character-face {
-            width: 180px;
-            height: 200px;
-            background: #333;
-            border-radius: 50% 50% 40% 40%;
+            width: 80px;
+            height: 80px;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            overflow: hidden;
-            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5);
+            top: 20px;
+            left: 10px;
         }
 
         .character-eyes {
             display: flex;
             justify-content: space-between;
             position: absolute;
-            top: 60px;
-            width: 120px;
-            left: 30px;
+            top: 25px;
+            width: 60px;
+            left: 10px;
         }
 
         .eye {
-            width: 40px;
-            height: 50px;
+            width: 18px;
+            height: 25px;
             background: white;
             border-radius: 50%;
             position: relative;
@@ -338,12 +417,12 @@
         .eye::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 10px;
+            height: 10px;
             background: #222;
             border-radius: 50%;
-            top: 15px;
-            left: 10px;
+            top: 7px;
+            left: 4px;
             transition: all 0.3s ease;
         }
 
@@ -355,7 +434,7 @@
             position: absolute;
             width: 100%;
             height: 0;
-            background: #333;
+            background: var(--char-color);
             border-radius: 50%;
             top: 0;
             transition: height 0.2s ease;
@@ -363,45 +442,95 @@
         }
 
         .character-mouth {
-            width: 80px;
-            height: 30px;
+            width: 40px;
+            height: 15px;
             background: #222;
-            border-radius: 0 0 40px 40px;
+            border-radius: 0 0 20px 20px;
             position: absolute;
-            bottom: 50px;
-            left: 50px;
+            bottom: 20px;
+            left: 20px;
             transition: all 0.3s ease;
         }
 
         .character-mouth.smiling {
-            border-radius: 0 0 40px 40px;
-            height: 20px;
+            border-radius: 0 0 20px 20px;
+            height: 10px;
             background: #ff6b6b;
         }
 
         .character-mouth.surprised {
             border-radius: 50%;
-            height: 40px;
-            width: 40px;
-            left: 70px;
-            bottom: 45px;
+            height: 20px;
+            width: 20px;
+            left: 30px;
+            bottom: 15px;
             background: #ff6b6b;
         }
 
         .character-hair {
-            width: 200px;
-            height: 80px;
+            width: 100px;
+            height: 40px;
             background: #222;
             border-radius: 50% 50% 0 0;
             position: absolute;
-            top: -10px;
-            left: -10px;
+            top: 0;
+            left: 20px;
+        }
+
+        .character-arms {
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .arm {
+            width: 10px;
+            height: 60px;
+            background: var(--char-color);
+            border-radius: 5px;
+            position: relative;
+            transform-origin: top center;
+        }
+
+        .arm-left {
+            left: 5px;
+        }
+
+        .arm-right {
+            right: 5px;
+        }
+
+        .character-legs {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            bottom: -30px;
+            left: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .leg {
+            width: 15px;
+            height: 40px;
+            background: var(--char-color);
+            border-radius: 5px;
+        }
+
+        .character-name {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #aaa;
+            font-size: 0.9rem;
         }
 
         .status-message {
             text-align: center;
             font-size: 1.2rem;
-            margin-top: 20px;
+            margin-top: 30px;
             min-height: 60px;
             display: flex;
             align-items: center;
@@ -410,16 +539,16 @@
             background: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             width: 100%;
-            max-width: 350px;
+            max-width: 400px;
         }
 
         /* Security Indicators */
         .security-indicators {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 30px;
             width: 100%;
-            max-width: 350px;
+            max-width: 400px;
         }
 
         .security-indicator {
@@ -444,6 +573,58 @@
         .indicator-text {
             font-size: 0.8rem;
             color: #888;
+        }
+
+        /* Email Notification */
+        .email-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary-bg);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: var(--glass-shadow);
+            transform: translateX(400px);
+            transition: transform 0.5s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .email-notification.show {
+            transform: translateX(0);
+        }
+
+        .email-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .email-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .email-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .email-content {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .email-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #aaa;
         }
 
         /* Background Animation */
@@ -474,43 +655,31 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
+        @media (max-width: 1100px) {
             .container {
                 flex-direction: column;
                 height: auto;
-                max-width: 600px;
+                max-width: 700px;
             }
 
             .login-section, .character-section {
                 padding: 30px;
+                min-width: auto;
             }
 
-            .character-container {
-                width: 200px;
-                height: 200px;
+            .characters-container {
+                height: 300px;
             }
 
-            .character-face {
+            .character {
                 width: 120px;
-                height: 140px;
+                height: 150px;
             }
 
-            .character-eyes {
-                top: 40px;
+            .character-body {
                 width: 80px;
+                height: 100px;
                 left: 20px;
-            }
-
-            .eye {
-                width: 30px;
-                height: 35px;
-            }
-
-            .character-mouth {
-                width: 50px;
-                height: 20px;
-                bottom: 35px;
-                left: 35px;
             }
         }
 
@@ -523,18 +692,35 @@
                 font-size: 1.8rem;
             }
 
-            .gender-selection {
+            .row {
                 flex-direction: column;
-                gap: 10px;
+                gap: 0;
             }
 
-            .character-section {
-                padding: 20px;
+            .characters-container {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                gap: 30px;
+            }
+
+            .character-wrapper {
+                width: 120px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Email Notification -->
+    <div class="email-notification" id="emailNotification">
+        <div class="email-close" id="closeEmail"><i class="fas fa-times"></i></div>
+        <div class="email-header">
+            <div class="email-icon"><i class="fas fa-envelope"></i></div>
+            <div class="email-title" id="emailTitle">Security Notification</div>
+        </div>
+        <div class="email-content" id="emailContent">Your account has been created successfully!</div>
+    </div>
+    
     <div class="container">
         <!-- Floating background elements -->
         <div class="floating-elements" id="floatingElements"></div>
@@ -546,8 +732,8 @@
                 <div class="logo-text">SECURE ACCESS</div>
             </div>
             
-            <h1 class="form-title">Welcome Back</h1>
-            <p class="form-subtitle">Enter your credentials to access your account</p>
+            <h1 class="form-title">ACCESS YOUR ACCOUNT</h1>
+            <p class="form-subtitle">Login to access your secure dashboard</p>
             
             <div class="toggle-form">
                 <div class="toggle-btn active" id="loginToggle">LOGIN</div>
@@ -556,11 +742,11 @@
             
             <div class="form-container">
                 <!-- Login Form -->
-                <form class="form" id="loginForm">
+                <form class="form active" id="loginForm">
                     <div class="input-group">
-                        <label class="input-label">Username or Email</label>
-                        <input type="text" class="input-field" id="loginUsername" placeholder="Enter your username or email" required>
-                        <div class="error-message" id="loginUsernameError"></div>
+                        <label class="input-label">Email Address</label>
+                        <input type="email" class="input-field" id="loginEmail" placeholder="name@gmail.com" required>
+                        <div class="error-message" id="loginEmailError"></div>
                     </div>
                     
                     <div class="input-group">
@@ -574,33 +760,72 @@
                         <div class="error-message" id="loginPasswordError"></div>
                     </div>
                     
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">Security Code (Optional)</label>
+                            <input type="text" class="input-field" id="loginSecurityCode" placeholder="2FA code if enabled">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Device</label>
+                            <select class="input-field" id="loginDevice">
+                                <option value="desktop">Desktop</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="tablet">Tablet</option>
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div class="remember-me">
                         <input type="checkbox" class="remember-checkbox" id="rememberLogin">
                         <label for="rememberLogin">Remember me on this device</label>
                     </div>
                     
-                    <button type="submit" class="submit-btn" id="loginSubmit">LOGIN NOW</button>
+                    <button type="submit" class="submit-btn" id="loginSubmit">
+                        <i class="fas fa-sign-in-alt"></i> LOGIN NOW
+                    </button>
+                    
+                    <button type="button" class="create-account-btn" id="switchToSignup">
+                        CREATE NEW ACCOUNT
+                    </button>
+                    
                     <div class="success-message" id="loginSuccess"></div>
                 </form>
                 
                 <!-- Signup Form -->
                 <form class="form hidden" id="signupForm">
-                    <div class="input-group">
-                        <label class="input-label">Full Name</label>
-                        <input type="text" class="input-field" id="signupName" placeholder="Enter your full name" required>
-                        <div class="error-message" id="signupNameError"></div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">First Name</label>
+                            <input type="text" class="input-field" id="signupFirstName" placeholder="Enter your first name" required>
+                            <div class="error-message" id="signupFirstNameError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Last Name</label>
+                            <input type="text" class="input-field" id="signupLastName" placeholder="Enter your last name" required>
+                            <div class="error-message" id="signupLastNameError"></div>
+                        </div>
                     </div>
                     
                     <div class="input-group">
                         <label class="input-label">Email Address</label>
-                        <input type="email" class="input-field" id="signupEmail" placeholder="Enter your email address" required>
+                        <input type="email" class="input-field" id="signupEmail" placeholder="name@gmail.com" required>
                         <div class="error-message" id="signupEmailError"></div>
                     </div>
                     
-                    <div class="input-group">
-                        <label class="input-label">Username</label>
-                        <input type="text" class="input-field" id="signupUsername" placeholder="Choose a username" required>
-                        <div class="error-message" id="signupUsernameError"></div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">Username</label>
+                            <input type="text" class="input-field" id="signupUsername" placeholder="Choose a username" required>
+                            <div class="error-message" id="signupUsernameError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Date of Birth</label>
+                            <input type="date" class="input-field" id="signupDob" required>
+                            <div class="error-message" id="signupDobError"></div>
+                        </div>
                     </div>
                     
                     <div class="input-group">
@@ -614,61 +839,152 @@
                         <div class="error-message" id="signupGenderError"></div>
                     </div>
                     
-                    <div class="input-group">
-                        <label class="input-label">Password</label>
-                        <div class="password-container">
-                            <input type="password" class="input-field" id="signupPassword" placeholder="Create a strong password" required>
-                            <span class="password-toggle" id="signupPasswordToggle">
-                                <i class="fas fa-eye"></i>
-                            </span>
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">Password</label>
+                            <div class="password-container">
+                                <input type="password" class="input-field" id="signupPassword" placeholder="Create a strong password" required>
+                                <span class="password-toggle" id="signupPasswordToggle">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="error-message" id="signupPasswordError"></div>
                         </div>
-                        <div class="error-message" id="signupPasswordError"></div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Confirm Password</label>
+                            <div class="password-container">
+                                <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                                <span class="password-toggle" id="signupConfirmPasswordToggle">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="error-message" id="signupConfirmPasswordError"></div>
+                        </div>
                     </div>
                     
                     <div class="input-group">
-                        <label class="input-label">Confirm Password</label>
-                        <div class="password-container">
-                            <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm your password" required>
-                            <span class="password-toggle" id="signupConfirmPasswordToggle">
-                                <i class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                        <div class="error-message" id="signupConfirmPasswordError"></div>
+                        <label class="input-label">Phone Number (Optional)</label>
+                        <input type="tel" class="input-field" id="signupPhone" placeholder="+1 (123) 456-7890">
                     </div>
                     
                     <div class="remember-me">
                         <input type="checkbox" class="remember-checkbox" id="termsAgreement" required>
-                        <label for="termsAgreement">I agree to the Terms & Conditions</label>
+                        <label for="termsAgreement">I agree to the Terms & Conditions and Privacy Policy</label>
                     </div>
                     <div class="error-message" id="termsError"></div>
                     
-                    <button type="submit" class="submit-btn" id="signupSubmit">CREATE ACCOUNT</button>
+                    <div class="remember-me">
+                        <input type="checkbox" class="remember-checkbox" id="marketingEmails">
+                        <label for="marketingEmails">Send me security updates and notifications</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="signupSubmit">
+                        <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+                    </button>
+                    
+                    <button type="button" class="create-account-btn" id="switchToLogin">
+                        BACK TO LOGIN
+                    </button>
+                    
                     <div class="success-message" id="signupSuccess"></div>
                 </form>
             </div>
         </div>
         
-        <!-- Right side - Animated Character -->
+        <!-- Right side - Animated Characters -->
         <div class="character-section">
-            <div class="character-container">
-                <div class="character">
-                    <div class="character-hair"></div>
-                    <div class="character-face">
-                        <div class="character-eyes">
-                            <div class="eye" id="leftEye">
-                                <div class="eye-lid"></div>
-                            </div>
-                            <div class="eye" id="rightEye">
-                                <div class="eye-lid"></div>
+            <div class="characters-container">
+                <!-- Character 1 -->
+                <div class="character-wrapper">
+                    <div class="character character-1" id="character1">
+                        <div class="character-hair"></div>
+                        <div class="character-body">
+                            <div class="character-face">
+                                <div class="character-eyes">
+                                    <div class="eye" id="char1LeftEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                    <div class="eye" id="char1RightEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                </div>
+                                <div class="character-mouth" id="char1Mouth"></div>
                             </div>
                         </div>
-                        <div class="character-mouth" id="characterMouth"></div>
+                        <div class="character-arms">
+                            <div class="arm arm-left" id="char1LeftArm"></div>
+                            <div class="arm arm-right" id="char1RightArm"></div>
+                        </div>
+                        <div class="character-legs">
+                            <div class="leg"></div>
+                            <div class="leg"></div>
+                        </div>
                     </div>
+                    <div class="character-name">Security Bot</div>
+                </div>
+                
+                <!-- Character 2 -->
+                <div class="character-wrapper">
+                    <div class="character character-2" id="character2">
+                        <div class="character-hair"></div>
+                        <div class="character-body">
+                            <div class="character-face">
+                                <div class="character-eyes">
+                                    <div class="eye" id="char2LeftEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                    <div class="eye" id="char2RightEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                </div>
+                                <div class="character-mouth" id="char2Mouth"></div>
+                            </div>
+                        </div>
+                        <div class="character-arms">
+                            <div class="arm arm-left" id="char2LeftArm"></div>
+                            <div class="arm arm-right" id="char2RightArm"></div>
+                        </div>
+                        <div class="character-legs">
+                            <div class="leg"></div>
+                            <div class="leg"></div>
+                        </div>
+                    </div>
+                    <div class="character-name">Helper Bot</div>
+                </div>
+                
+                <!-- Character 3 -->
+                <div class="character-wrapper">
+                    <div class="character character-3" id="character3">
+                        <div class="character-hair"></div>
+                        <div class="character-body">
+                            <div class="character-face">
+                                <div class="character-eyes">
+                                    <div class="eye" id="char3LeftEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                    <div class="eye" id="char3RightEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                </div>
+                                <div class="character-mouth" id="char3Mouth"></div>
+                            </div>
+                        </div>
+                        <div class="character-arms">
+                            <div class="arm arm-left" id="char3LeftArm"></div>
+                            <div class="arm arm-right" id="char3RightArm"></div>
+                        </div>
+                        <div class="character-legs">
+                            <div class="leg"></div>
+                            <div class="leg"></div>
+                        </div>
+                    </div>
+                    <div class="character-name">Guide Bot</div>
                 </div>
             </div>
             
             <div class="status-message" id="characterStatus">
-                Hello! I'm your security assistant. Ready to help you login securely.
+                Hello! We're your security assistants. Ready to help you login securely.
             </div>
             
             <div class="security-indicators">
@@ -694,12 +1010,26 @@
         const signupToggle = document.getElementById('signupToggle');
         const loginForm = document.getElementById('loginForm');
         const signupForm = document.getElementById('signupForm');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
         
         // Character elements
-        const leftEye = document.getElementById('leftEye');
-        const rightEye = document.getElementById('rightEye');
-        const characterMouth = document.getElementById('characterMouth');
+        const characters = [
+            { id: 1, leftEye: document.getElementById('char1LeftEye'), rightEye: document.getElementById('char1RightEye'), 
+              mouth: document.getElementById('char1Mouth'), leftArm: document.getElementById('char1LeftArm'), rightArm: document.getElementById('char1RightArm') },
+            { id: 2, leftEye: document.getElementById('char2LeftEye'), rightEye: document.getElementById('char2RightEye'), 
+              mouth: document.getElementById('char2Mouth'), leftArm: document.getElementById('char2LeftArm'), rightArm: document.getElementById('char2RightArm') },
+            { id: 3, leftEye: document.getElementById('char3LeftEye'), rightEye: document.getElementById('char3RightEye'), 
+              mouth: document.getElementById('char3Mouth'), leftArm: document.getElementById('char3LeftArm'), rightArm: document.getElementById('char3RightArm') }
+        ];
+        
         const characterStatus = document.getElementById('characterStatus');
+        
+        // Email notification elements
+        const emailNotification = document.getElementById('emailNotification');
+        const emailTitle = document.getElementById('emailTitle');
+        const emailContent = document.getElementById('emailContent');
+        const closeEmail = document.getElementById('closeEmail');
         
         // Security indicators
         const encryptionIndicator = document.getElementById('encryptionIndicator');
@@ -707,23 +1037,32 @@
         const sessionIndicator = document.getElementById('sessionIndicator');
         
         // Form toggle functionality
-        loginToggle.addEventListener('click', () => {
+        function showLoginForm() {
             loginToggle.classList.add('active');
             signupToggle.classList.remove('active');
             loginForm.classList.remove('hidden');
+            loginForm.classList.add('active');
+            signupForm.classList.remove('active');
             signupForm.classList.add('hidden');
-            updateCharacterStatus("Ready to login? Enter your credentials securely.");
-            resetCharacterExpression();
-        });
+            updateCharacterStatus("Ready to login? Enter your credentials securely.", 0);
+            resetCharacterExpressions();
+        }
         
-        signupToggle.addEventListener('click', () => {
+        function showSignupForm() {
             signupToggle.classList.add('active');
             loginToggle.classList.remove('active');
             signupForm.classList.remove('hidden');
+            signupForm.classList.add('active');
+            loginForm.classList.remove('active');
             loginForm.classList.add('hidden');
-            updateCharacterStatus("Let's create your secure account! Fill in your details.");
-            resetCharacterExpression();
-        });
+            updateCharacterStatus("Let's create your secure account! Fill in your details.", 1);
+            resetCharacterExpressions();
+        }
+        
+        loginToggle.addEventListener('click', showLoginForm);
+        signupToggle.addEventListener('click', showSignupForm);
+        switchToSignup.addEventListener('click', showSignupForm);
+        switchToLogin.addEventListener('click', showLoginForm);
         
         // Password toggle functionality
         function setupPasswordToggle(passwordFieldId, toggleButtonId) {
@@ -735,11 +1074,15 @@
                     passwordField.type = 'text';
                     toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
                     // Character reaction to password being shown
-                    characterMouth.classList.add('surprised');
-                    updateCharacterStatus("Careful! Your password is now visible.");
+                    characters.forEach(char => {
+                        char.mouth.classList.add('surprised');
+                    });
+                    updateCharacterStatus("Careful! Your password is now visible.", 0);
                     setTimeout(() => {
-                        characterMouth.classList.remove('surprised');
-                        updateCharacterStatus("Remember to hide your password when done.");
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                        });
+                        updateCharacterStatus("Remember to hide your password when done.", 1);
                     }, 2000);
                 } else {
                     passwordField.type = 'password';
@@ -762,30 +1105,100 @@
                 genderOptions.forEach(opt => opt.classList.remove('selected'));
                 option.classList.add('selected');
                 selectedGenderInput.value = option.getAttribute('data-gender');
+                // Character reaction to gender selection
+                animateCharacterWave(1);
+                updateCharacterStatus(`Gender selected: ${option.textContent}`, 1);
             });
         });
         
         // Character animations
-        function updateCharacterStatus(message) {
+        function updateCharacterStatus(message, charIndex = null) {
             characterStatus.textContent = message;
+            
+            // Character reactions based on message
+            if (message.includes("Great!")) {
+                characters.forEach(char => char.mouth.classList.add('smiling'));
+            } else if (message.includes("error") || message.includes("wrong") || message.includes("invalid")) {
+                characters.forEach(char => {
+                    char.mouth.classList.remove('smiling');
+                    animateCharacterSad(char.id);
+                });
+            }
         }
         
-        function resetCharacterExpression() {
-            characterMouth.className = 'character-mouth';
+        function resetCharacterExpressions() {
+            characters.forEach(char => {
+                char.mouth.className = 'character-mouth';
+                char.leftArm.style.transform = 'rotate(0deg)';
+                char.rightArm.style.transform = 'rotate(0deg)';
+            });
         }
         
-        function characterBlink() {
-            leftEye.classList.add('blinking');
-            rightEye.classList.add('blinking');
+        function characterBlink(charIndex) {
+            const char = characters[charIndex];
+            char.leftEye.classList.add('blinking');
+            char.rightEye.classList.add('blinking');
             
             setTimeout(() => {
-                leftEye.classList.remove('blinking');
-                rightEye.classList.remove('blinking');
+                char.leftEye.classList.remove('blinking');
+                char.rightEye.classList.remove('blinking');
             }, 200);
         }
         
-        // Regular blinking
-        setInterval(characterBlink, 3000);
+        function animateCharacterWave(charIndex) {
+            const char = characters[charIndex];
+            char.rightArm.style.transform = 'rotate(-60deg)';
+            
+            setTimeout(() => {
+                char.rightArm.style.transform = 'rotate(0deg)';
+            }, 500);
+        }
+        
+        function animateCharacterNod(charIndex) {
+            const characterElement = document.getElementById(`character${charIndex + 1}`);
+            characterElement.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                characterElement.style.transform = 'translateY(0)';
+            }, 300);
+            
+            setTimeout(() => {
+                characterElement.style.transform = 'translateY(-10px)';
+            }, 600);
+            
+            setTimeout(() => {
+                characterElement.style.transform = 'translateY(0)';
+            }, 900);
+        }
+        
+        function animateCharacterHappy(charIndex) {
+            const char = characters[charIndex];
+            char.mouth.classList.add('smiling');
+            char.leftArm.style.transform = 'rotate(-30deg)';
+            char.rightArm.style.transform = 'rotate(30deg)';
+            
+            setTimeout(() => {
+                char.leftArm.style.transform = 'rotate(0deg)';
+                char.rightArm.style.transform = 'rotate(0deg)';
+            }, 1000);
+        }
+        
+        function animateCharacterSad(charIndex) {
+            const char = characters[charIndex];
+            char.mouth.style.borderRadius = '20px 20px 0 0';
+            char.mouth.style.transform = 'translateY(5px)';
+            
+            setTimeout(() => {
+                char.mouth.style.borderRadius = '';
+                char.mouth.style.transform = '';
+            }, 1500);
+        }
+        
+        // Regular blinking for all characters
+        setInterval(() => {
+            const randomChar = Math.floor(Math.random() * 3);
+            characterBlink(randomChar);
+        }, 3000);
         
         // Character reactions to form interactions
         const allInputs = document.querySelectorAll('.input-field');
@@ -793,26 +1206,58 @@
             // When focusing on input (especially password)
             input.addEventListener('focus', function() {
                 if (this.type === 'password') {
-                    // Character closes eyes when password is being entered
-                    leftEye.querySelector('.eye-lid').style.height = '100%';
-                    rightEye.querySelector('.eye-lid').style.height = '100%';
-                    updateCharacterStatus("Don't worry, I can't see your password. It's safe with me!");
-                } else {
-                    characterMouth.classList.add('smiling');
-                    updateCharacterStatus("Great! I see you're entering your information.");
+                    // Characters close eyes when password is being entered
+                    characters.forEach(char => {
+                        char.leftEye.querySelector('.eye-lid').style.height = '100%';
+                        char.rightEye.querySelector('.eye-lid').style.height = '100%';
+                    });
+                    updateCharacterStatus("Don't worry, we can't see your password. It's safe with us!", 0);
+                    animateCharacterNod(0);
+                } else if (this.type === 'email') {
+                    updateCharacterStatus("Great! I see you're entering your information.", 1);
+                    animateCharacterHappy(1);
                 }
             });
             
             // When leaving input
             input.addEventListener('blur', function() {
                 if (this.type === 'password') {
-                    // Character opens eyes after password is entered
-                    leftEye.querySelector('.eye-lid').style.height = '0';
-                    rightEye.querySelector('.eye-lid').style.height = '0';
+                    // Characters open eyes after password is entered
+                    characters.forEach(char => {
+                        char.leftEye.querySelector('.eye-lid').style.height = '0';
+                        char.rightEye.querySelector('.eye-lid').style.height = '0';
+                    });
                 }
-                characterMouth.classList.remove('smiling');
             });
         });
+        
+        // Email notification
+        function showEmailNotification(title, content) {
+            emailTitle.textContent = title;
+            emailContent.textContent = content;
+            emailNotification.classList.add('show');
+            
+            // Auto-hide after 8 seconds
+            setTimeout(() => {
+                emailNotification.classList.remove('show');
+            }, 8000);
+        }
+        
+        closeEmail.addEventListener('click', () => {
+            emailNotification.classList.remove('show');
+        });
+        
+        // Simulate sending email
+        function sendEmail(to, subject, body) {
+            console.log(`Email sent to: ${to}`);
+            console.log(`Subject: ${subject}`);
+            console.log(`Body: ${body}`);
+            
+            // Show notification
+            showEmailNotification(subject, `Email sent to ${to}. ${body.substring(0, 50)}...`);
+            
+            // In a real app, you would make an API call to send the email
+        }
         
         // Form validation and submission
         function validateEmail(email) {
@@ -826,25 +1271,37 @@
             return re.test(String(password));
         }
         
+        function validatePhone(phone) {
+            if (!phone) return true; // Optional
+            const re = /^[\+]?[1-9][\d]{0,15}$/;
+            return re.test(String(phone).replace(/[\s\-\(\)]/g, ''));
+        }
+        
         // Login form submission
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const username = document.getElementById('loginUsername').value;
+            const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
+            const securityCode = document.getElementById('loginSecurityCode').value;
+            const device = document.getElementById('loginDevice').value;
             const rememberMe = document.getElementById('rememberLogin').checked;
             
             let isValid = true;
             
             // Reset errors
-            document.getElementById('loginUsernameError').style.display = 'none';
+            document.getElementById('loginEmailError').style.display = 'none';
             document.getElementById('loginPasswordError').style.display = 'none';
             document.getElementById('loginSuccess').style.display = 'none';
             
-            // Validate username/email
-            if (!username) {
-                document.getElementById('loginUsernameError').textContent = 'Username or email is required';
-                document.getElementById('loginUsernameError').style.display = 'block';
+            // Validate email
+            if (!email) {
+                document.getElementById('loginEmailError').textContent = 'Email is required';
+                document.getElementById('loginEmailError').style.display = 'block';
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                document.getElementById('loginEmailError').textContent = 'Please enter a valid email address';
+                document.getElementById('loginEmailError').style.display = 'block';
                 isValid = false;
             }
             
@@ -861,8 +1318,8 @@
             
             if (isValid) {
                 // Simulate authentication process with visual feedback
-                updateCharacterStatus("Verifying your credentials...");
-                characterMouth.classList.add('surprised');
+                updateCharacterStatus("Verifying your credentials...", 0);
+                characters.forEach(char => char.mouth.classList.add('surprised'));
                 
                 // Show security indicators
                 encryptionIndicator.classList.add('active');
@@ -875,46 +1332,62 @@
                     
                     if (storedUser) {
                         const userData = JSON.parse(storedUser);
-                        if ((username === userData.username || username === userData.email) && password === userData.password) {
+                        if (email === userData.email && password === userData.password) {
                             // Login successful
                             document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting...';
                             document.getElementById('loginSuccess').style.display = 'block';
                             
-                            // Update character
-                            characterMouth.classList.remove('surprised');
-                            characterMouth.classList.add('smiling');
-                            updateCharacterStatus("Welcome back! Your credentials are verified.");
+                            // Update characters
+                            characters.forEach(char => {
+                                char.mouth.classList.remove('surprised');
+                                char.mouth.classList.add('smiling');
+                            });
+                            updateCharacterStatus("Welcome back! Your credentials are verified.", 2);
+                            animateCharacterHappy(2);
                             
                             // Store session if remember me is checked
                             if (rememberMe) {
                                 const sessionData = {
-                                    username: userData.username,
-                                    timestamp: new Date().getTime()
+                                    email: userData.email,
+                                    timestamp: new Date().getTime(),
+                                    device: device
                                 };
                                 localStorage.setItem('secureSession', JSON.stringify(sessionData));
                                 sessionIndicator.classList.add('active');
-                                updateCharacterStatus("Session saved. You won't need to login again on this device.");
+                                updateCharacterStatus("Session saved. You won't need to login again on this device.", 1);
                             }
+                            
+                            // Send login notification email
+                            sendEmail(
+                                userData.email,
+                                "Security Alert: New Login Detected",
+                                `Hello ${userData.firstName},\n\nA new login was detected on your account from a ${device} device.\nIf this was you, no action is required. If not, please secure your account immediately.\n\nTime: ${new Date().toLocaleString()}\n\nBest regards,\nSecure Access Team`
+                            );
                             
                             // Simulate redirect
                             setTimeout(() => {
-                                alert(`Welcome ${userData.name}! You are now logged in.`);
+                                alert(`Welcome ${userData.firstName}! You are now logged in on ${device}.`);
                                 // In a real app, this would redirect to the dashboard
                                 // window.location.href = '/dashboard';
                             }, 1500);
                         } else {
                             // Invalid credentials
-                            document.getElementById('loginPasswordError').textContent = 'Invalid username or password';
+                            document.getElementById('loginPasswordError').textContent = 'Invalid email or password';
                             document.getElementById('loginPasswordError').style.display = 'block';
-                            updateCharacterStatus("Hmm, those credentials don't match our records.");
-                            characterMouth.classList.remove('surprised');
+                            updateCharacterStatus("Hmm, those credentials don't match our records.", 0);
+                            characters.forEach(char => {
+                                char.mouth.classList.remove('surprised');
+                                animateCharacterSad(char.id - 1);
+                            });
                         }
                     } else {
                         // No user found
-                        document.getElementById('loginUsernameError').textContent = 'No account found with these credentials';
-                        document.getElementById('loginUsernameError').style.display = 'block';
-                        updateCharacterStatus("I can't find an account with those details. Try creating one!");
-                        characterMouth.classList.remove('surprised');
+                        document.getElementById('loginEmailError').textContent = 'No account found with this email';
+                        document.getElementById('loginEmailError').style.display = 'block';
+                        updateCharacterStatus("I can't find an account with that email. Try creating one!", 1);
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                        });
                     }
                     
                     // Reset security indicators after a delay
@@ -925,7 +1398,7 @@
                     
                 }, 1500);
             } else {
-                updateCharacterStatus("Please check the form for errors.");
+                updateCharacterStatus("Please check the form for errors.", 0);
             }
         });
         
@@ -933,13 +1406,17 @@
         signupForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('signupName').value;
+            const firstName = document.getElementById('signupFirstName').value;
+            const lastName = document.getElementById('signupLastName').value;
             const email = document.getElementById('signupEmail').value;
             const username = document.getElementById('signupUsername').value;
+            const dob = document.getElementById('signupDob').value;
             const gender = document.getElementById('selectedGender').value;
             const password = document.getElementById('signupPassword').value;
             const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const phone = document.getElementById('signupPhone').value;
             const termsAgreed = document.getElementById('termsAgreement').checked;
+            const marketingEmails = document.getElementById('marketingEmails').checked;
             
             let isValid = true;
             
@@ -949,10 +1426,17 @@
             });
             document.getElementById('signupSuccess').style.display = 'none';
             
-            // Validate name
-            if (!name) {
-                document.getElementById('signupNameError').textContent = 'Full name is required';
-                document.getElementById('signupNameError').style.display = 'block';
+            // Validate first name
+            if (!firstName) {
+                document.getElementById('signupFirstNameError').textContent = 'First name is required';
+                document.getElementById('signupFirstNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate last name
+            if (!lastName) {
+                document.getElementById('signupLastNameError').textContent = 'Last name is required';
+                document.getElementById('signupLastNameError').style.display = 'block';
                 isValid = false;
             }
             
@@ -976,6 +1460,22 @@
                 document.getElementById('signupUsernameError').textContent = 'Username must be at least 3 characters';
                 document.getElementById('signupUsernameError').style.display = 'block';
                 isValid = false;
+            }
+            
+            // Validate date of birth
+            if (!dob) {
+                document.getElementById('signupDobError').textContent = 'Date of birth is required';
+                document.getElementById('signupDobError').style.display = 'block';
+                isValid = false;
+            } else {
+                const birthDate = new Date(dob);
+                const today = new Date();
+                const age = today.getFullYear() - birthDate.getFullYear();
+                if (age < 13) {
+                    document.getElementById('signupDobError').textContent = 'You must be at least 13 years old';
+                    document.getElementById('signupDobError').style.display = 'block';
+                    isValid = false;
+                }
             }
             
             // Validate gender
@@ -1007,6 +1507,14 @@
                 isValid = false;
             }
             
+            // Validate phone
+            if (phone && !validatePhone(phone)) {
+                document.getElementById('signupPhone').style.borderColor = 'var(--error-color)';
+                isValid = false;
+            } else if (phone) {
+                document.getElementById('signupPhone').style.borderColor = '';
+            }
+            
             // Validate terms
             if (!termsAgreed) {
                 document.getElementById('termsError').textContent = 'You must agree to the terms and conditions';
@@ -1016,8 +1524,9 @@
             
             if (isValid) {
                 // Simulate account creation process with visual feedback
-                updateCharacterStatus("Creating your secure account...");
-                characterMouth.classList.add('surprised');
+                updateCharacterStatus("Creating your secure account...", 0);
+                characters.forEach(char => char.mouth.classList.add('surprised'));
+                animateCharacterNod(2);
                 
                 // Show security indicators
                 encryptionIndicator.classList.add('active');
@@ -1029,39 +1538,56 @@
                     if (localStorage.getItem('secureUser')) {
                         document.getElementById('signupEmailError').textContent = 'An account with this email already exists';
                         document.getElementById('signupEmailError').style.display = 'block';
-                        updateCharacterStatus("This email is already registered. Try logging in instead.");
-                        characterMouth.classList.remove('surprised');
+                        updateCharacterStatus("This email is already registered. Try logging in instead.", 1);
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                        });
                     } else {
                         // Create user object
                         const userData = {
-                            name: name,
+                            firstName: firstName,
+                            lastName: lastName,
                             email: email,
                             username: username,
+                            dob: dob,
                             gender: gender,
                             password: password,
-                            createdAt: new Date().toISOString()
+                            phone: phone || '',
+                            marketingEmails: marketingEmails,
+                            createdAt: new Date().toISOString(),
+                            verified: false
                         };
                         
                         // Store user in localStorage (in a real app, this would be a secure API call)
                         localStorage.setItem('secureUser', JSON.stringify(userData));
                         
                         // Success message
-                        document.getElementById('signupSuccess').textContent = 'Account created successfully! You can now login.';
+                        document.getElementById('signupSuccess').textContent = 'Account created successfully! Check your email for verification.';
                         document.getElementById('signupSuccess').style.display = 'block';
                         
-                        // Update character
-                        characterMouth.classList.remove('surprised');
-                        characterMouth.classList.add('smiling');
-                        updateCharacterStatus("Welcome aboard! Your account is now secure and ready to use.");
+                        // Update characters
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                            char.mouth.classList.add('smiling');
+                        });
+                        updateCharacterStatus("Welcome aboard! Your account is now secure and ready to use.", 2);
+                        animateCharacterHappy(2);
+                        
+                        // Send welcome email
+                        sendEmail(
+                            email,
+                            "Welcome to Secure Access!",
+                            `Hello ${firstName},\n\nThank you for creating an account with Secure Access. Your account has been successfully created.\n\nAccount Details:\n- Name: ${firstName} ${lastName}\n- Username: ${username}\n- Email: ${email}\n\nPlease verify your email address by clicking the link below (simulated).\n\nWe're committed to keeping your data secure.\n\nBest regards,\nSecure Access Team`
+                        );
                         
                         // Switch to login form after a delay
                         setTimeout(() => {
-                            loginToggle.click();
+                            showLoginForm();
                             // Pre-fill login form
-                            document.getElementById('loginUsername').value = email;
+                            document.getElementById('loginEmail').value = email;
                             document.getElementById('loginPassword').value = password;
-                            updateCharacterStatus("I've filled in your credentials. Ready to login!");
-                        }, 2000);
+                            updateCharacterStatus("We've filled in your credentials. Ready to login!", 1);
+                        }, 3000);
                     }
                     
                     // Reset security indicators after a delay
@@ -1072,7 +1598,7 @@
                     
                 }, 1500);
             } else {
-                updateCharacterStatus("Please check the form for errors.");
+                updateCharacterStatus("Please check the form for errors.", 0);
             }
         });
         
@@ -1087,14 +1613,15 @@
                 
                 // Check if session is still valid (less than 7 days old)
                 if (now - sessionData.timestamp < oneWeek) {
-                    // Auto-fill username if user data exists
+                    // Auto-fill email if user data exists
                     const storedUser = localStorage.getItem('secureUser');
                     if (storedUser) {
                         const userData = JSON.parse(storedUser);
-                        document.getElementById('loginUsername').value = userData.username;
-                        updateCharacterStatus("Welcome back! I see you have a saved session. Just enter your password.");
+                        document.getElementById('loginEmail').value = userData.email;
+                        updateCharacterStatus("Welcome back! We see you have a saved session. Just enter your password.", 0);
                         document.getElementById('rememberLogin').checked = true;
                         sessionIndicator.classList.add('active');
+                        animateCharacterWave(0);
                     }
                 } else {
                     // Session expired
@@ -1106,7 +1633,7 @@
         // Create floating background elements
         function createFloatingElements() {
             const container = document.getElementById('floatingElements');
-            const elementCount = 15;
+            const elementCount = 20;
             
             for (let i = 0; i < elementCount; i++) {
                 const element = document.createElement('div');
@@ -1127,6 +1654,10 @@
                 element.style.animationDelay = `${delay}s`;
                 element.style.animationDuration = `${duration}s`;
                 
+                // Random color based on character colors
+                const colors = ['rgba(77, 148, 255, 0.1)', 'rgba(255, 107, 107, 0.1)', 'rgba(77, 255, 184, 0.1)'];
+                element.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
                 container.appendChild(element);
             }
         }
@@ -1137,24 +1668,41 @@
             createFloatingElements();
             
             // Initial character blink
-            setTimeout(characterBlink, 1000);
+            setTimeout(() => characterBlink(0), 1000);
+            setTimeout(() => characterBlink(1), 1500);
+            setTimeout(() => characterBlink(2), 2000);
             
             // Security indicator demo on page load
             setTimeout(() => {
                 encryptionIndicator.classList.add('active');
-                updateCharacterStatus("All systems secure. Encryption active.");
+                updateCharacterStatus("All systems secure. Encryption active.", 0);
+                animateCharacterNod(0);
             }, 500);
             
             setTimeout(() => {
                 validationIndicator.classList.add('active');
-                updateCharacterStatus("Validation systems ready. I'm here to help!");
+                updateCharacterStatus("Validation systems ready. We're here to help!", 1);
+                animateCharacterWave(1);
             }, 1500);
             
             setTimeout(() => {
                 encryptionIndicator.classList.remove('active');
                 validationIndicator.classList.remove('active');
-                updateCharacterStatus("Hello! I'm your security assistant. Ready to help you login securely.");
+                updateCharacterStatus("Hello! We're your security assistants. Ready to help you login securely.", 2);
+                animateCharacterHappy(2);
             }, 3000);
+            
+            // Random character animations
+            setInterval(() => {
+                const randomAction = Math.floor(Math.random() * 3);
+                const randomChar = Math.floor(Math.random() * 3);
+                
+                if (randomAction === 0) {
+                    animateCharacterNod(randomChar);
+                } else if (randomAction === 1) {
+                    animateCharacterWave(randomChar);
+                }
+            }, 8000);
         });
     </script>
 </body>
