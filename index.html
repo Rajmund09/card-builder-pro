@@ -2195,31 +2195,6 @@ function renderTemplates(filter = 'all') {
     });
 }
         // ===== Interactive Preview Functions =====
-        function previewTemplate(templateId) {
-            const template = templates.find(t => t.id === templateId);
-            if (!template) return;
-            
-            // Update preview with template data
-            const colors = [
-                ['#6366f1', '#8b5cf6'],
-                ['#10b981', '#0d9488'],
-                ['#f59e0b', '#d97706'],
-                ['#ec4899', '#be185d'],
-                ['#8b5cf6', '#a78bfa']
-            ];
-            
-            const colorSet = colors[templateId % colors.length];
-            previewLogo.style.background = `linear-gradient(135deg, ${colorSet[0]}, ${colorSet[1]})`;
-            
-            // Animate the preview
-            designCanvas.style.transform = 'scale(1.05)';
-            setTimeout(() => {
-                designCanvas.style.transform = 'scale(1)';
-            }, 300);
-            
-            // Show notification
-            showNotification(`Now previewing: ${template.name}`);
-        }
 
         function showNotification(message) {
             const notification = document.createElement('div');
