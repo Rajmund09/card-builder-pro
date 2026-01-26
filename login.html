@@ -3,182 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Access Pro | Enterprise Authentication</title>
+    <title>Secure Access | Metallic Glass Theme</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
-            --primary-bg: #0f172a;
-            --secondary-bg: #1e293b;
-            --glass-bg: rgba(30, 41, 59, 0.85);
-            --glass-border: rgba(148, 163, 184, 0.1);
-            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            --accent-color: #3b82f6;
-            --accent-hover: #2563eb;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-tertiary: #94a3b8;
-            --success-color: #10b981;
-            --error-color: #ef4444;
-            --warning-color: #f59e0b;
-            --card-bg: rgba(15, 23, 42, 0.7);
+            --primary-bg: #0a0a0a;
+            --secondary-bg: rgba(20, 20, 20, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            --metal-gradient: linear-gradient(145deg, #1a1a1a, #0c0c0c);
+            --accent-color: #00d4ff;
+            --accent-glow: rgba(0, 212, 255, 0.4);
+            --text-color: #f0f0f0;
+            --error-color: #ff4d4d;
+            --success-color: #4dffb8;
+            --character-1: #4d94ff;
+            --character-2: #ff6b6b;
+            --character-3: #4dffb8;
         }
 
         body {
             background-color: var(--primary-bg);
-            color: var(--text-primary);
+            color: var(--text-color);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 20%);
             padding: 20px;
-            position: relative;
         }
 
         .container {
             display: flex;
             flex-direction: row;
             width: 100%;
-            max-width: 1400px;
-            height: 820px;
-            background: var(--glass-bg);
-            border-radius: 24px;
+            max-width: 1300px;
+            height: 750px;
+            background: var(--secondary-bg);
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--glass-shadow);
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             position: relative;
         }
 
         /* Left side - Login Form */
         .login-section {
             flex: 1;
-            padding: 60px 50px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             z-index: 2;
-            min-width: 520px;
-            position: relative;
-            overflow-y: auto;
-        }
-
-        .login-section::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .login-section::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.3);
-            border-radius: 3px;
-        }
-
-        .login-section::-webkit-scrollbar-thumb {
-            background: var(--accent-color);
-            border-radius: 3px;
-        }
-
-        .header {
-            margin-bottom: 50px;
+            min-width: 500px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .logo-icon {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--accent-color);
             margin-right: 15px;
-            background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
         .logo-text {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #f8fafc, var(--accent-color));
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, var(--accent-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            color: var(--text-tertiary);
-            font-size: 1.1rem;
-            font-weight: 500;
-            max-width: 400px;
         }
 
         .form-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
-            font-weight: 700;
-            color: var(--text-primary);
+            background: linear-gradient(to right, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .form-subtitle {
-            color: var(--text-tertiary);
-            margin-bottom: 40px;
+            color: #aaa;
+            margin-bottom: 30px;
             font-size: 1rem;
-            line-height: 1.6;
         }
 
         .toggle-form {
             display: flex;
-            margin-bottom: 40px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 6px;
-            border: 1px solid var(--glass-border);
+            margin-bottom: 30px;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 5px;
         }
 
         .toggle-btn {
             flex: 1;
-            padding: 16px;
+            padding: 12px;
             text-align: center;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
             transition: all 0.3s ease;
-            color: var(--text-secondary);
         }
 
         .toggle-btn.active {
-            background: linear-gradient(135deg, var(--accent-color), #6366f1);
-            color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            background: var(--metal-gradient);
+            color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .form-container {
             position: relative;
             overflow: hidden;
-            min-height: 620px;
+            min-height: 520px;
         }
 
         .form {
             display: flex;
             flex-direction: column;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            transition: transform 0.5s ease;
             position: absolute;
             width: 100%;
             top: 0;
+        }
+
+        .form.hidden {
+            transform: translateX(-100%);
             opacity: 0;
             pointer-events: none;
         }
@@ -187,42 +155,28 @@
             transform: translateX(0);
             opacity: 1;
             pointer-events: all;
-            position: relative;
-        }
-
-        .form.hidden {
-            transform: translateX(-100%);
-            opacity: 0;
         }
 
         .input-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
         }
 
         .input-label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .input-label i {
-            color: var(--accent-color);
+            color: #ccc;
             font-size: 0.9rem;
         }
 
         .input-field {
             width: 100%;
-            padding: 16px 18px;
-            background: var(--card-bg);
-            border: 1.5px solid var(--glass-border);
-            border-radius: 12px;
-            color: var(--text-primary);
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text-color);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -230,12 +184,7 @@
         .input-field:focus {
             outline: none;
             border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        .input-field::placeholder {
-            color: var(--text-tertiary);
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .password-container {
@@ -244,14 +193,11 @@
 
         .password-toggle {
             position: absolute;
-            right: 18px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-            color: var(--text-tertiary);
-            background: none;
-            border: none;
-            font-size: 1.1rem;
+            color: #aaa;
         }
 
         .gender-selection {
@@ -263,52 +209,33 @@
         .gender-option {
             flex: 1;
             text-align: center;
-            padding: 16px;
-            background: var(--card-bg);
-            border-radius: 12px;
+            padding: 12px;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
             cursor: pointer;
-            border: 1.5px solid var(--glass-border);
+            border: 1px solid transparent;
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .gender-option i {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
         }
 
         .gender-option.selected {
             border-color: var(--accent-color);
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-color);
-        }
-
-        .gender-option.selected i {
+            background: rgba(0, 212, 255, 0.1);
             color: var(--accent-color);
         }
 
         .row {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
 
         .row .input-group {
             flex: 1;
         }
 
-        .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
         .remember-me {
             display: flex;
             align-items: center;
+            margin-bottom: 25px;
         }
 
         .remember-checkbox {
@@ -316,28 +243,14 @@
             width: 18px;
             height: 18px;
             accent-color: var(--accent-color);
-            cursor: pointer;
-        }
-
-        .forgot-password {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .forgot-password:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, var(--accent-color), #6366f1);
+            background: var(--metal-gradient);
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -345,18 +258,14 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             width: 100%;
             margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .submit-btn:active {
@@ -370,7 +279,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             transition: left 0.7s ease;
             z-index: -1;
         }
@@ -379,167 +288,60 @@
             left: 100%;
         }
 
-        .finish-btn {
-            background: linear-gradient(135deg, var(--success-color), #0ea5e9);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 12px;
+        .create-account-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 16px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 15px;
             width: 100%;
-            margin-top: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
         }
 
-        .finish-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
-        }
-
-        .alternate-action {
-            text-align: center;
-            margin-top: 30px;
-            color: var(--text-tertiary);
-            font-size: 0.95rem;
-        }
-
-        .alternate-action a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            margin-left: 5px;
-            transition: color 0.3s ease;
-        }
-
-        .alternate-action a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
+        .create-account-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
         }
 
         .error-message {
             color: var(--error-color);
             font-size: 0.9rem;
-            margin-top: 8px;
+            margin-top: 5px;
             display: none;
-            font-weight: 500;
         }
 
         .success-message {
             color: var(--success-color);
-            font-size: 0.95rem;
-            margin-top: 15px;
+            font-size: 0.9rem;
+            margin-top: 5px;
             display: none;
-            font-weight: 500;
-            text-align: center;
-            padding: 12px;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 10px;
-            border-left: 4px solid var(--success-color);
         }
 
-        .progress-indicator {
-            display: flex;
-            justify-content: space-between;
-            margin: 30px 0;
-            position: relative;
-        }
-
-        .progress-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 2;
-            flex: 1;
-        }
-
-        .step-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            border: 2px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--text-tertiary);
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .step-circle.active {
-            background: linear-gradient(135deg, var(--accent-color), #6366f1);
-            border-color: var(--accent-color);
-            color: white;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
-
-        .step-circle.completed {
-            background: var(--success-color);
-            border-color: var(--success-color);
-            color: white;
-        }
-
-        .step-label {
-            font-size: 0.85rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
-        }
-
-        .step-label.active {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .progress-line {
-            position: absolute;
-            top: 20px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: var(--glass-border);
-            z-index: 1;
-        }
-
-        .progress-fill {
-            position: absolute;
-            top: 20px;
-            left: 10%;
-            height: 2px;
-            background: linear-gradient(to right, var(--accent-color), #6366f1);
-            z-index: 1;
-            transition: width 0.5s ease;
-        }
-
-        /* Right side - Professional Characters */
+        /* Right side - Animated Characters */
         .character-section {
             flex: 1.2;
-            background: var(--card-bg);
+            background: rgba(10, 10, 10, 0.7);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 30px;
+            padding: 30px;
             position: relative;
             overflow: hidden;
-            border-left: 1px solid var(--glass-border);
         }
 
         .characters-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: flex-end;
             width: 100%;
             height: 400px;
             position: relative;
-            margin-bottom: 40px;
         }
 
         .character-wrapper {
@@ -547,63 +349,64 @@
             flex-direction: column;
             align-items: center;
             position: relative;
-            margin: 0 20px;
-            transition: transform 0.4s ease;
-        }
-
-        .character-wrapper:hover {
-            transform: translateY(-10px);
+            width: 180px;
         }
 
         .character {
-            width: 200px;
-            height: 280px;
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        /* Character 1 - Shield Bot (Pentagon Shape) */
-        .character-1 {
-            --char-color: #3b82f6;
-            --char-light: rgba(59, 130, 246, 0.3);
-        }
-
-        .char1-body {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
             width: 140px;
             height: 180px;
-            background: var(--char-color);
-            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-            box-shadow: 
-                0 10px 30px rgba(59, 130, 246, 0.3),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
 
-        .char1-face {
+        .character:hover {
+            transform: translateY(-10px);
+        }
+
+        .character-1 {
+            --char-color: var(--character-1);
+        }
+
+        .character-2 {
+            --char-color: var(--character-2);
+        }
+
+        .character-3 {
+            --char-color: var(--character-3);
+        }
+
+        .character-body {
+            width: 100px;
+            height: 120px;
+            background: var(--char-color);
+            border-radius: 50% 50% 40% 40%;
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .character-face {
             width: 80px;
             height: 80px;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        .char1-eyes {
-            display: flex;
-            justify-content: space-between;
-            width: 60px;
             position: absolute;
             top: 20px;
             left: 10px;
         }
 
-        .char1-eye {
-            width: 20px;
+        .character-eyes {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 25px;
+            width: 60px;
+            left: 10px;
+        }
+
+        .eye {
+            width: 18px;
             height: 25px;
             background: white;
             border-radius: 50%;
@@ -611,277 +414,141 @@
             overflow: hidden;
         }
 
-        .char1-eye::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #1e293b;
-            border-radius: 50%;
-            top: 6px;
-            left: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .char1-mouth {
-            width: 40px;
-            height: 15px;
-            background: #1e293b;
-            border-radius: 0 0 20px 20px;
-            position: absolute;
-            bottom: 15px;
-            left: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .char1-mouth.smiling {
-            border-radius: 0 0 20px 20px;
-            height: 10px;
-            background: #10b981;
-        }
-
-        .char1-mouth.surprised {
-            border-radius: 50%;
-            height: 20px;
-            width: 20px;
-            left: 30px;
-            bottom: 10px;
-            background: #f59e0b;
-        }
-
-        .char1-shield {
-            position: absolute;
-            width: 60px;
-            height: 80px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            clip-path: polygon(0% 0%, 100% 0%, 80% 50%, 100% 100%, 0% 100%, 20% 50%);
-            top: -30px;
-            right: -20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .char1-shield i {
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        /* Character 2 - Helper Bot (Rectangle Shape) */
-        .character-2 {
-            --char-color: #10b981;
-            --char-light: rgba(16, 185, 129, 0.3);
-        }
-
-        .char2-body {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 160px;
-            height: 200px;
-            background: var(--char-color);
-            border-radius: 20px 20px 10px 10px;
-            box-shadow: 
-                0 10px 30px rgba(16, 185, 129, 0.3),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .char2-screen {
-            width: 120px;
-            height: 80px;
-            background: #0f172a;
-            border-radius: 12px;
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .screen-content {
-            color: #10b981;
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 10px;
-            font-weight: 500;
-        }
-
-        .char2-eyes {
-            display: flex;
-            justify-content: space-between;
-            width: 80px;
-            position: absolute;
-            top: 20px;
-            left: 40px;
-        }
-
-        .char2-eye {
-            width: 12px;
-            height: 12px;
-            background: #f59e0b;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .char2-arms {
-            position: absolute;
-            width: 100%;
-            height: 60px;
-            bottom: 60px;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 10px;
-        }
-
-        .char2-arm {
-            width: 8px;
-            height: 40px;
-            background: var(--char-color);
-            border-radius: 4px;
-            transform-origin: top center;
-        }
-
-        /* Character 3 - Guide Bot (Triangle Shape) */
-        .character-3 {
-            --char-color: #8b5cf6;
-            --char-light: rgba(139, 92, 246, 0.3);
-        }
-
-        .char3-body {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 160px;
-            height: 220px;
-            background: var(--char-color);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            box-shadow: 
-                0 10px 30px rgba(139, 92, 246, 0.3),
-                inset 0 -10px 20px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 40px;
-        }
-
-        .char3-face {
-            width: 80px;
-            height: 80px;
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .char3-eyes {
-            display: flex;
-            justify-content: space-between;
-            width: 60px;
-            position: absolute;
-            top: 20px;
-            left: 10px;
-        }
-
-        .char3-eye {
-            width: 18px;
-            height: 24px;
-            background: white;
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .char3-eye::after {
+        .eye::after {
             content: '';
             position: absolute;
             width: 10px;
             height: 10px;
-            background: #1e293b;
+            background: #222;
             border-radius: 50%;
             top: 7px;
             left: 4px;
             transition: all 0.3s ease;
         }
 
-        .char3-mouth {
-            width: 50px;
-            height: 20px;
-            background: #1e293b;
-            border-radius: 0 0 25px 25px;
+        .eye.blinking .eye-lid {
+            height: 100%;
+        }
+
+        .eye-lid {
             position: absolute;
-            bottom: 10px;
-            left: 15px;
+            width: 100%;
+            height: 0;
+            background: var(--char-color);
+            border-radius: 50%;
+            top: 0;
+            transition: height 0.2s ease;
+            z-index: 2;
+        }
+
+        .character-mouth {
+            width: 40px;
+            height: 15px;
+            background: #222;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
             transition: all 0.3s ease;
         }
 
-        .char3-antenna {
-            position: absolute;
-            width: 6px;
-            height: 40px;
-            background: var(--char-color);
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 3px 3px 0 0;
+        .character-mouth.smiling {
+            border-radius: 0 0 20px 20px;
+            height: 10px;
+            background: #ff6b6b;
         }
 
-        .char3-antenna::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #f59e0b;
+        .character-mouth.surprised {
             border-radius: 50%;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            height: 20px;
+            width: 20px;
+            left: 30px;
+            bottom: 15px;
+            background: #ff6b6b;
+        }
+
+        .character-hair {
+            width: 100px;
+            height: 40px;
+            background: #222;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: 0;
+            left: 20px;
+        }
+
+        .character-arms {
+            position: absolute;
+            width: 100%;
+            height: 60px;
+            bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .arm {
+            width: 10px;
+            height: 60px;
+            background: var(--char-color);
+            border-radius: 5px;
+            position: relative;
+            transform-origin: top center;
+        }
+
+        .arm-left {
+            left: 5px;
+        }
+
+        .arm-right {
+            right: 5px;
+        }
+
+        .character-legs {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            bottom: -30px;
+            left: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .leg {
+            width: 15px;
+            height: 40px;
+            background: var(--char-color);
+            border-radius: 5px;
         }
 
         .character-name {
             margin-top: 10px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            background: var(--card-bg);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
+            font-weight: 600;
+            color: #aaa;
+            font-size: 0.9rem;
         }
 
         .status-message {
             text-align: center;
             font-size: 1.2rem;
             margin-top: 30px;
-            min-height: 80px;
+            min-height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 16px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
             width: 100%;
-            max-width: 500px;
-            border: 1px solid var(--glass-border);
-            line-height: 1.5;
-            font-weight: 500;
+            max-width: 400px;
         }
 
         /* Security Indicators */
         .security-indicators {
             display: flex;
             justify-content: space-between;
-            margin-top: 40px;
+            margin-top: 30px;
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
         }
 
         .security-indicator {
@@ -889,33 +556,23 @@
             flex-direction: column;
             align-items: center;
             flex: 1;
-            padding: 15px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-        }
-
-        .security-indicator.active {
-            border-color: var(--accent-color);
-            background: rgba(59, 130, 246, 0.1);
-            transform: translateY(-5px);
+            padding: 10px;
         }
 
         .indicator-icon {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--text-tertiary);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #666;
         }
 
         .security-indicator.active .indicator-icon {
             color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
         .indicator-text {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 600;
+            font-size: 0.8rem;
+            color: #888;
         }
 
         /* Email Notification */
@@ -923,17 +580,16 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: var(--card-bg);
+            background: var(--secondary-bg);
             border-left: 4px solid var(--accent-color);
-            border-radius: 12px;
-            padding: 20px;
-            width: 350px;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
             box-shadow: var(--glass-shadow);
             transform: translateX(400px);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.5s ease;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
         }
 
         .email-notification.show {
@@ -943,36 +599,32 @@
         .email-header {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .email-icon {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--accent-color);
-            margin-right: 15px;
+            margin-right: 10px;
         }
 
         .email-title {
-            font-weight: 700;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .email-content {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 10px;
         }
 
         .email-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             cursor: pointer;
-            color: var(--text-tertiary);
-            background: none;
-            border: none;
-            font-size: 1.2rem;
+            color: #aaa;
         }
 
         /* Background Animation */
@@ -990,7 +642,7 @@
             position: absolute;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 50%;
-            animation: float 25s infinite linear;
+            animation: float 20s infinite linear;
         }
 
         @keyframes float {
@@ -1003,46 +655,41 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
             .container {
                 flex-direction: column;
                 height: auto;
-                max-width: 800px;
+                max-width: 700px;
             }
 
             .login-section, .character-section {
-                padding: 40px 30px;
+                padding: 30px;
                 min-width: auto;
-            }
-
-            .character-section {
-                border-left: none;
-                border-top: 1px solid var(--glass-border);
-                padding-top: 60px;
             }
 
             .characters-container {
                 height: 300px;
-                margin-bottom: 30px;
             }
 
             .character {
-                width: 160px;
-                height: 220px;
+                width: 120px;
+                height: 150px;
+            }
+
+            .character-body {
+                width: 80px;
+                height: 100px;
+                left: 20px;
             }
         }
 
-        @media (max-width: 768px) {
-            .container {
-                border-radius: 16px;
-            }
-
+        @media (max-width: 576px) {
             .login-section {
-                padding: 30px 20px;
+                padding: 20px;
             }
 
             .form-title {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
             }
 
             .row {
@@ -1050,68 +697,15 @@
                 gap: 0;
             }
 
-            .gender-selection {
-                flex-direction: column;
-                gap: 10px;
-            }
-
             .characters-container {
                 flex-direction: column;
                 align-items: center;
                 height: auto;
-                gap: 60px;
-                margin-bottom: 40px;
+                gap: 30px;
             }
 
             .character-wrapper {
-                margin: 0;
-                width: 180px;
-            }
-
-            .status-message {
-                font-size: 1.1rem;
-                padding: 15px;
-            }
-
-            .security-indicators {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .security-indicator {
-                flex-direction: row;
-                justify-content: flex-start;
-                gap: 15px;
-                padding: 15px 20px;
-            }
-
-            .indicator-icon {
-                margin-bottom: 0;
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.8rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .form-options {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .progress-indicator {
-                margin: 20px 0;
-            }
-
-            .step-label {
-                font-size: 0.75rem;
+                width: 120px;
             }
         }
     </style>
@@ -1119,7 +713,7 @@
 <body>
     <!-- Email Notification -->
     <div class="email-notification" id="emailNotification">
-        <button class="email-close" id="closeEmail"><i class="fas fa-times"></i></button>
+        <div class="email-close" id="closeEmail"><i class="fas fa-times"></i></div>
         <div class="email-header">
             <div class="email-icon"><i class="fas fa-envelope"></i></div>
             <div class="email-title" id="emailTitle">Security Notification</div>
@@ -1133,13 +727,13 @@
         
         <!-- Left side - Login Form -->
         <div class="login-section">
-            <div class="header">
-                <div class="logo">
-                    <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="logo-text">SECURE ACCESS PRO</div>
-                </div>
-                <p class="tagline">Enterprise-grade authentication with advanced security protocols and AI-powered assistance.</p>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="logo-text">SECURE ACCESS</div>
             </div>
+            
+            <h1 class="form-title">ACCESS YOUR ACCOUNT</h1>
+            <p class="form-subtitle">Login to access your secure dashboard</p>
             
             <div class="toggle-form">
                 <div class="toggle-btn active" id="loginToggle">LOGIN</div>
@@ -1149,279 +743,258 @@
             <div class="form-container">
                 <!-- Login Form -->
                 <form class="form active" id="loginForm">
-                    <h2 class="form-title">Access Your Dashboard</h2>
-                    <p class="form-subtitle">Enter your credentials to securely access your account</p>
-                    
                     <div class="input-group">
-                        <label class="input-label"><i class="fas fa-envelope"></i> Email Address</label>
-                        <input type="email" class="input-field" id="loginEmail" placeholder="your.email@company.com" required>
+                        <label class="input-label">Email Address</label>
+                        <input type="email" class="input-field" id="loginEmail" placeholder="name@gmail.com" required>
                         <div class="error-message" id="loginEmailError"></div>
                     </div>
                     
                     <div class="input-group">
-                        <label class="input-label"><i class="fas fa-lock"></i> Password</label>
+                        <label class="input-label">Password</label>
                         <div class="password-container">
                             <input type="password" class="input-field" id="loginPassword" placeholder="Enter your password" required>
-                            <button type="button" class="password-toggle" id="loginPasswordToggle">
+                            <span class="password-toggle" id="loginPasswordToggle">
                                 <i class="fas fa-eye"></i>
-                            </button>
+                            </span>
                         </div>
                         <div class="error-message" id="loginPasswordError"></div>
                     </div>
                     
-                    <div class="form-options">
-                        <div class="remember-me">
-                            <input type="checkbox" class="remember-checkbox" id="rememberLogin">
-                            <label for="rememberLogin">Keep me signed in</label>
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">Security Code (Optional)</label>
+                            <input type="text" class="input-field" id="loginSecurityCode" placeholder="2FA code if enabled">
                         </div>
-                        <a href="#" class="forgot-password">Forgot password?</a>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Device</label>
+                            <select class="input-field" id="loginDevice">
+                                <option value="desktop">Desktop</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="tablet">Tablet</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" class="remember-checkbox" id="rememberLogin">
+                        <label for="rememberLogin">Remember me on this device</label>
                     </div>
                     
                     <button type="submit" class="submit-btn" id="loginSubmit">
-                        <i class="fas fa-sign-in-alt"></i> SIGN IN TO DASHBOARD
+                        <i class="fas fa-sign-in-alt"></i> LOGIN NOW
                     </button>
                     
-                    <div class="alternate-action">
-                        Don't have an account? <a href="#" id="switchToSignup">Create Account</a>
-                    </div>
+                    <button type="button" class="create-account-btn" id="switchToSignup">
+                        CREATE NEW ACCOUNT
+                    </button>
                     
                     <div class="success-message" id="loginSuccess"></div>
                 </form>
                 
                 <!-- Signup Form -->
                 <form class="form hidden" id="signupForm">
-                    <h2 class="form-title">Create Your Account</h2>
-                    <p class="form-subtitle">Fill in your details to create a secure account</p>
-                    
-                    <!-- Progress Indicator -->
-                    <div class="progress-indicator">
-                        <div class="progress-line"></div>
-                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">First Name</label>
+                            <input type="text" class="input-field" id="signupFirstName" placeholder="Enter your first name" required>
+                            <div class="error-message" id="signupFirstNameError"></div>
+                        </div>
                         
-                        <div class="progress-step">
-                            <div class="step-circle active" id="step1">1</div>
-                            <div class="step-label active">Personal</div>
-                        </div>
-                        <div class="progress-step">
-                            <div class="step-circle" id="step2">2</div>
-                            <div class="step-label">Account</div>
-                        </div>
-                        <div class="progress-step">
-                            <div class="step-circle" id="step3">3</div>
-                            <div class="step-label">Security</div>
+                        <div class="input-group">
+                            <label class="input-label">Last Name</label>
+                            <input type="text" class="input-field" id="signupLastName" placeholder="Enter your last name" required>
+                            <div class="error-message" id="signupLastNameError"></div>
                         </div>
                     </div>
                     
-                    <!-- Step 1: Personal Information -->
-                    <div class="form-step active" id="step1Form">
-                        <div class="row">
-                            <div class="input-group">
-                                <label class="input-label"><i class="fas fa-user"></i> First Name</label>
-                                <input type="text" class="input-field" id="signupFirstName" placeholder="Enter your first name" required>
-                                <div class="error-message" id="signupFirstNameError"></div>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label class="input-label"><i class="fas fa-user"></i> Last Name</label>
-                                <input type="text" class="input-field" id="signupLastName" placeholder="Enter your last name" required>
-                                <div class="error-message" id="signupLastNameError"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label class="input-label"><i class="fas fa-calendar"></i> Date of Birth</label>
-                            <input type="date" class="input-field" id="signupDob" required>
-                            <div class="error-message" id="signupDobError"></div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label class="input-label"><i class="fas fa-venus-mars"></i> Gender</label>
-                            <div class="gender-selection">
-                                <div class="gender-option" data-gender="male">
-                                    <i class="fas fa-mars"></i>
-                                    <span>Male</span>
-                                </div>
-                                <div class="gender-option" data-gender="female">
-                                    <i class="fas fa-venus"></i>
-                                    <span>Female</span>
-                                </div>
-                                <div class="gender-option" data-gender="other">
-                                    <i class="fas fa-transgender-alt"></i>
-                                    <span>Other</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="selectedGender" value="">
-                            <div class="error-message" id="signupGenderError"></div>
-                        </div>
-                        
-                        <button type="button" class="submit-btn" id="nextStep1">
-                            <i class="fas fa-arrow-right"></i> CONTINUE TO ACCOUNT DETAILS
-                        </button>
+                    <div class="input-group">
+                        <label class="input-label">Email Address</label>
+                        <input type="email" class="input-field" id="signupEmail" placeholder="name@gmail.com" required>
+                        <div class="error-message" id="signupEmailError"></div>
                     </div>
                     
-                    <!-- Step 2: Account Information -->
-                    <div class="form-step hidden" id="step2Form">
+                    <div class="row">
                         <div class="input-group">
-                            <label class="input-label"><i class="fas fa-envelope"></i> Email Address</label>
-                            <input type="email" class="input-field" id="signupEmail" placeholder="your.email@company.com" required>
-                            <div class="error-message" id="signupEmailError"></div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label class="input-label"><i class="fas fa-at"></i> Username</label>
+                            <label class="input-label">Username</label>
                             <input type="text" class="input-field" id="signupUsername" placeholder="Choose a username" required>
                             <div class="error-message" id="signupUsernameError"></div>
                         </div>
                         
-                        <div class="row">
-                            <div class="input-group">
-                                <label class="input-label"><i class="fas fa-lock"></i> Password</label>
-                                <div class="password-container">
-                                    <input type="password" class="input-field" id="signupPassword" placeholder="Create a strong password" required>
-                                    <button type="button" class="password-toggle" id="signupPasswordToggle">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                                <div class="error-message" id="signupPasswordError"></div>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label class="input-label"><i class="fas fa-lock"></i> Confirm Password</label>
-                                <div class="password-container">
-                                    <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm your password" required>
-                                    <button type="button" class="password-toggle" id="signupConfirmPasswordToggle">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                                <div class="error-message" id="signupConfirmPasswordError"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <button type="button" class="submit-btn" id="prevStep2">
-                                <i class="fas fa-arrow-left"></i> BACK
-                            </button>
-                            <button type="button" class="submit-btn" id="nextStep2">
-                                <i class="fas fa-arrow-right"></i> CONTINUE TO SECURITY
-                            </button>
+                        <div class="input-group">
+                            <label class="input-label">Date of Birth</label>
+                            <input type="date" class="input-field" id="signupDob" required>
+                            <div class="error-message" id="signupDobError"></div>
                         </div>
                     </div>
                     
-                    <!-- Step 3: Security & Finish -->
-                    <div class="form-step hidden" id="step3Form">
-                        <div class="input-group">
-                            <label class="input-label"><i class="fas fa-shield-alt"></i> Security Preferences</label>
-                            <div class="remember-me">
-                                <input type="checkbox" class="remember-checkbox" id="twoFactorAuth">
-                                <label for="twoFactorAuth">Enable two-factor authentication (recommended)</label>
-                            </div>
-                            <div class="remember-me">
-                                <input type="checkbox" class="remember-checkbox" id="securityEmails" checked>
-                                <label for="securityEmails">Send me security alerts and notifications</label>
-                            </div>
+                    <div class="input-group">
+                        <label class="input-label">Gender</label>
+                        <div class="gender-selection">
+                            <div class="gender-option" data-gender="male">Male</div>
+                            <div class="gender-option" data-gender="female">Female</div>
+                            <div class="gender-option" data-gender="other">Other</div>
                         </div>
-                        
-                        <div class="input-group">
-                            <label class="input-label"><i class="fas fa-file-contract"></i> Terms & Conditions</label>
-                            <div class="remember-me">
-                                <input type="checkbox" class="remember-checkbox" id="termsAgreement" required>
-                                <label for="termsAgreement">I agree to the Terms & Conditions and Privacy Policy</label>
-                            </div>
-                            <div class="error-message" id="termsError"></div>
-                        </div>
-                        
-                        <div class="row">
-                            <button type="button" class="submit-btn" id="prevStep3">
-                                <i class="fas fa-arrow-left"></i> BACK
-                            </button>
-                            <!-- FINISH BUTTON - This appears after all details are filled -->
-                            <button type="submit" class="finish-btn" id="signupSubmit">
-                                <i class="fas fa-check-circle"></i> COMPLETE ACCOUNT CREATION
-                            </button>
-                        </div>
-                        
-                        <div class="success-message" id="signupSuccess"></div>
+                        <input type="hidden" id="selectedGender" value="">
+                        <div class="error-message" id="signupGenderError"></div>
                     </div>
                     
-                    <div class="alternate-action">
-                        Already have an account? <a href="#" id="switchToLogin">Sign In</a>
+                    <div class="row">
+                        <div class="input-group">
+                            <label class="input-label">Password</label>
+                            <div class="password-container">
+                                <input type="password" class="input-field" id="signupPassword" placeholder="Create a strong password" required>
+                                <span class="password-toggle" id="signupPasswordToggle">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="error-message" id="signupPasswordError"></div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Confirm Password</label>
+                            <div class="password-container">
+                                <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                                <span class="password-toggle" id="signupConfirmPasswordToggle">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="error-message" id="signupConfirmPasswordError"></div>
+                        </div>
                     </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Phone Number (Optional)</label>
+                        <input type="tel" class="input-field" id="signupPhone" placeholder="+1 (123) 456-7890">
+                    </div>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" class="remember-checkbox" id="termsAgreement" required>
+                        <label for="termsAgreement">I agree to the Terms & Conditions and Privacy Policy</label>
+                    </div>
+                    <div class="error-message" id="termsError"></div>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" class="remember-checkbox" id="marketingEmails">
+                        <label for="marketingEmails">Send me security updates and notifications</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="signupSubmit">
+                        <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+                    </button>
+                    
+                    <button type="button" class="create-account-btn" id="switchToLogin">
+                        BACK TO LOGIN
+                    </button>
+                    
+                    <div class="success-message" id="signupSuccess"></div>
                 </form>
             </div>
         </div>
         
-        <!-- Right side - Professional Characters -->
+        <!-- Right side - Animated Characters -->
         <div class="character-section">
             <div class="characters-container">
-                <!-- Character 1 - Shield Bot (Pentagon) -->
+                <!-- Character 1 -->
                 <div class="character-wrapper">
                     <div class="character character-1" id="character1">
-                        <div class="char1-body">
-                            <div class="char1-face">
-                                <div class="char1-eyes">
-                                    <div class="char1-eye" id="char1LeftEye"></div>
-                                    <div class="char1-eye" id="char1RightEye"></div>
+                        <div class="character-hair"></div>
+                        <div class="character-body">
+                            <div class="character-face">
+                                <div class="character-eyes">
+                                    <div class="eye" id="char1LeftEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                    <div class="eye" id="char1RightEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
                                 </div>
-                                <div class="char1-mouth" id="char1Mouth"></div>
+                                <div class="character-mouth" id="char1Mouth"></div>
                             </div>
                         </div>
-                        <div class="char1-shield">
-                            <i class="fas fa-shield-alt"></i>
+                        <div class="character-arms">
+                            <div class="arm arm-left" id="char1LeftArm"></div>
+                            <div class="arm arm-right" id="char1RightArm"></div>
+                        </div>
+                        <div class="character-legs">
+                            <div class="leg"></div>
+                            <div class="leg"></div>
                         </div>
                     </div>
-                    <div class="character-name">Security Shield</div>
+                    <div class="character-name">Security Bot</div>
                 </div>
                 
-                <!-- Character 2 - Helper Bot (Rectangle) -->
+                <!-- Character 2 -->
                 <div class="character-wrapper">
                     <div class="character character-2" id="character2">
-                        <div class="char2-body">
-                            <div class="char2-screen">
-                                <div class="screen-content" id="screenContent">Ready to assist</div>
-                            </div>
-                            <div class="char2-eyes">
-                                <div class="char2-eye" id="char2LeftEye"></div>
-                                <div class="char2-eye" id="char2RightEye"></div>
-                            </div>
-                            <div class="char2-arms">
-                                <div class="char2-arm" id="char2LeftArm"></div>
-                                <div class="char2-arm" id="char2RightArm"></div>
+                        <div class="character-hair"></div>
+                        <div class="character-body">
+                            <div class="character-face">
+                                <div class="character-eyes">
+                                    <div class="eye" id="char2LeftEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                    <div class="eye" id="char2RightEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                </div>
+                                <div class="character-mouth" id="char2Mouth"></div>
                             </div>
                         </div>
+                        <div class="character-arms">
+                            <div class="arm arm-left" id="char2LeftArm"></div>
+                            <div class="arm arm-right" id="char2RightArm"></div>
+                        </div>
+                        <div class="character-legs">
+                            <div class="leg"></div>
+                            <div class="leg"></div>
+                        </div>
                     </div>
-                    <div class="character-name">Data Assistant</div>
+                    <div class="character-name">Helper Bot</div>
                 </div>
                 
-                <!-- Character 3 - Guide Bot (Triangle) -->
+                <!-- Character 3 -->
                 <div class="character-wrapper">
                     <div class="character character-3" id="character3">
-                        <div class="char3-body">
-                            <div class="char3-face">
-                                <div class="char3-eyes">
-                                    <div class="char3-eye" id="char3LeftEye"></div>
-                                    <div class="char3-eye" id="char3RightEye"></div>
+                        <div class="character-hair"></div>
+                        <div class="character-body">
+                            <div class="character-face">
+                                <div class="character-eyes">
+                                    <div class="eye" id="char3LeftEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
+                                    <div class="eye" id="char3RightEye">
+                                        <div class="eye-lid"></div>
+                                    </div>
                                 </div>
-                                <div class="char3-mouth" id="char3Mouth"></div>
+                                <div class="character-mouth" id="char3Mouth"></div>
                             </div>
-                            <div class="char3-antenna"></div>
+                        </div>
+                        <div class="character-arms">
+                            <div class="arm arm-left" id="char3LeftArm"></div>
+                            <div class="arm arm-right" id="char3RightArm"></div>
+                        </div>
+                        <div class="character-legs">
+                            <div class="leg"></div>
+                            <div class="leg"></div>
                         </div>
                     </div>
-                    <div class="character-name">Guidance System</div>
+                    <div class="character-name">Guide Bot</div>
                 </div>
             </div>
             
             <div class="status-message" id="characterStatus">
-                Our AI assistants are ready to guide you through the secure account creation process.
+                Hello! We're your security assistants. Ready to help you login securely.
             </div>
             
             <div class="security-indicators">
                 <div class="security-indicator" id="encryptionIndicator">
                     <div class="indicator-icon"><i class="fas fa-lock"></i></div>
-                    <div class="indicator-text">End-to-End Encryption</div>
+                    <div class="indicator-text">Encryption</div>
                 </div>
                 <div class="security-indicator" id="validationIndicator">
-                    <div class="indicator-icon"><i class="fas fa-check-double"></i></div>
-                    <div class="indicator-text">Real-Time Validation</div>
+                    <div class="indicator-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="indicator-text">Validation</div>
                 </div>
                 <div class="security-indicator" id="sessionIndicator">
                     <div class="indicator-icon"><i class="fas fa-user-shield"></i></div>
@@ -1440,28 +1013,15 @@
         const switchToSignup = document.getElementById('switchToSignup');
         const switchToLogin = document.getElementById('switchToLogin');
         
-        // Form step elements
-        const step1Form = document.getElementById('step1Form');
-        const step2Form = document.getElementById('step2Form');
-        const step3Form = document.getElementById('step3Form');
-        const step1Circle = document.getElementById('step1');
-        const step2Circle = document.getElementById('step2');
-        const step3Circle = document.getElementById('step3');
-        const step1Label = document.querySelector('#step1 .step-label');
-        const step2Label = document.querySelector('#step2 .step-label');
-        const step3Label = document.querySelector('#step3 .step-label');
-        const progressFill = document.getElementById('progressFill');
-        const nextStep1 = document.getElementById('nextStep1');
-        const nextStep2 = document.getElementById('nextStep2');
-        const prevStep2 = document.getElementById('prevStep2');
-        const prevStep3 = document.getElementById('prevStep3');
-        
         // Character elements
-        const char1Mouth = document.getElementById('char1Mouth');
-        const char2Screen = document.getElementById('screenContent');
-        const char3Mouth = document.getElementById('char3Mouth');
-        const char2LeftArm = document.getElementById('char2LeftArm');
-        const char2RightArm = document.getElementById('char2RightArm');
+        const characters = [
+            { id: 1, leftEye: document.getElementById('char1LeftEye'), rightEye: document.getElementById('char1RightEye'), 
+              mouth: document.getElementById('char1Mouth'), leftArm: document.getElementById('char1LeftArm'), rightArm: document.getElementById('char1RightArm') },
+            { id: 2, leftEye: document.getElementById('char2LeftEye'), rightEye: document.getElementById('char2RightEye'), 
+              mouth: document.getElementById('char2Mouth'), leftArm: document.getElementById('char2LeftArm'), rightArm: document.getElementById('char2RightArm') },
+            { id: 3, leftEye: document.getElementById('char3LeftEye'), rightEye: document.getElementById('char3RightEye'), 
+              mouth: document.getElementById('char3Mouth'), leftArm: document.getElementById('char3LeftArm'), rightArm: document.getElementById('char3RightArm') }
+        ];
         
         const characterStatus = document.getElementById('characterStatus');
         
@@ -1476,9 +1036,6 @@
         const validationIndicator = document.getElementById('validationIndicator');
         const sessionIndicator = document.getElementById('sessionIndicator');
         
-        // Current form step
-        let currentStep = 1;
-        
         // Form toggle functionality
         function showLoginForm() {
             loginToggle.classList.add('active');
@@ -1487,7 +1044,7 @@
             loginForm.classList.add('active');
             signupForm.classList.remove('active');
             signupForm.classList.add('hidden');
-            updateCharacterStatus("Welcome back! Ready to securely access your dashboard.", 1);
+            updateCharacterStatus("Ready to login? Enter your credentials securely.", 0);
             resetCharacterExpressions();
         }
         
@@ -1498,221 +1055,14 @@
             signupForm.classList.add('active');
             loginForm.classList.remove('active');
             loginForm.classList.add('hidden');
-            updateCharacterStatus("Let's create your secure account! We'll guide you through each step.", 2);
+            updateCharacterStatus("Let's create your secure account! Fill in your details.", 1);
             resetCharacterExpressions();
-            goToStep(1);
         }
         
         loginToggle.addEventListener('click', showLoginForm);
         signupToggle.addEventListener('click', showSignupForm);
         switchToSignup.addEventListener('click', showSignupForm);
         switchToLogin.addEventListener('click', showLoginForm);
-        
-        // Form step navigation
-        function goToStep(step) {
-            // Hide all steps
-            step1Form.classList.add('hidden');
-            step2Form.classList.add('hidden');
-            step3Form.classList.add('hidden');
-            
-            // Remove active classes from all steps
-            step1Circle.classList.remove('active', 'completed');
-            step2Circle.classList.remove('active', 'completed');
-            step3Circle.classList.remove('active', 'completed');
-            step1Label.classList.remove('active');
-            step2Label.classList.remove('active');
-            step3Label.classList.remove('active');
-            
-            // Show current step
-            if (step === 1) {
-                step1Form.classList.remove('hidden');
-                step1Circle.classList.add('active');
-                step1Label.classList.add('active');
-                progressFill.style.width = '0%';
-                updateCharacterStatus("Let's start with your personal information.", 1);
-            } else if (step === 2) {
-                step2Form.classList.remove('hidden');
-                step1Circle.classList.add('completed');
-                step2Circle.classList.add('active');
-                step2Label.classList.add('active');
-                progressFill.style.width = '50%';
-                updateCharacterStatus("Now set up your account credentials.", 2);
-            } else if (step === 3) {
-                step3Form.classList.remove('hidden');
-                step1Circle.classList.add('completed');
-                step2Circle.classList.add('completed');
-                step3Circle.classList.add('active');
-                step3Label.classList.add('active');
-                progressFill.style.width = '100%';
-                updateCharacterStatus("Final step! Configure security preferences and finish.", 3);
-                // Show finish button prominently
-                document.getElementById('signupSubmit').style.display = 'flex';
-            }
-            
-            currentStep = step;
-        }
-        
-        // Step navigation event listeners
-        nextStep1.addEventListener('click', function() {
-            // Validate step 1
-            if (validateStep1()) {
-                goToStep(2);
-                animateCharacterWave(2);
-            }
-        });
-        
-        nextStep2.addEventListener('click', function() {
-            // Validate step 2
-            if (validateStep2()) {
-                goToStep(3);
-                animateCharacterHappy(1);
-            }
-        });
-        
-        prevStep2.addEventListener('click', function() {
-            goToStep(1);
-            updateCharacterStatus("Review your personal information.", 3);
-        });
-        
-        prevStep3.addEventListener('click', function() {
-            goToStep(2);
-            updateCharacterStatus("Adjust your account credentials if needed.", 2);
-        });
-        
-        // Step validation functions
-        function validateStep1() {
-            const firstName = document.getElementById('signupFirstName').value;
-            const lastName = document.getElementById('signupLastName').value;
-            const dob = document.getElementById('signupDob').value;
-            const gender = document.getElementById('selectedGender').value;
-            
-            let isValid = true;
-            
-            // Reset errors
-            document.getElementById('signupFirstNameError').style.display = 'none';
-            document.getElementById('signupLastNameError').style.display = 'none';
-            document.getElementById('signupDobError').style.display = 'none';
-            document.getElementById('signupGenderError').style.display = 'none';
-            
-            // Validate first name
-            if (!firstName.trim()) {
-                document.getElementById('signupFirstNameError').textContent = 'First name is required';
-                document.getElementById('signupFirstNameError').style.display = 'block';
-                isValid = false;
-                animateCharacterSad(1);
-            }
-            
-            // Validate last name
-            if (!lastName.trim()) {
-                document.getElementById('signupLastNameError').textContent = 'Last name is required';
-                document.getElementById('signupLastNameError').style.display = 'block';
-                isValid = false;
-                animateCharacterSad(2);
-            }
-            
-            // Validate date of birth
-            if (!dob) {
-                document.getElementById('signupDobError').textContent = 'Date of birth is required';
-                document.getElementById('signupDobError').style.display = 'block';
-                isValid = false;
-                animateCharacterSad(3);
-            } else {
-                const birthDate = new Date(dob);
-                const today = new Date();
-                const age = today.getFullYear() - birthDate.getFullYear();
-                if (age < 13) {
-                    document.getElementById('signupDobError').textContent = 'You must be at least 13 years old';
-                    document.getElementById('signupDobError').style.display = 'block';
-                    isValid = false;
-                    animateCharacterSad(1);
-                }
-            }
-            
-            // Validate gender
-            if (!gender) {
-                document.getElementById('signupGenderError').textContent = 'Please select your gender';
-                document.getElementById('signupGenderError').style.display = 'block';
-                isValid = false;
-                animateCharacterSad(2);
-            }
-            
-            if (isValid) {
-                updateCharacterStatus("Great! Personal information looks good.", 1);
-                animateCharacterHappy(1);
-                return true;
-            } else {
-                updateCharacterStatus("Please check the highlighted fields.", 3);
-                return false;
-            }
-        }
-        
-        function validateStep2() {
-            const email = document.getElementById('signupEmail').value;
-            const username = document.getElementById('signupUsername').value;
-            const password = document.getElementById('signupPassword').value;
-            const confirmPassword = document.getElementById('signupConfirmPassword').value;
-            
-            let isValid = true;
-            
-            // Reset errors
-            document.getElementById('signupEmailError').style.display = 'none';
-            document.getElementById('signupUsernameError').style.display = 'none';
-            document.getElementById('signupPasswordError').style.display = 'none';
-            document.getElementById('signupConfirmPasswordError').style.display = 'none';
-            
-            // Validate email
-            if (!email.trim()) {
-                document.getElementById('signupEmailError').textContent = 'Email is required';
-                document.getElementById('signupEmailError').style.display = 'block';
-                isValid = false;
-            } else if (!validateEmail(email)) {
-                document.getElementById('signupEmailError').textContent = 'Please enter a valid email address';
-                document.getElementById('signupEmailError').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validate username
-            if (!username.trim()) {
-                document.getElementById('signupUsernameError').textContent = 'Username is required';
-                document.getElementById('signupUsernameError').style.display = 'block';
-                isValid = false;
-            } else if (username.length < 3) {
-                document.getElementById('signupUsernameError').textContent = 'Username must be at least 3 characters';
-                document.getElementById('signupUsernameError').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validate password
-            if (!password) {
-                document.getElementById('signupPasswordError').textContent = 'Password is required';
-                document.getElementById('signupPasswordError').style.display = 'block';
-                isValid = false;
-            } else if (!validatePassword(password)) {
-                document.getElementById('signupPasswordError').textContent = 'Password must be at least 8 characters with uppercase, lowercase, and a number';
-                document.getElementById('signupPasswordError').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validate confirm password
-            if (!confirmPassword) {
-                document.getElementById('signupConfirmPasswordError').textContent = 'Please confirm your password';
-                document.getElementById('signupConfirmPasswordError').style.display = 'block';
-                isValid = false;
-            } else if (password !== confirmPassword) {
-                document.getElementById('signupConfirmPasswordError').textContent = 'Passwords do not match';
-                document.getElementById('signupConfirmPasswordError').style.display = 'block';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                updateCharacterStatus("Account credentials are secure and valid.", 2);
-                animateCharacterWave(2);
-                return true;
-            } else {
-                updateCharacterStatus("Please check your account details.", 3);
-                return false;
-            }
-        }
         
         // Password toggle functionality
         function setupPasswordToggle(passwordFieldId, toggleButtonId) {
@@ -1724,14 +1074,15 @@
                     passwordField.type = 'text';
                     toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
                     // Character reaction to password being shown
-                    char1Mouth.classList.add('surprised');
-                    char3Mouth.classList.add('surprised');
-                    char2Screen.textContent = "Password visible";
-                    updateCharacterStatus("Password is now visible. Remember to hide it when done.", 1);
+                    characters.forEach(char => {
+                        char.mouth.classList.add('surprised');
+                    });
+                    updateCharacterStatus("Careful! Your password is now visible.", 0);
                     setTimeout(() => {
-                        char1Mouth.classList.remove('surprised');
-                        char3Mouth.classList.remove('surprised');
-                        char2Screen.textContent = "Ready to assist";
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                        });
+                        updateCharacterStatus("Remember to hide your password when done.", 1);
                     }, 2000);
                 } else {
                     passwordField.type = 'password';
@@ -1756,7 +1107,7 @@
                 selectedGenderInput.value = option.getAttribute('data-gender');
                 // Character reaction to gender selection
                 animateCharacterWave(1);
-                updateCharacterStatus(`Gender preference saved: ${option.querySelector('span').textContent}`, 2);
+                updateCharacterStatus(`Gender selected: ${option.textContent}`, 1);
             });
         });
         
@@ -1764,92 +1115,90 @@
         function updateCharacterStatus(message, charIndex = null) {
             characterStatus.textContent = message;
             
-            // Update character 2 screen
-            if (charIndex === 2) {
-                char2Screen.textContent = message.length > 20 ? message.substring(0, 20) + "..." : message;
-            }
-            
             // Character reactions based on message
-            if (message.includes("Great!") || message.includes("secure") || message.includes("valid")) {
-                char1Mouth.classList.add('smiling');
-                char3Mouth.classList.add('smiling');
-                animateCharacterHappy(charIndex || 1);
-            } else if (message.includes("error") || message.includes("wrong") || message.includes("invalid") || message.includes("check")) {
-                char1Mouth.classList.remove('smiling');
-                char3Mouth.classList.remove('smiling');
-                animateCharacterSad(charIndex || 1);
+            if (message.includes("Great!")) {
+                characters.forEach(char => char.mouth.classList.add('smiling'));
+            } else if (message.includes("error") || message.includes("wrong") || message.includes("invalid")) {
+                characters.forEach(char => {
+                    char.mouth.classList.remove('smiling');
+                    animateCharacterSad(char.id);
+                });
             }
         }
         
         function resetCharacterExpressions() {
-            char1Mouth.className = 'char1-mouth';
-            char3Mouth.className = 'char3-mouth';
-            char2Screen.textContent = "Ready to assist";
-            char2LeftArm.style.transform = 'rotate(0deg)';
-            char2RightArm.style.transform = 'rotate(0deg)';
+            characters.forEach(char => {
+                char.mouth.className = 'character-mouth';
+                char.leftArm.style.transform = 'rotate(0deg)';
+                char.rightArm.style.transform = 'rotate(0deg)';
+            });
+        }
+        
+        function characterBlink(charIndex) {
+            const char = characters[charIndex];
+            char.leftEye.classList.add('blinking');
+            char.rightEye.classList.add('blinking');
+            
+            setTimeout(() => {
+                char.leftEye.classList.remove('blinking');
+                char.rightEye.classList.remove('blinking');
+            }, 200);
         }
         
         function animateCharacterWave(charIndex) {
-            if (charIndex === 2) {
-                char2LeftArm.style.transform = 'rotate(-30deg)';
-                char2RightArm.style.transform = 'rotate(30deg)';
-                
-                setTimeout(() => {
-                    char2LeftArm.style.transform = 'rotate(0deg)';
-                    char2RightArm.style.transform = 'rotate(0deg)';
-                }, 500);
-            }
+            const char = characters[charIndex];
+            char.rightArm.style.transform = 'rotate(-60deg)';
+            
+            setTimeout(() => {
+                char.rightArm.style.transform = 'rotate(0deg)';
+            }, 500);
+        }
+        
+        function animateCharacterNod(charIndex) {
+            const characterElement = document.getElementById(`character${charIndex + 1}`);
+            characterElement.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                characterElement.style.transform = 'translateY(0)';
+            }, 300);
+            
+            setTimeout(() => {
+                characterElement.style.transform = 'translateY(-10px)';
+            }, 600);
+            
+            setTimeout(() => {
+                characterElement.style.transform = 'translateY(0)';
+            }, 900);
         }
         
         function animateCharacterHappy(charIndex) {
-            if (charIndex === 1) {
-                char1Mouth.classList.add('smiling');
-                setTimeout(() => {
-                    char1Mouth.classList.remove('smiling');
-                }, 2000);
-            } else if (charIndex === 3) {
-                char3Mouth.classList.add('smiling');
-                setTimeout(() => {
-                    char3Mouth.classList.remove('smiling');
-                }, 2000);
-            }
+            const char = characters[charIndex];
+            char.mouth.classList.add('smiling');
+            char.leftArm.style.transform = 'rotate(-30deg)';
+            char.rightArm.style.transform = 'rotate(30deg)';
+            
+            setTimeout(() => {
+                char.leftArm.style.transform = 'rotate(0deg)';
+                char.rightArm.style.transform = 'rotate(0deg)';
+            }, 1000);
         }
         
         function animateCharacterSad(charIndex) {
-            if (charIndex === 1) {
-                char1Mouth.style.borderRadius = '20px 20px 0 0';
-                char1Mouth.style.transform = 'translateY(5px)';
-                
-                setTimeout(() => {
-                    char1Mouth.style.borderRadius = '';
-                    char1Mouth.style.transform = '';
-                }, 1500);
-            } else if (charIndex === 3) {
-                char3Mouth.style.borderRadius = '20px 20px 0 0';
-                char3Mouth.style.transform = 'translateY(5px)';
-                
-                setTimeout(() => {
-                    char3Mouth.style.borderRadius = '';
-                    char3Mouth.style.transform = '';
-                }, 1500);
-            }
+            const char = characters[charIndex];
+            char.mouth.style.borderRadius = '20px 20px 0 0';
+            char.mouth.style.transform = 'translateY(5px)';
+            
+            setTimeout(() => {
+                char.mouth.style.borderRadius = '';
+                char.mouth.style.transform = '';
+            }, 1500);
         }
         
-        // Regular character animations
+        // Regular blinking for all characters
         setInterval(() => {
-            // Random character actions
-            const randomChar = Math.floor(Math.random() * 3) + 1;
-            const randomAction = Math.floor(Math.random() * 3);
-            
-            if (randomAction === 0 && randomChar === 2) {
-                animateCharacterWave(2);
-            } else if (randomAction === 1 && randomChar === 1) {
-                char1Mouth.classList.add('smiling');
-                setTimeout(() => {
-                    char1Mouth.classList.remove('smiling');
-                }, 1000);
-            }
-        }, 8000);
+            const randomChar = Math.floor(Math.random() * 3);
+            characterBlink(randomChar);
+        }, 3000);
         
         // Character reactions to form interactions
         const allInputs = document.querySelectorAll('.input-field');
@@ -1857,19 +1206,27 @@
             // When focusing on input (especially password)
             input.addEventListener('focus', function() {
                 if (this.type === 'password') {
-                    updateCharacterStatus("Your password is encrypted and secure.", 1);
-                    char1Mouth.classList.add('smiling');
+                    // Characters close eyes when password is being entered
+                    characters.forEach(char => {
+                        char.leftEye.querySelector('.eye-lid').style.height = '100%';
+                        char.rightEye.querySelector('.eye-lid').style.height = '100%';
+                    });
+                    updateCharacterStatus("Don't worry, we can't see your password. It's safe with us!", 0);
+                    animateCharacterNod(0);
                 } else if (this.type === 'email') {
-                    updateCharacterStatus("Enter your professional email address.", 2);
-                } else if (this.id === 'signupFirstName' || this.id === 'signupLastName') {
-                    updateCharacterStatus("Please provide your full legal name.", 3);
+                    updateCharacterStatus("Great! I see you're entering your information.", 1);
+                    animateCharacterHappy(1);
                 }
             });
             
             // When leaving input
             input.addEventListener('blur', function() {
                 if (this.type === 'password') {
-                    char1Mouth.classList.remove('smiling');
+                    // Characters open eyes after password is entered
+                    characters.forEach(char => {
+                        char.leftEye.querySelector('.eye-lid').style.height = '0';
+                        char.rightEye.querySelector('.eye-lid').style.height = '0';
+                    });
                 }
             });
         });
@@ -1897,12 +1254,12 @@
             console.log(`Body: ${body}`);
             
             // Show notification
-            showEmailNotification(subject, `Email sent to ${to}. ${body.substring(0, 60)}...`);
+            showEmailNotification(subject, `Email sent to ${to}. ${body.substring(0, 50)}...`);
             
             // In a real app, you would make an API call to send the email
         }
         
-        // Validation functions
+        // Form validation and submission
         function validateEmail(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
@@ -1914,12 +1271,20 @@
             return re.test(String(password));
         }
         
+        function validatePhone(phone) {
+            if (!phone) return true; // Optional
+            const re = /^[\+]?[1-9][\d]{0,15}$/;
+            return re.test(String(phone).replace(/[\s\-\(\)]/g, ''));
+        }
+        
         // Login form submission
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
+            const securityCode = document.getElementById('loginSecurityCode').value;
+            const device = document.getElementById('loginDevice').value;
             const rememberMe = document.getElementById('rememberLogin').checked;
             
             let isValid = true;
@@ -1953,9 +1318,8 @@
             
             if (isValid) {
                 // Simulate authentication process with visual feedback
-                updateCharacterStatus("Authenticating your credentials...", 1);
-                char1Mouth.classList.add('surprised');
-                char3Mouth.classList.add('surprised');
+                updateCharacterStatus("Verifying your credentials...", 0);
+                characters.forEach(char => char.mouth.classList.add('surprised'));
                 
                 // Show security indicators
                 encryptionIndicator.classList.add('active');
@@ -1970,37 +1334,39 @@
                         const userData = JSON.parse(storedUser);
                         if (email === userData.email && password === userData.password) {
                             // Login successful
-                            document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting to dashboard...';
+                            document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting...';
                             document.getElementById('loginSuccess').style.display = 'block';
                             
                             // Update characters
-                            char1Mouth.classList.remove('surprised');
-                            char3Mouth.classList.remove('surprised');
-                            char1Mouth.classList.add('smiling');
-                            char3Mouth.classList.add('smiling');
-                            updateCharacterStatus("Authentication successful! Welcome to your secure dashboard.", 2);
+                            characters.forEach(char => {
+                                char.mouth.classList.remove('surprised');
+                                char.mouth.classList.add('smiling');
+                            });
+                            updateCharacterStatus("Welcome back! Your credentials are verified.", 2);
+                            animateCharacterHappy(2);
                             
                             // Store session if remember me is checked
                             if (rememberMe) {
                                 const sessionData = {
                                     email: userData.email,
-                                    timestamp: new Date().getTime()
+                                    timestamp: new Date().getTime(),
+                                    device: device
                                 };
                                 localStorage.setItem('secureSession', JSON.stringify(sessionData));
                                 sessionIndicator.classList.add('active');
-                                updateCharacterStatus("Secure session established. You won't need to login again.", 3);
+                                updateCharacterStatus("Session saved. You won't need to login again on this device.", 1);
                             }
                             
                             // Send login notification email
                             sendEmail(
                                 userData.email,
-                                "Secure Access: New Login Detected",
-                                `Hello ${userData.firstName},\n\nA new login was detected on your Secure Access Pro account.\n\nTime: ${new Date().toLocaleString()}\nIf this was not you, please secure your account immediately.\n\nBest regards,\nSecure Access Pro Team`
+                                "Security Alert: New Login Detected",
+                                `Hello ${userData.firstName},\n\nA new login was detected on your account from a ${device} device.\nIf this was you, no action is required. If not, please secure your account immediately.\n\nTime: ${new Date().toLocaleString()}\n\nBest regards,\nSecure Access Team`
                             );
                             
                             // Simulate redirect
                             setTimeout(() => {
-                                alert(`Welcome ${userData.firstName}! You are now securely logged in.`);
+                                alert(`Welcome ${userData.firstName}! You are now logged in on ${device}.`);
                                 // In a real app, this would redirect to the dashboard
                                 // window.location.href = '/dashboard';
                             }, 1500);
@@ -2008,19 +1374,20 @@
                             // Invalid credentials
                             document.getElementById('loginPasswordError').textContent = 'Invalid email or password';
                             document.getElementById('loginPasswordError').style.display = 'block';
-                            updateCharacterStatus("Authentication failed. Please check your credentials.", 3);
-                            char1Mouth.classList.remove('surprised');
-                            char3Mouth.classList.remove('surprised');
-                            animateCharacterSad(1);
-                            animateCharacterSad(3);
+                            updateCharacterStatus("Hmm, those credentials don't match our records.", 0);
+                            characters.forEach(char => {
+                                char.mouth.classList.remove('surprised');
+                                animateCharacterSad(char.id - 1);
+                            });
                         }
                     } else {
                         // No user found
                         document.getElementById('loginEmailError').textContent = 'No account found with this email';
                         document.getElementById('loginEmailError').style.display = 'block';
-                        updateCharacterStatus("Account not found. Please create a new account.", 2);
-                        char1Mouth.classList.remove('surprised');
-                        char3Mouth.classList.remove('surprised');
+                        updateCharacterStatus("I can't find an account with that email. Try creating one!", 1);
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                        });
                     }
                     
                     // Reset security indicators after a delay
@@ -2031,15 +1398,14 @@
                     
                 }, 1500);
             } else {
-                updateCharacterStatus("Please check the form for errors.", 3);
+                updateCharacterStatus("Please check the form for errors.", 0);
             }
         });
         
-        // Signup form submission (FINAL FINISH BUTTON)
+        // Signup form submission
         signupForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get all form values
             const firstName = document.getElementById('signupFirstName').value;
             const lastName = document.getElementById('signupLastName').value;
             const email = document.getElementById('signupEmail').value;
@@ -2047,32 +1413,124 @@
             const dob = document.getElementById('signupDob').value;
             const gender = document.getElementById('selectedGender').value;
             const password = document.getElementById('signupPassword').value;
-            const twoFactorAuth = document.getElementById('twoFactorAuth').checked;
-            const securityEmails = document.getElementById('securityEmails').checked;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const phone = document.getElementById('signupPhone').value;
             const termsAgreed = document.getElementById('termsAgreement').checked;
+            const marketingEmails = document.getElementById('marketingEmails').checked;
             
-            // Validate terms
             let isValid = true;
-            document.getElementById('termsError').style.display = 'none';
+            
+            // Reset errors
+            document.querySelectorAll('#signupForm .error-message').forEach(el => {
+                el.style.display = 'none';
+            });
             document.getElementById('signupSuccess').style.display = 'none';
             
+            // Validate first name
+            if (!firstName) {
+                document.getElementById('signupFirstNameError').textContent = 'First name is required';
+                document.getElementById('signupFirstNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate last name
+            if (!lastName) {
+                document.getElementById('signupLastNameError').textContent = 'Last name is required';
+                document.getElementById('signupLastNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!email) {
+                document.getElementById('signupEmailError').textContent = 'Email is required';
+                document.getElementById('signupEmailError').style.display = 'block';
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                document.getElementById('signupEmailError').textContent = 'Please enter a valid email address';
+                document.getElementById('signupEmailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate username
+            if (!username) {
+                document.getElementById('signupUsernameError').textContent = 'Username is required';
+                document.getElementById('signupUsernameError').style.display = 'block';
+                isValid = false;
+            } else if (username.length < 3) {
+                document.getElementById('signupUsernameError').textContent = 'Username must be at least 3 characters';
+                document.getElementById('signupUsernameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate date of birth
+            if (!dob) {
+                document.getElementById('signupDobError').textContent = 'Date of birth is required';
+                document.getElementById('signupDobError').style.display = 'block';
+                isValid = false;
+            } else {
+                const birthDate = new Date(dob);
+                const today = new Date();
+                const age = today.getFullYear() - birthDate.getFullYear();
+                if (age < 13) {
+                    document.getElementById('signupDobError').textContent = 'You must be at least 13 years old';
+                    document.getElementById('signupDobError').style.display = 'block';
+                    isValid = false;
+                }
+            }
+            
+            // Validate gender
+            if (!gender) {
+                document.getElementById('signupGenderError').textContent = 'Please select your gender';
+                document.getElementById('signupGenderError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate password
+            if (!password) {
+                document.getElementById('signupPasswordError').textContent = 'Password is required';
+                document.getElementById('signupPasswordError').style.display = 'block';
+                isValid = false;
+            } else if (!validatePassword(password)) {
+                document.getElementById('signupPasswordError').textContent = 'Password must be at least 8 characters with uppercase, lowercase, and a number';
+                document.getElementById('signupPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate confirm password
+            if (!confirmPassword) {
+                document.getElementById('signupConfirmPasswordError').textContent = 'Please confirm your password';
+                document.getElementById('signupConfirmPasswordError').style.display = 'block';
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById('signupConfirmPasswordError').textContent = 'Passwords do not match';
+                document.getElementById('signupConfirmPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate phone
+            if (phone && !validatePhone(phone)) {
+                document.getElementById('signupPhone').style.borderColor = 'var(--error-color)';
+                isValid = false;
+            } else if (phone) {
+                document.getElementById('signupPhone').style.borderColor = '';
+            }
+            
+            // Validate terms
             if (!termsAgreed) {
                 document.getElementById('termsError').textContent = 'You must agree to the terms and conditions';
                 document.getElementById('termsError').style.display = 'block';
                 isValid = false;
-                animateCharacterSad(1);
             }
             
             if (isValid) {
                 // Simulate account creation process with visual feedback
-                updateCharacterStatus("Creating your secure account...", 1);
-                char1Mouth.classList.add('surprised');
-                char3Mouth.classList.add('surprised');
+                updateCharacterStatus("Creating your secure account...", 0);
+                characters.forEach(char => char.mouth.classList.add('surprised'));
+                animateCharacterNod(2);
                 
-                // Show all security indicators
+                // Show security indicators
                 encryptionIndicator.classList.add('active');
-                validationIndicator.classList.add('active');
-                sessionIndicator.classList.add('active');
+                setTimeout(() => validationIndicator.classList.add('active'), 500);
                 
                 // Simulate API call
                 setTimeout(() => {
@@ -2080,9 +1538,10 @@
                     if (localStorage.getItem('secureUser')) {
                         document.getElementById('signupEmailError').textContent = 'An account with this email already exists';
                         document.getElementById('signupEmailError').style.display = 'block';
-                        updateCharacterStatus("This email is already registered. Try logging in instead.", 2);
-                        char1Mouth.classList.remove('surprised');
-                        char3Mouth.classList.remove('surprised');
+                        updateCharacterStatus("This email is already registered. Try logging in instead.", 1);
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                        });
                     } else {
                         // Create user object
                         const userData = {
@@ -2093,8 +1552,8 @@
                             dob: dob,
                             gender: gender,
                             password: password,
-                            twoFactorAuth: twoFactorAuth,
-                            securityEmails: securityEmails,
+                            phone: phone || '',
+                            marketingEmails: marketingEmails,
                             createdAt: new Date().toISOString(),
                             verified: false
                         };
@@ -2107,18 +1566,18 @@
                         document.getElementById('signupSuccess').style.display = 'block';
                         
                         // Update characters
-                        char1Mouth.classList.remove('surprised');
-                        char3Mouth.classList.remove('surprised');
-                        char1Mouth.classList.add('smiling');
-                        char3Mouth.classList.add('smiling');
-                        updateCharacterStatus("Account created successfully! Welcome to Secure Access Pro.", 2);
-                        animateCharacterWave(2);
+                        characters.forEach(char => {
+                            char.mouth.classList.remove('surprised');
+                            char.mouth.classList.add('smiling');
+                        });
+                        updateCharacterStatus("Welcome aboard! Your account is now secure and ready to use.", 2);
+                        animateCharacterHappy(2);
                         
                         // Send welcome email
                         sendEmail(
                             email,
-                            "Welcome to Secure Access Pro!",
-                            `Hello ${firstName},\n\nYour Secure Access Pro account has been successfully created.\n\nAccount Details:\n- Name: ${firstName} ${lastName}\n- Username: ${username}\n- Email: ${email}\n- Account Created: ${new Date().toLocaleDateString()}\n\nWe're committed to keeping your data secure with enterprise-grade encryption.\n\nBest regards,\nSecure Access Pro Team`
+                            "Welcome to Secure Access!",
+                            `Hello ${firstName},\n\nThank you for creating an account with Secure Access. Your account has been successfully created.\n\nAccount Details:\n- Name: ${firstName} ${lastName}\n- Username: ${username}\n- Email: ${email}\n\nPlease verify your email address by clicking the link below (simulated).\n\nWe're committed to keeping your data secure.\n\nBest regards,\nSecure Access Team`
                         );
                         
                         // Switch to login form after a delay
@@ -2127,7 +1586,7 @@
                             // Pre-fill login form
                             document.getElementById('loginEmail').value = email;
                             document.getElementById('loginPassword').value = password;
-                            updateCharacterStatus("Credentials filled. Ready for secure login!", 3);
+                            updateCharacterStatus("We've filled in your credentials. Ready to login!", 1);
                         }, 3000);
                     }
                     
@@ -2135,12 +1594,11 @@
                     setTimeout(() => {
                         encryptionIndicator.classList.remove('active');
                         validationIndicator.classList.remove('active');
-                        sessionIndicator.classList.remove('active');
-                    }, 3000);
+                    }, 2000);
                     
                 }, 1500);
             } else {
-                updateCharacterStatus("Please agree to the terms and conditions to finish.", 3);
+                updateCharacterStatus("Please check the form for errors.", 0);
             }
         });
         
@@ -2160,10 +1618,10 @@
                     if (storedUser) {
                         const userData = JSON.parse(storedUser);
                         document.getElementById('loginEmail').value = userData.email;
-                        updateCharacterStatus("Welcome back! We've restored your secure session.", 1);
+                        updateCharacterStatus("Welcome back! We see you have a saved session. Just enter your password.", 0);
                         document.getElementById('rememberLogin').checked = true;
                         sessionIndicator.classList.add('active');
-                        animateCharacterWave(1);
+                        animateCharacterWave(0);
                     }
                 } else {
                     // Session expired
@@ -2175,14 +1633,14 @@
         // Create floating background elements
         function createFloatingElements() {
             const container = document.getElementById('floatingElements');
-            const elementCount = 25;
+            const elementCount = 20;
             
             for (let i = 0; i < elementCount; i++) {
                 const element = document.createElement('div');
                 element.classList.add('floating-element');
                 
                 // Random size
-                const size = Math.random() * 80 + 10;
+                const size = Math.random() * 60 + 10;
                 element.style.width = `${size}px`;
                 element.style.height = `${size}px`;
                 
@@ -2192,17 +1650,13 @@
                 
                 // Random animation delay and duration
                 const delay = Math.random() * 5;
-                const duration = Math.random() * 15 + 25;
+                const duration = Math.random() * 10 + 20;
                 element.style.animationDelay = `${delay}s`;
                 element.style.animationDuration = `${duration}s`;
                 
                 // Random color based on character colors
-                const colors = ['rgba(59, 130, 246, 0.05)', 'rgba(16, 185, 129, 0.05)', 'rgba(139, 92, 246, 0.05)'];
+                const colors = ['rgba(77, 148, 255, 0.1)', 'rgba(255, 107, 107, 0.1)', 'rgba(77, 255, 184, 0.1)'];
                 element.style.background = colors[Math.floor(Math.random() * colors.length)];
-                
-                // Random shape
-                const shapes = ['50%', '0%', '30%'];
-                element.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
                 
                 container.appendChild(element);
             }
@@ -2213,24 +1667,42 @@
             checkExistingSession();
             createFloatingElements();
             
-            // Initial character status
+            // Initial character blink
+            setTimeout(() => characterBlink(0), 1000);
+            setTimeout(() => characterBlink(1), 1500);
+            setTimeout(() => characterBlink(2), 2000);
+            
+            // Security indicator demo on page load
             setTimeout(() => {
                 encryptionIndicator.classList.add('active');
-                updateCharacterStatus("Security systems initialized. All protections active.", 1);
-                animateCharacterWave(1);
+                updateCharacterStatus("All systems secure. Encryption active.", 0);
+                animateCharacterNod(0);
             }, 500);
             
             setTimeout(() => {
                 validationIndicator.classList.add('active');
-                updateCharacterStatus("Real-time validation ready. We're here to assist.", 2);
+                updateCharacterStatus("Validation systems ready. We're here to help!", 1);
+                animateCharacterWave(1);
             }, 1500);
             
             setTimeout(() => {
                 encryptionIndicator.classList.remove('active');
                 validationIndicator.classList.remove('active');
-                updateCharacterStatus("Secure Access Pro is ready. Sign in or create your account.", 3);
-                animateCharacterHappy(3);
+                updateCharacterStatus("Hello! We're your security assistants. Ready to help you login securely.", 2);
+                animateCharacterHappy(2);
             }, 3000);
+            
+            // Random character animations
+            setInterval(() => {
+                const randomAction = Math.floor(Math.random() * 3);
+                const randomChar = Math.floor(Math.random() * 3);
+                
+                if (randomAction === 0) {
+                    animateCharacterNod(randomChar);
+                } else if (randomAction === 1) {
+                    animateCharacterWave(randomChar);
+                }
+            }, 8000);
         });
     </script>
 </body>
