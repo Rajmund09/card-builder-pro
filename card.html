@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Card Builder Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* Reset and Base Styles */
         * {
@@ -106,7 +109,9 @@
         }
 
         /* Card Type Selection */
-        .card-type-section, .theme-section, .builder-section {
+        .card-type-section,
+        .theme-section,
+        .builder-section {
             background-color: var(--secondary-dark);
             border-radius: var(--border-radius);
             padding: 2rem;
@@ -117,8 +122,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section-title {
@@ -501,6 +513,7 @@
         .slider {
             flex-grow: 1;
             -webkit-appearance: none;
+            appearance: none;
             height: 8px;
             border-radius: 4px;
             background: var(--secondary-dark);
@@ -572,11 +585,11 @@
             border-radius: 50%;
         }
 
-        input:checked + .toggle-slider {
+        input:checked+.toggle-slider {
             background-color: var(--accent-blue);
         }
 
-        input:checked + .toggle-slider:before {
+        input:checked+.toggle-slider:before {
             transform: translateX(28px);
         }
 
@@ -839,23 +852,25 @@
                 gap: 20px;
                 text-align: center;
             }
-            
-            .card-type-section, .theme-section, .builder-section {
+
+            .card-type-section,
+            .theme-section,
+            .builder-section {
                 padding: 1.5rem;
             }
-            
+
             .section-title {
                 font-size: 1.5rem;
             }
-            
+
             .builder-buttons {
                 flex-direction: column;
             }
-            
+
             .btn.full-width {
                 width: 100%;
             }
-            
+
             .controls-grid {
                 grid-template-columns: 1fr;
             }
@@ -865,35 +880,36 @@
             .container {
                 padding: 0 15px;
             }
-            
+
             .card-preview {
                 height: 280px;
                 padding: 1.5rem;
             }
-            
+
             .card-preview h3 {
                 font-size: 1.5rem;
             }
-            
+
             .progress-steps {
                 margin-bottom: 2rem;
             }
-            
+
             .step {
                 width: 70px;
             }
-            
+
             .step-circle {
                 width: 35px;
                 height: 35px;
             }
-            
+
             .step-label {
                 font-size: 0.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -1007,7 +1023,7 @@
         <section class="builder-section hidden" id="builder-section">
             <h2 class="section-title">Customize Your Card</h2>
             <p class="section-subtitle">Adjust every detail of your card design with real-time preview</p>
-            
+
             <div class="builder-container">
                 <!-- Card Preview -->
                 <div class="card-preview-container">
@@ -1015,7 +1031,8 @@
                         <div class="card-preview" id="card-preview">
                             <div class="card-content">
                                 <h3 id="preview-title">Your Name</h3>
-                                <p id="preview-text">Your message goes here. Customize this text to create the perfect card for your occasion.</p>
+                                <p id="preview-text">Your message goes here. Customize this text to create the perfect
+                                    card for your occasion.</p>
                                 <div class="contact-info" id="preview-contact">
                                     <p>Email: example@email.com</p>
                                     <p>Phone: (123) 456-7890</p>
@@ -1023,7 +1040,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="preview-controls">
                         <button id="flip-card-btn" class="btn secondary tooltip">
                             <i class="fas fa-sync-alt"></i> Flip Card
@@ -1036,7 +1053,7 @@
                             <i class="fas fa-file-pdf"></i> PDF
                         </button>
                     </div>
-                    
+
                     <div class="preview-controls" style="margin-top: 15px;">
                         <button id="share-card-btn" class="btn secondary small">
                             <i class="fas fa-share-alt"></i> Share
@@ -1067,15 +1084,16 @@
                                     <option value="vintage">Vintage</option>
                                 </select>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="color-picker">Primary Color:</label>
                                 <div class="color-picker-wrapper">
                                     <div class="color-preview" id="color-preview"></div>
-                                    <input type="color" id="color-picker" class="control-input" value="#4a6fa5" style="height: 40px; padding: 0;">
+                                    <input type="color" id="color-picker" class="control-input" value="#4a6fa5"
+                                        style="height: 40px; padding: 0;">
                                 </div>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="font-select">Font Family:</label>
                                 <select id="font-select" class="control-input">
@@ -1087,7 +1105,7 @@
                                     <option value="'Courier New', monospace">Courier New</option>
                                 </select>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="card-layout">Card Layout:</label>
                                 <select id="card-layout" class="control-input">
@@ -1098,16 +1116,17 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="controls-grid" style="margin-top: 15px;">
                             <div class="control">
                                 <label for="border-radius-slider">Border Radius:</label>
                                 <div class="slider-container">
-                                    <input type="range" min="0" max="30" value="12" class="slider" id="border-radius-slider">
+                                    <input type="range" min="0" max="30" value="12" class="slider"
+                                        id="border-radius-slider">
                                     <span class="slider-value" id="border-radius-value">12px</span>
                                 </div>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="shadow-toggle">Enable Shadow:</label>
                                 <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
@@ -1127,34 +1146,39 @@
                             <div class="control">
                                 <label for="title-input">Title/Name:</label>
                                 <div class="input-with-icon">
-                                    <input type="text" id="title-input" class="control-input" placeholder="Enter title or name">
+                                    <input type="text" id="title-input" class="control-input"
+                                        placeholder="Enter title or name">
                                     <i class="fas fa-heading"></i>
                                 </div>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="subtitle-input">Subtitle/Role:</label>
                                 <div class="input-with-icon">
-                                    <input type="text" id="subtitle-input" class="control-input" placeholder="Enter subtitle or role">
+                                    <input type="text" id="subtitle-input" class="control-input"
+                                        placeholder="Enter subtitle or role">
                                     <i class="fas fa-text-height"></i>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="control">
                             <label for="text-input">Card Message:</label>
-                            <textarea id="text-input" class="control-input" placeholder="Enter your card message"></textarea>
+                            <textarea id="text-input" class="control-input"
+                                placeholder="Enter your card message"></textarea>
                         </div>
-                        
+
                         <div class="controls-grid">
                             <div class="control">
                                 <label for="contact-input">Contact Info:</label>
-                                <textarea id="contact-input" class="control-input" placeholder="Enter contact information" rows="3"></textarea>
+                                <textarea id="contact-input" class="control-input"
+                                    placeholder="Enter contact information" rows="3"></textarea>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="footer-input">Footer Text:</label>
-                                <textarea id="footer-input" class="control-input" placeholder="Enter footer text" rows="3"></textarea>
+                                <textarea id="footer-input" class="control-input" placeholder="Enter footer text"
+                                    rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -1166,13 +1190,13 @@
                                 <label for="bg-image">Background Image:</label>
                                 <input type="file" id="bg-image" class="control-input" accept="image/*">
                             </div>
-                            
+
                             <div class="control">
                                 <label for="logo-image">Logo/Icon:</label>
                                 <input type="file" id="logo-image" class="control-input" accept="image/*">
                             </div>
                         </div>
-                        
+
                         <div class="controls-grid" style="margin-top: 15px;">
                             <div class="control">
                                 <label for="icon-select">Select Icon:</label>
@@ -1186,13 +1210,14 @@
                                     <option value="fas fa-graduation-cap">Graduation Cap</option>
                                 </select>
                             </div>
-                            
+
                             <div class="control">
                                 <label for="icon-color">Icon Color:</label>
-                                <input type="color" id="icon-color" class="control-input" value="#ffffff" style="height: 40px; padding: 0;">
+                                <input type="color" id="icon-color" class="control-input" value="#ffffff"
+                                    style="height: 40px; padding: 0;">
                             </div>
                         </div>
-                        
+
                         <button id="add-sample-image" class="btn secondary full-width" style="margin-top: 15px;">
                             <i class="fas fa-plus"></i> Add Sample Image
                         </button>
@@ -1232,7 +1257,8 @@
                     <a href="#"><i class="fas fa-lock"></i> Privacy</a>
                 </div>
                 <div class="copyright">
-                    <p>Dynamic Card Builder Pro &copy; <span id="current-year"></span> - Create professional cards for any occasion</p>
+                    <p>Dynamic Card Builder Pro &copy; <span id="current-year"></span> - Create professional cards for
+                        any occasion</p>
                 </div>
             </div>
         </div>
@@ -1240,10 +1266,10 @@
 
     <script>
         // Enhanced Card Builder with Professional Features
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             // DOM Elements
             const cardTypeSection = document.getElementById('card-type-section');
             const themeSection = document.getElementById('theme-section');
@@ -1263,21 +1289,21 @@
             const addSampleImageBtn = document.getElementById('add-sample-image');
             const exportAllBtn = document.getElementById('export-all-btn');
             const darkModeToggle = document.getElementById('dark-mode-toggle');
-            
+
             // Progress steps
             const progressBar = document.getElementById('progress-bar');
             const step1 = document.getElementById('step-1');
             const step2 = document.getElementById('step-2');
             const step3 = document.getElementById('step-3');
             const step4 = document.getElementById('step-4');
-            
+
             // Preview elements
             const cardPreview = document.getElementById('card-preview');
             const previewTitle = document.getElementById('preview-title');
             const previewText = document.getElementById('preview-text');
             const previewContact = document.getElementById('preview-contact');
             const colorPreview = document.getElementById('color-preview');
-            
+
             // Input elements
             const themeSelect = document.getElementById('theme-select');
             const colorPicker = document.getElementById('color-picker');
@@ -1296,12 +1322,12 @@
             const logoImageInput = document.getElementById('logo-image');
             const iconSelect = document.getElementById('icon-select');
             const iconColor = document.getElementById('icon-color');
-            
+
             // Toast
             const toast = document.getElementById('toast');
             const toastTitle = document.getElementById('toast-title');
             const toastMessage = document.getElementById('toast-message');
-            
+
             // Current card data
             let currentCardType = '';
             let currentTheme = 'modern';
@@ -1310,60 +1336,60 @@
             let cardBackgroundImage = '';
             let cardLogo = '';
             let savedDesigns = [];
-            
+
             // Theme data with enhanced options
             const themes = {
-                modern: { 
-                    name: 'Modern', 
-                    color: '#4a6fa5', 
+                modern: {
+                    name: 'Modern',
+                    color: '#4a6fa5',
                     gradient: 'linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%)',
                     font: "'Poppins', sans-serif",
                     pattern: 'none'
                 },
-                elegant: { 
-                    name: 'Elegant', 
-                    color: '#8b7355', 
+                elegant: {
+                    name: 'Elegant',
+                    color: '#8b7355',
                     gradient: 'linear-gradient(135deg, #8b7355 0%, #5d4c3c 100%)',
                     font: "'Montserrat', sans-serif",
                     pattern: 'none'
                 },
-                fun: { 
-                    name: 'Fun', 
-                    color: '#e74c3c', 
+                fun: {
+                    name: 'Fun',
+                    color: '#e74c3c',
                     gradient: 'linear-gradient(135deg, #e74c3c 0%, #f39c12 100%)',
                     font: "'Poppins', sans-serif",
                     pattern: 'none'
                 },
-                minimal: { 
-                    name: 'Minimal', 
-                    color: '#34495e', 
+                minimal: {
+                    name: 'Minimal',
+                    color: '#34495e',
                     gradient: 'linear-gradient(135deg, #34495e 0%, #2c3e50 100%)',
                     font: "'Montserrat', sans-serif",
                     pattern: 'none'
                 },
-                colorful: { 
-                    name: 'Colorful', 
-                    color: '#9b59b6', 
+                colorful: {
+                    name: 'Colorful',
+                    color: '#9b59b6',
                     gradient: 'linear-gradient(135deg, #9b59b6 0%, #3498db 100%)',
                     font: "'Poppins', sans-serif",
                     pattern: 'none'
                 },
-                corporate: { 
-                    name: 'Corporate', 
-                    color: '#2c3e50', 
+                corporate: {
+                    name: 'Corporate',
+                    color: '#2c3e50',
                     gradient: 'linear-gradient(135deg, #2c3e50 0%, #1a2530 100%)',
                     font: "'Montserrat', sans-serif",
                     pattern: 'none'
                 },
-                vintage: { 
-                    name: 'Vintage', 
-                    color: '#8b5a2b', 
+                vintage: {
+                    name: 'Vintage',
+                    color: '#8b5a2b',
                     gradient: 'linear-gradient(135deg, #8b5a2b 0%, #654321 100%)',
                     font: "'Times New Roman', serif",
                     pattern: 'none'
                 }
             };
-            
+
             // Card type data with default content
             const cardTypes = {
                 business: {
@@ -1439,12 +1465,12 @@
                     icon: 'fas fa-graduation-cap'
                 }
             };
-            
+
             // Show toast notification
             function showToast(title, message, type = 'success') {
                 toastTitle.textContent = title;
                 toastMessage.textContent = message;
-                
+
                 // Set color based on type
                 if (type === 'error') {
                     toast.style.borderLeftColor = 'var(--danger)';
@@ -1459,20 +1485,20 @@
                     toast.querySelector('i').className = 'fas fa-check-circle';
                     toast.querySelector('i').style.color = 'var(--accent-blue-light)';
                 }
-                
+
                 toast.classList.add('show');
-                
+
                 // Auto hide after 3 seconds
                 setTimeout(() => {
                     toast.classList.remove('show');
                 }, 3000);
             }
-            
+
             // Update progress bar
             function updateProgress(currentStep) {
                 const steps = [step1, step2, step3, step4];
                 const progressWidths = ['0%', '33%', '66%', '100%'];
-                
+
                 steps.forEach((step, index) => {
                     if (index < currentStep) {
                         step.classList.add('completed');
@@ -1484,124 +1510,124 @@
                         step.classList.remove('active', 'completed');
                     }
                 });
-                
+
                 progressBar.style.width = progressWidths[currentStep - 1];
             }
-            
+
             // Initialize theme options
             function initializeThemes() {
                 themeGrid.innerHTML = '';
-                
+
                 for (const themeId in themes) {
                     const theme = themes[themeId];
                     const themeOption = document.createElement('div');
                     themeOption.className = 'theme-option';
                     themeOption.dataset.theme = themeId;
                     themeOption.style.background = theme.gradient;
-                    
+
                     themeOption.innerHTML = `
                         <h3>${theme.name}</h3>
                         <p>${themeId === currentTheme ? 'Selected' : 'Click to select'}</p>
                     `;
-                    
+
                     if (themeId === currentTheme) {
                         themeOption.classList.add('selected');
                     }
-                    
-                    themeOption.addEventListener('click', function() {
+
+                    themeOption.addEventListener('click', function () {
                         // Remove selected class from all themes
                         document.querySelectorAll('.theme-option').forEach(el => {
                             el.classList.remove('selected');
                         });
-                        
+
                         // Add selected class to clicked theme
                         this.classList.add('selected');
                         selectTheme(themeId);
                     });
-                    
+
                     themeGrid.appendChild(themeOption);
                 }
             }
-            
+
             // Select card type
-            cardTypeGrid.addEventListener('click', function(e) {
+            cardTypeGrid.addEventListener('click', function (e) {
                 const cardTypeElement = e.target.closest('.card-type');
                 if (cardTypeElement) {
                     currentCardType = cardTypeElement.dataset.type;
                     currentTheme = cardTypes[currentCardType].defaultTheme;
-                    
+
                     // Update UI
                     cardTypeSection.classList.add('hidden');
                     themeSection.classList.remove('hidden');
                     updateProgress(2);
-                    
+
                     // Initialize themes for this card type
                     initializeThemes();
-                    
+
                     showToast('Card Type Selected', `You've selected ${cardTypeElement.querySelector('h3').textContent}`, 'success');
                 }
             });
-            
+
             // Select theme
             function selectTheme(themeId) {
                 currentTheme = themeId;
                 themeSection.classList.add('hidden');
                 builderSection.classList.remove('hidden');
                 updateProgress(3);
-                
+
                 // Set up card with selected type and theme
                 setupCardBuilder();
-                
+
                 showToast('Theme Applied', `Applied ${themes[themeId].name} theme to your card`, 'success');
             }
-            
+
             // Back to card types
-            backToCardTypesBtn.addEventListener('click', function() {
+            backToCardTypesBtn.addEventListener('click', function () {
                 themeSection.classList.add('hidden');
                 cardTypeSection.classList.remove('hidden');
                 updateProgress(1);
             });
-            
+
             // Skip to builder
-            skipToBuilderBtn.addEventListener('click', function() {
+            skipToBuilderBtn.addEventListener('click', function () {
                 if (!currentCardType) {
                     currentCardType = 'business';
                     currentTheme = 'modern';
                 }
-                
+
                 themeSection.classList.add('hidden');
                 builderSection.classList.remove('hidden');
                 updateProgress(3);
                 setupCardBuilder();
             });
-            
+
             // Start new card
-            startNewCardBtn.addEventListener('click', function() {
+            startNewCardBtn.addEventListener('click', function () {
                 builderSection.classList.add('hidden');
                 cardTypeSection.classList.remove('hidden');
                 updateProgress(1);
                 resetCard();
                 showToast('New Card Started', 'Select a card type to begin', 'success');
             });
-            
+
             // Reset card
-            resetCardBtn.addEventListener('click', function() {
+            resetCardBtn.addEventListener('click', function () {
                 resetCard();
                 showToast('Card Reset', 'Card has been reset to default settings', 'warning');
             });
-            
+
             // Setup card builder with selected type and theme
             function setupCardBuilder() {
                 const cardData = cardTypes[currentCardType];
                 const themeData = themes[currentTheme];
-                
+
                 // Store current card data
                 currentCardData = {
                     type: currentCardType,
                     theme: currentTheme,
                     ...cardData
                 };
-                
+
                 // Set default values
                 titleInput.value = cardData.title;
                 subtitleInput.value = cardData.subtitle || '';
@@ -1613,14 +1639,14 @@
                 colorPreview.style.backgroundColor = themeData.color;
                 fontSelect.value = themeData.font;
                 iconSelect.value = cardData.icon || '';
-                
+
                 // Update preview
                 updatePreview();
-                
+
                 // Set theme-specific styling
                 applyTheme(themeData);
             }
-            
+
             // Apply theme to card
             function applyTheme(themeData) {
                 cardPreview.style.background = themeData.gradient;
@@ -1628,12 +1654,12 @@
                 colorPicker.value = themeData.color;
                 colorPreview.style.backgroundColor = themeData.color;
             }
-            
+
             // Update card preview
             function updatePreview() {
                 previewTitle.textContent = titleInput.value || 'Your Title';
                 previewText.textContent = textInput.value || 'Your message goes here. Customize this text to create the perfect card for your occasion.';
-                
+
                 // Format contact info with line breaks
                 if (contactInput.value.trim()) {
                     const contactLines = contactInput.value.split('\n');
@@ -1641,28 +1667,28 @@
                 } else {
                     previewContact.innerHTML = '';
                 }
-                
+
                 // Apply selected color
                 if (colorPicker.value) {
                     cardPreview.style.backgroundColor = colorPicker.value;
                     colorPreview.style.backgroundColor = colorPicker.value;
-                    
+
                     // Create a gradient from the selected color
                     const colorRgb = hexToRgb(colorPicker.value);
                     const darkerColor = `rgb(${Math.max(colorRgb.r - 30, 0)}, ${Math.max(colorRgb.g - 30, 0)}, ${Math.max(colorRgb.b - 30, 0)})`;
                     cardPreview.style.background = `linear-gradient(135deg, ${colorPicker.value} 0%, ${darkerColor} 100%)`;
                 }
-                
+
                 // Apply selected font
                 if (fontSelect.value) {
                     cardPreview.style.fontFamily = fontSelect.value;
                 }
-                
+
                 // Apply border radius
                 const borderRadius = borderRadiusSlider.value + 'px';
                 cardPreview.style.borderRadius = borderRadius;
                 borderRadiusValue.textContent = borderRadius;
-                
+
                 // Apply shadow
                 if (shadowToggle.checked) {
                     cardPreview.style.boxShadow = 'var(--box-shadow)';
@@ -1671,11 +1697,11 @@
                     cardPreview.style.boxShadow = 'none';
                     shadowStatus.textContent = 'Off';
                 }
-                
+
                 // Apply icon
                 applyIcon();
             }
-            
+
             // Convert hex to RGB
             function hexToRgb(hex) {
                 const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -1685,7 +1711,7 @@
                     b: parseInt(result[3], 16)
                 } : { r: 0, g: 0, b: 0 };
             }
-            
+
             // Apply icon to card
             function applyIcon() {
                 // Remove existing icon
@@ -1693,7 +1719,7 @@
                 if (existingIcon) {
                     existingIcon.remove();
                 }
-                
+
                 // Add new icon if selected
                 if (iconSelect.value) {
                     const icon = document.createElement('div');
@@ -1706,16 +1732,16 @@
                     icon.style.color = iconColor.value;
                     icon.style.opacity = '0.8';
                     icon.style.zIndex = '1';
-                    
+
                     cardPreview.appendChild(icon);
                 }
             }
-            
+
             // Reset card to defaults
             function resetCard() {
                 const cardData = cardTypes[currentCardType] || cardTypes.business;
                 const themeData = themes[currentTheme] || themes.modern;
-                
+
                 titleInput.value = cardData.title;
                 subtitleInput.value = cardData.subtitle || '';
                 textInput.value = cardData.text;
@@ -1730,22 +1756,22 @@
                 shadowToggle.checked = true;
                 iconSelect.value = cardData.icon || '';
                 iconColor.value = '#ffffff';
-                
+
                 // Reset background images
                 cardBackgroundImage = '';
                 cardLogo = '';
                 cardPreview.style.backgroundImage = '';
-                
+
                 // Clear file inputs
                 bgImageInput.value = '';
                 logoImageInput.value = '';
-                
+
                 updatePreview();
                 applyTheme(themeData);
             }
-            
+
             // Save design
-            saveDesignBtn.addEventListener('click', function() {
+            saveDesignBtn.addEventListener('click', function () {
                 const cardData = {
                     type: currentCardType,
                     theme: currentTheme,
@@ -1763,33 +1789,33 @@
                     iconColor: iconColor.value,
                     timestamp: new Date().toISOString()
                 };
-                
+
                 // Save to localStorage
                 savedDesigns = JSON.parse(localStorage.getItem('cardDesigns') || '[]');
                 savedDesigns.push(cardData);
                 localStorage.setItem('cardDesigns', JSON.stringify(savedDesigns));
-                
+
                 showToast('Design Saved', 'Your card design has been saved successfully', 'success');
             });
-            
+
             // Download PNG (simulated)
-            downloadPngBtn.addEventListener('click', function() {
+            downloadPngBtn.addEventListener('click', function () {
                 showToast('Download Started', 'Your card is being prepared for download as PNG', 'success');
-                
+
                 // In a real implementation, this would use a library like html2canvas
                 // For now, we'll simulate the download with a JSON file
                 simulateDownload('png');
             });
-            
+
             // Download PDF (simulated)
-            downloadPdfBtn.addEventListener('click', function() {
+            downloadPdfBtn.addEventListener('click', function () {
                 showToast('PDF Generation', 'Your PDF is being generated. This may take a moment.', 'success');
-                
+
                 // In a real implementation, this would use a library like jsPDF
                 // For now, we'll simulate the download with a JSON file
                 simulateDownload('pdf');
             });
-            
+
             // Simulate download
             function simulateDownload(format) {
                 const cardData = {
@@ -1800,7 +1826,7 @@
                     contact: contactInput.value,
                     timestamp: new Date().toISOString()
                 };
-                
+
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(cardData, null, 2));
                 const downloadAnchor = document.createElement('a');
                 downloadAnchor.setAttribute("href", dataStr);
@@ -1808,28 +1834,28 @@
                 document.body.appendChild(downloadAnchor);
                 downloadAnchor.click();
                 downloadAnchor.remove();
-                
+
                 updateProgress(4);
                 setTimeout(() => updateProgress(3), 2000);
             }
-            
+
             // Share card
-            shareCardBtn.addEventListener('click', function() {
+            shareCardBtn.addEventListener('click', function () {
                 if (navigator.share) {
                     navigator.share({
                         title: 'Check out my card design!',
                         text: `I created a ${currentCardType} card using CardCraft Pro`,
                         url: window.location.href,
                     })
-                    .then(() => showToast('Shared Successfully', 'Your card design has been shared', 'success'))
-                    .catch(error => showToast('Sharing Failed', 'Could not share the card design', 'error'));
+                        .then(() => showToast('Shared Successfully', 'Your card design has been shared', 'success'))
+                        .catch(error => showToast('Sharing Failed', 'Could not share the card design', 'error'));
                 } else {
                     showToast('Sharing', 'Copy this link to share your design: ' + window.location.href, 'warning');
                 }
             });
-            
+
             // Save template
-            saveTemplateBtn.addEventListener('click', function() {
+            saveTemplateBtn.addEventListener('click', function () {
                 const templateData = {
                     name: `${currentCardType.charAt(0).toUpperCase() + currentCardType.slice(1)} Template`,
                     type: currentCardType,
@@ -1838,18 +1864,18 @@
                     font: fontSelect.value,
                     timestamp: new Date().toISOString()
                 };
-                
+
                 const templates = JSON.parse(localStorage.getItem('cardTemplates') || '[]');
                 templates.push(templateData);
                 localStorage.setItem('cardTemplates', JSON.stringify(templates));
-                
+
                 showToast('Template Saved', 'Your card template has been saved for future use', 'success');
             });
-            
+
             // Flip card
-            flipCardBtn.addEventListener('click', function() {
+            flipCardBtn.addEventListener('click', function () {
                 isCardFlipped = !isCardFlipped;
-                
+
                 if (isCardFlipped) {
                     cardPreview.innerHTML = `
                         <div class="card-content" style="text-align: center; padding: 2rem;">
@@ -1867,39 +1893,39 @@
                     flipCardBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Flip Card';
                 }
             });
-            
+
             // Add sample image
-            addSampleImageBtn.addEventListener('click', function() {
+            addSampleImageBtn.addEventListener('click', function () {
                 const sampleImages = [
                     'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
                     'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
                 ];
-                
+
                 const randomImage = sampleImages[Math.floor(Math.random() * sampleImages.length)];
                 cardPreview.style.backgroundImage = `url(${randomImage})`;
                 cardPreview.style.backgroundSize = 'cover';
                 cardPreview.style.backgroundBlendMode = 'overlay';
-                
+
                 showToast('Image Added', 'A sample background image has been added to your card', 'success');
             });
-            
+
             // Export all designs
-            exportAllBtn.addEventListener('click', function() {
+            exportAllBtn.addEventListener('click', function () {
                 const savedDesigns = JSON.parse(localStorage.getItem('cardDesigns') || '[]');
                 const savedTemplates = JSON.parse(localStorage.getItem('cardTemplates') || '[]');
-                
+
                 if (savedDesigns.length === 0 && savedTemplates.length === 0) {
                     showToast('No Data', 'No saved designs or templates to export', 'warning');
                     return;
                 }
-                
+
                 const exportData = {
                     designs: savedDesigns,
                     templates: savedTemplates,
                     exportDate: new Date().toISOString()
                 };
-                
+
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
                 const downloadAnchor = document.createElement('a');
                 downloadAnchor.setAttribute("href", dataStr);
@@ -1907,14 +1933,14 @@
                 document.body.appendChild(downloadAnchor);
                 downloadAnchor.click();
                 downloadAnchor.remove();
-                
+
                 showToast('Export Complete', 'All your designs and templates have been exported', 'success');
             });
-            
+
             // Toggle dark mode (in this case, just for demonstration)
-            darkModeToggle.addEventListener('click', function() {
+            darkModeToggle.addEventListener('click', function () {
                 const currentBg = document.body.style.backgroundColor;
-                
+
                 if (currentBg === 'rgb(255, 255, 255)' || !currentBg) {
                     document.body.style.backgroundColor = '#0a0a0f';
                     document.body.style.color = '#f0f0f0';
@@ -1927,13 +1953,13 @@
                     showToast('Light Mode', 'Switched to light theme', 'success');
                 }
             });
-            
+
             // Handle background image upload
-            bgImageInput.addEventListener('change', function(e) {
+            bgImageInput.addEventListener('change', function (e) {
                 const file = e.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function(event) {
+                    reader.onload = function (event) {
                         cardBackgroundImage = event.target.result;
                         cardPreview.style.backgroundImage = `url(${cardBackgroundImage})`;
                         cardPreview.style.backgroundSize = 'cover';
@@ -1943,13 +1969,13 @@
                     reader.readAsDataURL(file);
                 }
             });
-            
+
             // Handle logo image upload
-            logoImageInput.addEventListener('change', function(e) {
+            logoImageInput.addEventListener('change', function (e) {
                 const file = e.target.files[0];
                 if (file) {
                     const reader = new FileReader();
-                    reader.onload = function(event) {
+                    reader.onload = function (event) {
                         cardLogo = event.target.result;
                         // In a full implementation, we would add this as an overlay on the card
                         showToast('Logo Uploaded', 'Logo has been uploaded successfully', 'success');
@@ -1957,7 +1983,7 @@
                     reader.readAsDataURL(file);
                 }
             });
-            
+
             // Event listeners for real-time updates
             titleInput.addEventListener('input', updatePreview);
             subtitleInput.addEventListener('input', updatePreview);
@@ -1971,18 +1997,18 @@
             shadowToggle.addEventListener('change', updatePreview);
             iconSelect.addEventListener('change', updatePreview);
             iconColor.addEventListener('input', updatePreview);
-            
-            themeSelect.addEventListener('change', function() {
+
+            themeSelect.addEventListener('change', function () {
                 currentTheme = themeSelect.value;
                 const themeData = themes[currentTheme];
                 applyTheme(themeData);
                 updatePreview();
             });
-            
+
             // Initialize the app
             initializeThemes();
             updateProgress(1);
-            
+
             // Check for saved designs
             savedDesigns = JSON.parse(localStorage.getItem('cardDesigns') || '[]');
             if (savedDesigns.length > 0) {
@@ -1991,4 +2017,5 @@
         });
     </script>
 </body>
+
 </html>
