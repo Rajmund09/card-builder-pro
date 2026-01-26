@@ -501,7 +501,110 @@
             align-items: center;
         }
 
+/* Replace the showcase-card gradient backgrounds with image styles */
+.showcase-card {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.6s ease;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
+/* Remove the gradient backgrounds and add overlay */
+.showcase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.85), rgba(20, 20, 30, 0.75));
+    z-index: 1;
+}
+
+.showcase-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add specific images for each card */
+.showcase-card:nth-child(1) {
+    background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Professional business card background */
+}
+
+.showcase-card:nth-child(2) {
+    background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Luxury event card */
+}
+
+.showcase-card:nth-child(3) {
+    background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Tech business card */
+}
+
+.showcase-card:nth-child(4) {
+    background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Creative card */
+}
+
+.showcase-card:nth-child(5) {
+    background-image: url('https://images.unsplash.com/photo-1556740738-6ebd604924b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'); /* Finance business card */
+}
+
+/* Update the design canvas preview */
+.design-canvas {
+    width: 350px;
+    height: 220px;
+    background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.design-canvas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1;
+}
+
+.design-canvas > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Update design content colors for better contrast */
+.design-text h4 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.design-text p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.contact-item span {
+    font-size: 0.85rem;
+    color: #333;
+}
         /* ===== Creative Features Showcase ===== */
         .features-showcase {
             background: var(--bg-darker);
