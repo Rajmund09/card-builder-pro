@@ -2252,7 +2252,55 @@ function previewTemplate(templateId) {
         }
 
         // ===== Interactive Design Preview =====
-
+function initDesignPreview() {
+    const names = ['Alex Morgan', 'Sarah Johnson', 'Michael Chen', 'Emma Wilson'];
+    const titles = [
+        'Creative Director\nDigital Solutions Inc.',
+        'Senior Developer\nTech Innovations LLC',
+        'Marketing Specialist\nCreative Minds Agency',
+        'Event Planner\nLuxury Events Worldwide'
+    ];
+    const phones = ['+1 (555) 123-4567', '+1 (555) 987-6543', '+1 (555) 456-7890', '+1 (555) 234-5678'];
+    const emails = ['alex@digitalsolutions.com', 'sarah@luxuryevents.com', 'michael@techinnovations.com', 'emma@creativeminds.com'];
+    
+    const professionalImages = [
+        'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+        'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+        'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    ];
+    
+    let currentIndex = 0;
+    
+    // Rotate preview content every 5 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % names.length;
+        
+        // Update background image
+        designCanvas.style.backgroundImage = `url('${professionalImages[currentIndex]}')`;
+        
+        // Update text content
+        previewName.textContent = names[currentIndex];
+        previewTitle.textContent = titles[currentIndex];
+        previewPhone.textContent = phones[currentIndex];
+        previewEmail.textContent = emails[currentIndex];
+        
+        // Update logo color based on index
+        const colors = [
+            'rgba(99, 102, 241, 0.9)',
+            'rgba(16, 185, 129, 0.9)',
+            'rgba(245, 158, 11, 0.9)',
+            'rgba(236, 72, 153, 0.9)'
+        ];
+        previewLogo.style.background = colors[currentIndex];
+        
+        // Animate change
+        designCanvas.style.opacity = '0.8';
+        setTimeout(() => {
+            designCanvas.style.opacity = '1';
+        }, 300);
+    }, 5000);
+}
         // ===== Header Scroll Effect =====
         function initHeaderScroll() {
             window.addEventListener('scroll', () => {
