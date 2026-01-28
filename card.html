@@ -68,7 +68,12 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Source Sans Pro', sans-serif;
             font-weight: 700;
             line-height: 1.2;
@@ -409,7 +414,8 @@
             transform: rotateY(180deg);
         }
 
-        .card-front, .card-back {
+        .card-front,
+        .card-back {
             backface-visibility: hidden;
             position: absolute;
             width: 100%;
@@ -729,11 +735,11 @@
             border-radius: 50%;
         }
 
-        input:checked + .toggle-slider {
+        input:checked+.toggle-slider {
             background: var(--accent-color);
         }
 
-        input:checked + .toggle-slider:before {
+        input:checked+.toggle-slider:before {
             transform: translateX(28px);
         }
 
@@ -779,6 +785,7 @@
                 transform: scale(0, 0);
                 opacity: 0.5;
             }
+
             100% {
                 transform: scale(20, 20);
                 opacity: 0;
@@ -967,7 +974,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Modal */
@@ -1051,11 +1060,11 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .card-preview-container {
                 position: static;
             }
-            
+
             .control-panel {
                 position: static;
                 max-height: none;
@@ -1066,49 +1075,49 @@
             .container {
                 padding: 0 16px;
             }
-            
+
             .header-content {
                 flex-direction: column;
                 gap: 1.25rem;
                 text-align: center;
             }
-            
+
             .section {
                 padding: 1.75rem;
             }
-            
+
             .card-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
                 gap: 1.25rem;
             }
-            
+
             .card-preview {
                 min-height: 320px;
                 padding: 1.75rem;
             }
-            
+
             .control-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .builder-actions {
                 grid-template-columns: 1fr;
             }
-            
+
             .progress-steps {
                 margin-bottom: 1rem;
             }
-            
+
             .step {
                 width: 70px;
             }
-            
+
             .step-circle {
                 width: 36px;
                 height: 36px;
                 font-size: 0.9rem;
             }
-            
+
             .step-label {
                 font-size: 0.8rem;
             }
@@ -1118,20 +1127,20 @@
             .card-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .card-preview {
                 min-height: 280px;
                 padding: 1.5rem;
             }
-            
+
             .card-title {
                 font-size: 1.75rem;
             }
-            
+
             .preview-controls {
                 grid-template-columns: 1fr;
             }
-            
+
             .footer-links {
                 flex-direction: column;
                 gap: 1rem;
@@ -1140,10 +1149,15 @@
 
         /* Print Styles */
         @media print {
-            .header, .footer, .control-panel, .progress-container, .preview-controls {
+
+            .header,
+            .footer,
+            .control-panel,
+            .progress-container,
+            .preview-controls {
                 display: none !important;
             }
-            
+
             .card-preview {
                 box-shadow: none !important;
                 break-inside: avoid;
@@ -1160,13 +1174,25 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Custom Scrollbar for Firefox */
@@ -1226,7 +1252,7 @@
                             <div class="step-label">Export</div>
                         </div>
                     </div>
-                    
+
                     <div class="progress-actions" id="progress-actions">
                         <button class="btn btn-secondary" id="prev-step-btn" style="display: none;">
                             <i class="fas fa-arrow-left"></i> Previous
@@ -1240,8 +1266,9 @@
                 <!-- Card Type Selection -->
                 <section class="section fade-in" id="card-type-section">
                     <h2 class="section-title">Choose Your Card Type</h2>
-                    <p class="section-subtitle">Select a professionally designed template to get started. Each template includes pre-filled content optimized for its purpose.</p>
-                    
+                    <p class="section-subtitle">Select a professionally designed template to get started. Each template
+                        includes pre-filled content optimized for its purpose.</p>
+
                     <div class="card-grid">
                         <div class="card-option" data-type="business">
                             <div class="option-icon"><i class="fas fa-briefcase"></i></div>
@@ -1289,7 +1316,8 @@
                 <!-- Card Builder -->
                 <section class="section hidden" id="builder-section">
                     <h2 class="section-title">Customize Your Card</h2>
-                    <p class="section-subtitle">Adjust every detail of your card design with real-time preview. Changes update instantly as you type.</p>
+                    <p class="section-subtitle">Adjust every detail of your card design with real-time preview. Changes
+                        update instantly as you type.</p>
 
                     <div class="builder-container">
                         <!-- Card Preview -->
@@ -1299,13 +1327,15 @@
                                     <div class="card-front">
                                         <div class="card-content">
                                             <div class="card-header">
-                                                <img src="" alt="Logo" class="card-logo" id="card-logo" style="display: none;">
+                                                <img src="" alt="Logo" class="card-logo" id="card-logo"
+                                                    style="display: none;">
                                                 <div class="card-icon" id="card-icon"></div>
                                             </div>
                                             <h2 class="card-title" id="preview-title">Your Name</h2>
                                             <h3 class="card-subtitle" id="preview-subtitle">Your Position/Role</h3>
                                             <div class="card-message" id="preview-text">
-                                                Your message goes here. Customize this text to create the perfect card for your occasion.
+                                                Your message goes here. Customize this text to create the perfect card
+                                                for your occasion.
                                             </div>
                                             <div class="card-contact" id="preview-contact">
                                                 <p>Email: example@email.com</p>
@@ -1315,15 +1345,18 @@
                                                 <p>Additional footer information can go here</p>
                                             </div>
                                         </div>
-                                        <img src="" alt="Background" class="card-background" id="card-background" style="display: none;">
+                                        <img src="" alt="Background" class="card-background" id="card-background"
+                                            style="display: none;">
                                     </div>
-                                    
+
                                     <div class="card-back">
                                         <div class="card-back-content">
-                                            <i class="fas fa-layer-group card-icon" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+                                            <i class="fas fa-layer-group card-icon"
+                                                style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
                                             <h3 class="card-title">Card Back</h3>
                                             <div class="card-message" id="preview-back-text">
-                                                This is the back of your card. Add additional information, notes, or a personalized message here.
+                                                This is the back of your card. Add additional information, notes, or a
+                                                personalized message here.
                                             </div>
                                             <div class="card-footer" style="margin-top: 2rem;">
                                                 <p>Created with CardCraft Pro</p>
@@ -1374,7 +1407,8 @@
                                         <label class="control-label">Primary Color</label>
                                         <div class="color-picker-wrapper">
                                             <div class="color-preview" id="color-preview"></div>
-                                            <input type="color" id="color-picker" class="control-input" value="#4361ee" style="height: 48px; padding: 0;">
+                                            <input type="color" id="color-picker" class="control-input" value="#4361ee"
+                                                style="height: 48px; padding: 0;">
                                         </div>
                                     </div>
 
@@ -1404,7 +1438,8 @@
                                 <div class="control">
                                     <label class="control-label">Border Radius</label>
                                     <div class="slider-container">
-                                        <input type="range" min="0" max="30" value="12" class="slider" id="border-radius-slider">
+                                        <input type="range" min="0" max="30" value="12" class="slider"
+                                            id="border-radius-slider">
                                         <span class="slider-value" id="border-radius-value">12px</span>
                                     </div>
                                 </div>
@@ -1426,7 +1461,8 @@
                                     <div class="control">
                                         <label class="control-label" for="title-input">Title/Name</label>
                                         <div class="input-with-icon">
-                                            <input type="text" id="title-input" class="control-input" placeholder="Enter title or name">
+                                            <input type="text" id="title-input" class="control-input"
+                                                placeholder="Enter title or name">
                                             <i class="fas fa-heading input-icon"></i>
                                         </div>
                                     </div>
@@ -1434,7 +1470,8 @@
                                     <div class="control">
                                         <label class="control-label" for="subtitle-input">Subtitle/Role</label>
                                         <div class="input-with-icon">
-                                            <input type="text" id="subtitle-input" class="control-input" placeholder="Enter subtitle or role">
+                                            <input type="text" id="subtitle-input" class="control-input"
+                                                placeholder="Enter subtitle or role">
                                             <i class="fas fa-text-height input-icon"></i>
                                         </div>
                                     </div>
@@ -1442,23 +1479,27 @@
 
                                 <div class="control">
                                     <label class="control-label" for="text-input">Card Message</label>
-                                    <textarea id="text-input" class="control-input" placeholder="Enter your card message"></textarea>
+                                    <textarea id="text-input" class="control-input"
+                                        placeholder="Enter your card message"></textarea>
                                 </div>
 
                                 <div class="control">
                                     <label class="control-label" for="back-text-input">Back Side Text</label>
-                                    <textarea id="back-text-input" class="control-input" placeholder="Enter text for the back of the card"></textarea>
+                                    <textarea id="back-text-input" class="control-input"
+                                        placeholder="Enter text for the back of the card"></textarea>
                                 </div>
 
                                 <div class="control-grid">
                                     <div class="control">
                                         <label class="control-label" for="contact-input">Contact Info</label>
-                                        <textarea id="contact-input" class="control-input" placeholder="Enter contact information" rows="3"></textarea>
+                                        <textarea id="contact-input" class="control-input"
+                                            placeholder="Enter contact information" rows="3"></textarea>
                                     </div>
 
                                     <div class="control">
                                         <label class="control-label" for="footer-input">Footer Text</label>
-                                        <textarea id="footer-input" class="control-input" placeholder="Enter footer text" rows="3"></textarea>
+                                        <textarea id="footer-input" class="control-input"
+                                            placeholder="Enter footer text" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -1467,7 +1508,7 @@
                                 <div class="control-group-title">
                                     <i class="fas fa-image"></i> Images & Media
                                 </div>
-                                
+
                                 <div class="control">
                                     <label class="control-label" for="bg-image">Background Image</label>
                                     <input type="file" id="bg-image" class="control-input" accept="image/*">
@@ -1503,7 +1544,8 @@
 
                                     <div class="control">
                                         <label class="control-label">Icon Color</label>
-                                        <input type="color" id="icon-color" class="control-input" value="#ffffff" style="height: 48px; padding: 0;">
+                                        <input type="color" id="icon-color" class="control-input" value="#ffffff"
+                                            style="height: 48px; padding: 0;">
                                     </div>
                                 </div>
 
@@ -1583,10 +1625,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize GSAP
             gsap.registerPlugin();
-            
+
             // Set current year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             // DOM Elements
             const header = document.getElementById('header');
             const cardTypeSection = document.getElementById('card-type-section');
@@ -1596,7 +1638,7 @@
             const nextStepBtn = document.getElementById('next-step-btn');
             const progressBar = document.getElementById('progress-bar');
             const steps = document.querySelectorAll('.step');
-            
+
             // Card Preview Elements
             const cardPreview = document.getElementById('card-preview');
             const previewTitle = document.getElementById('preview-title');
@@ -1609,7 +1651,7 @@
             const cardLogo = document.getElementById('card-logo');
             const cardBackground = document.getElementById('card-background');
             const previewBackDate = document.getElementById('preview-back-date');
-            
+
             // Control Elements
             const themeSelect = document.getElementById('theme-select');
             const colorPicker = document.getElementById('color-picker');
@@ -1630,7 +1672,7 @@
             const iconSelect = document.getElementById('icon-select');
             const iconColor = document.getElementById('icon-color');
             const keepBgToggle = document.getElementById('keep-bg-toggle');
-            
+
             // Button Elements
             const flipCardBtn = document.getElementById('flip-card-btn');
             const downloadPngBtn = document.getElementById('download-png-btn');
@@ -1641,7 +1683,7 @@
             const addSampleImageBtn = document.getElementById('add-sample-image');
             const darkModeToggle = document.getElementById('dark-mode-toggle');
             const exportAllBtn = document.getElementById('export-all-btn');
-            
+
             // Modal Elements
             const exportModal = document.getElementById('export-modal');
             const exportModalClose = document.getElementById('export-modal-close');
@@ -1650,10 +1692,10 @@
             const exportPdfBtn = document.getElementById('export-pdf-btn');
             const exportJsonBtn = document.getElementById('export-json-btn');
             const exportHtmlBtn = document.getElementById('export-html-btn');
-            
+
             // Toast Container
             const toastContainer = document.getElementById('toast-container');
-            
+
             // Application State
             let currentStep = 1;
             let currentCardType = '';
@@ -1664,7 +1706,7 @@
             let currentLogoImage = null;
             let cardDesigns = JSON.parse(localStorage.getItem('cardDesigns') || '[]');
             let cardTemplates = JSON.parse(localStorage.getItem('cardTemplates') || '[]');
-            
+
             // Card Type Data with Default Content
             const cardTypes = {
                 business: {
@@ -1756,7 +1798,7 @@
                     color: '#06d6a0'
                 }
             };
-            
+
             // Theme Data
             const themes = {
                 modern: {
@@ -1802,45 +1844,45 @@
                     font: "'Inter', sans-serif"
                 }
             };
-            
+
             // Initialize the application
             function init() {
                 // Set up event listeners
                 setupEventListeners();
-                
+
                 // Initialize color preview
                 colorPreview.style.backgroundColor = colorPicker.value;
-                
+
                 // Set current date for card back
-                previewBackDate.textContent = new Date().toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
+                previewBackDate.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
                 });
-                
+
                 // Add scroll effect to header
                 window.addEventListener('scroll', handleScroll);
-                
+
                 // Show initial animation
                 animateOnLoad();
-                
+
                 // Check for saved designs
                 if (cardDesigns.length > 0) {
                     console.log(`Loaded ${cardDesigns.length} saved designs`);
                 }
             }
-            
+
             // Set up all event listeners
             function setupEventListeners() {
                 // Card type selection
                 cardOptions.forEach(option => {
                     option.addEventListener('click', handleCardTypeSelect);
                 });
-                
+
                 // Step navigation
                 prevStepBtn.addEventListener('click', goToPreviousStep);
                 nextStepBtn.addEventListener('click', goToNextStep);
-                
+
                 // Card preview controls
                 flipCardBtn.addEventListener('click', toggleCardFlip);
                 downloadPngBtn.addEventListener('click', () => showExportModal('png'));
@@ -1848,16 +1890,16 @@
                 shareCardBtn.addEventListener('click', shareCard);
                 saveDesignBtn.addEventListener('click', saveDesign);
                 finalizeCardBtn.addEventListener('click', finalizeCard);
-                
+
                 // Image handling
                 addSampleImageBtn.addEventListener('click', addSampleBackground);
                 bgImageInput.addEventListener('change', handleBackgroundImageUpload);
                 logoImageInput.addEventListener('change', handleLogoImageUpload);
-                
+
                 // Theme and color controls
                 darkModeToggle.addEventListener('click', toggleTheme);
                 exportAllBtn.addEventListener('click', exportAllDesigns);
-                
+
                 // Real-time preview updates
                 titleInput.addEventListener('input', updatePreview);
                 subtitleInput.addEventListener('input', updatePreview);
@@ -1873,7 +1915,7 @@
                 iconSelect.addEventListener('change', updatePreview);
                 iconColor.addEventListener('input', updatePreview);
                 themeSelect.addEventListener('change', handleThemeChange);
-                
+
                 // Modal controls
                 exportModalClose.addEventListener('click', hideExportModal);
                 exportModalCancel.addEventListener('click', hideExportModal);
@@ -1881,7 +1923,7 @@
                 exportPdfBtn.addEventListener('click', () => exportCard('pdf'));
                 exportJsonBtn.addEventListener('click', () => exportCard('json'));
                 exportHtmlBtn.addEventListener('click', () => exportCard('html'));
-                
+
                 // Close modal on outside click
                 exportModal.addEventListener('click', (e) => {
                     if (e.target === exportModal) {
@@ -1889,16 +1931,16 @@
                     }
                 });
             }
-            
+
             // Handle card type selection
             function handleCardTypeSelect(e) {
                 const cardOption = e.currentTarget;
                 currentCardType = cardOption.dataset.type;
-                
+
                 // Get card data for selected type
                 const cardData = cardTypes[currentCardType];
                 currentTheme = cardData.defaultTheme;
-                
+
                 // Animate selection
                 gsap.to(cardOption, {
                     scale: 0.95,
@@ -1906,7 +1948,7 @@
                     yoyo: true,
                     repeat: 1
                 });
-                
+
                 // Show builder section with animation
                 gsap.to(cardTypeSection, {
                     opacity: 0,
@@ -1915,13 +1957,13 @@
                     onComplete: () => {
                         cardTypeSection.classList.add('hidden');
                         builderSection.classList.remove('hidden');
-                        
+
                         // Setup card builder with selected type
                         setupCardBuilder();
-                        
+
                         // Update progress
                         updateProgress(2);
-                        
+
                         // Animate builder in
                         gsap.from(builderSection, {
                             opacity: 0,
@@ -1931,16 +1973,16 @@
                         });
                     }
                 });
-                
+
                 // Show success toast
                 showToast('Template Selected', `You've selected ${cardOption.querySelector('h3').textContent} template`, 'success');
             }
-            
+
             // Setup card builder with selected type
             function setupCardBuilder() {
                 const cardData = cardTypes[currentCardType];
                 const themeData = themes[currentTheme];
-                
+
                 // Set default values
                 titleInput.value = cardData.title;
                 subtitleInput.value = cardData.subtitle;
@@ -1954,33 +1996,33 @@
                 fontSelect.value = themeData.font;
                 iconSelect.value = cardData.icon;
                 iconColor.value = '#ffffff';
-                
+
                 // Apply theme
                 applyTheme(themeData);
-                
+
                 // Update preview
                 updatePreview();
-                
+
                 // Animate color change
                 gsap.to(colorPreview, {
                     backgroundColor: cardData.color,
                     duration: 0.5
                 });
             }
-            
+
             // Apply theme to card
             function applyTheme(themeData) {
                 // Update card gradient
                 const cardFront = cardPreview.querySelector('.card-front');
                 cardFront.style.background = themeData.gradient;
-                
+
                 // Update card font
                 cardPreview.style.fontFamily = themeData.font;
-                
+
                 // Update color picker and preview
                 colorPicker.value = themeData.color;
                 colorPreview.style.backgroundColor = themeData.color;
-                
+
                 // Animate color change
                 gsap.to(cardFront, {
                     background: themeData.gradient,
@@ -1988,7 +2030,7 @@
                     ease: "power2.inOut"
                 });
             }
-            
+
             // Update card preview in real-time
             function updatePreview() {
                 // Update text content
@@ -1996,7 +2038,7 @@
                 previewSubtitle.textContent = subtitleInput.value || 'Your Position/Role';
                 previewText.textContent = textInput.value || 'Your message goes here. Customize this text to create the perfect card for your occasion.';
                 previewBackText.textContent = backTextInput.value || 'This is the back of your card. Add additional information, notes, or a personalized message here.';
-                
+
                 // Format and update contact info
                 if (contactInput.value.trim()) {
                     const contactLines = contactInput.value.split('\n');
@@ -2004,53 +2046,53 @@
                 } else {
                     previewContact.innerHTML = '<p>Contact information will appear here</p>';
                 }
-                
+
                 // Update footer
                 if (footerInput.value.trim()) {
                     previewFooter.innerHTML = `<p>${footerInput.value.replace(/\n/g, '<br>')}</p>`;
                 } else {
                     previewFooter.innerHTML = '<p>Additional footer information can go here</p>';
                 }
-                
+
                 // Update card color with gradient
                 const color = colorPicker.value;
                 const colorRgb = hexToRgb(color);
                 const darkerColor = `rgb(${Math.max(colorRgb.r - 40, 0)}, ${Math.max(colorRgb.g - 40, 0)}, ${Math.max(colorRgb.b - 40, 0)})`;
                 const cardFront = cardPreview.querySelector('.card-front');
-                
+
                 cardFront.style.background = `linear-gradient(135deg, ${color} 0%, ${darkerColor} 100%)`;
                 colorPreview.style.backgroundColor = color;
-                
+
                 // Animate color change
                 gsap.to(colorPreview, {
                     backgroundColor: color,
                     duration: 0.3
                 });
-                
+
                 // Update font
                 cardPreview.style.fontFamily = fontSelect.value;
-                
+
                 // Update border radius
                 const borderRadius = `${borderRadiusSlider.value}px`;
                 cardPreview.style.borderRadius = borderRadius;
                 borderRadiusValue.textContent = borderRadius;
-                
+
                 // Animate border radius change
                 gsap.to(cardPreview, {
                     borderRadius: borderRadius,
                     duration: 0.3
                 });
-                
+
                 // Update shadow
                 if (shadowToggle.checked) {
                     cardPreview.style.boxShadow = 'var(--shadow-lg)';
                 } else {
                     cardPreview.style.boxShadow = 'none';
                 }
-                
+
                 // Update icon
                 updateCardIcon();
-                
+
                 // Update background image (if exists and keep toggle is on)
                 if (currentBackgroundImage && keepBgToggle.checked) {
                     cardBackground.src = currentBackgroundImage;
@@ -2058,21 +2100,21 @@
                 } else {
                     cardBackground.style.display = 'none';
                 }
-                
+
                 // Update logo (if exists)
                 if (currentLogoImage) {
                     cardLogo.src = currentLogoImage;
                     cardLogo.style.display = 'block';
                 }
             }
-            
+
             // Update card icon
             function updateCardIcon() {
                 if (iconSelect.value) {
                     cardIcon.innerHTML = `<i class="${iconSelect.value}"></i>`;
                     cardIcon.style.display = 'block';
                     cardIcon.style.color = iconColor.value;
-                    
+
                     // Animate icon color change
                     gsap.to(cardIcon, {
                         color: iconColor.value,
@@ -2082,21 +2124,21 @@
                     cardIcon.style.display = 'none';
                 }
             }
-            
+
             // Handle theme change
             function handleThemeChange() {
                 currentTheme = themeSelect.value;
                 const themeData = themes[currentTheme];
                 applyTheme(themeData);
                 updatePreview();
-                
+
                 showToast('Theme Updated', `Applied ${themeData.name} theme`, 'success');
             }
-            
+
             // Toggle card flip
             function toggleCardFlip() {
                 isCardFlipped = !isCardFlipped;
-                
+
                 if (isCardFlipped) {
                     cardPreview.classList.add('flipped');
                     flipCardBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Flip to Front';
@@ -2104,7 +2146,7 @@
                     cardPreview.classList.remove('flipped');
                     flipCardBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Flip Card';
                 }
-                
+
                 // Animate flip
                 gsap.to(cardPreview, {
                     rotationY: isCardFlipped ? 180 : 0,
@@ -2112,66 +2154,66 @@
                     ease: "power2.inOut"
                 });
             }
-            
+
             // Handle background image upload
             function handleBackgroundImageUpload(e) {
                 const file = e.target.files[0];
                 if (!file) return;
-                
+
                 if (!file.type.startsWith('image/')) {
                     showToast('Invalid File', 'Please select an image file', 'error');
                     return;
                 }
-                
+
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = function (event) {
                     currentBackgroundImage = event.target.result;
-                    
+
                     // Update preview if keep toggle is on
                     if (keepBgToggle.checked) {
                         cardBackground.src = currentBackgroundImage;
                         cardBackground.style.display = 'block';
-                        
+
                         // Animate background in
                         gsap.from(cardBackground, {
                             opacity: 0,
                             duration: 0.5
                         });
                     }
-                    
+
                     showToast('Background Added', 'Image uploaded successfully', 'success');
                 };
                 reader.readAsDataURL(file);
             }
-            
+
             // Handle logo image upload
             function handleLogoImageUpload(e) {
                 const file = e.target.files[0];
                 if (!file) return;
-                
+
                 if (!file.type.startsWith('image/')) {
                     showToast('Invalid File', 'Please select an image file', 'error');
                     return;
                 }
-                
+
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = function (event) {
                     currentLogoImage = event.target.result;
                     cardLogo.src = currentLogoImage;
                     cardLogo.style.display = 'block';
-                    
+
                     // Animate logo in
                     gsap.from(cardLogo, {
                         scale: 0,
                         duration: 0.5,
                         ease: "back.out(1.7)"
                     });
-                    
+
                     showToast('Logo Added', 'Logo uploaded successfully', 'success');
                 };
                 reader.readAsDataURL(file);
             }
-            
+
             // Add sample background
             function addSampleBackground() {
                 const sampleImages = [
@@ -2180,24 +2222,24 @@
                     'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                     'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
                 ];
-                
+
                 const randomImage = sampleImages[Math.floor(Math.random() * sampleImages.length)];
                 currentBackgroundImage = randomImage;
-                
+
                 if (keepBgToggle.checked) {
                     cardBackground.src = currentBackgroundImage;
                     cardBackground.style.display = 'block';
-                    
+
                     // Animate background in
                     gsap.from(cardBackground, {
                         opacity: 0,
                         duration: 0.8
                     });
                 }
-                
+
                 showToast('Sample Added', 'Sample background image applied', 'success');
             }
-            
+
             // Save design
             function saveDesign() {
                 const designData = {
@@ -2221,11 +2263,11 @@
                     hasLogo: !!currentLogoImage,
                     timestamp: new Date().toISOString()
                 };
-                
+
                 // Save to localStorage
                 cardDesigns.push(designData);
                 localStorage.setItem('cardDesigns', JSON.stringify(cardDesigns));
-                
+
                 // Animate save button
                 gsap.to(saveDesignBtn, {
                     scale: 1.1,
@@ -2237,14 +2279,14 @@
                     }
                 });
             }
-            
+
             // Finalize card
             function finalizeCard() {
                 updateProgress(3);
-                
+
                 // Show success message with animation
                 showToast('Card Finalized', 'Your card is ready for export!', 'success');
-                
+
                 // Animate finalize button
                 gsap.to(finalizeCardBtn, {
                     backgroundColor: '#10b981',
@@ -2258,12 +2300,12 @@
                     }
                 });
             }
-            
+
             // Show export modal
             function showExportModal(type) {
                 exportModal.classList.add('show');
                 document.body.style.overflow = 'hidden';
-                
+
                 // Animate modal in
                 gsap.from(exportModal.querySelector('.modal'), {
                     scale: 0.8,
@@ -2272,18 +2314,18 @@
                     ease: "back.out(1.2)"
                 });
             }
-            
+
             // Hide export modal
             function hideExportModal() {
                 exportModal.classList.remove('show');
                 document.body.style.overflow = 'auto';
             }
-            
+
             // Export card
             function exportCard(format) {
                 hideExportModal();
-                
-                switch(format) {
+
+                switch (format) {
                     case 'png':
                         exportAsPNG();
                         break;
@@ -2297,22 +2339,22 @@
                         exportAsHTML();
                         break;
                 }
-                
+
                 updateProgress(4);
                 setTimeout(() => updateProgress(3), 2000);
             }
-            
+
             // Export as PNG using html2canvas
             function exportAsPNG() {
                 showToast('Processing', 'Generating PNG image...', 'info');
-                
+
                 // Temporarily flip card to front if needed
                 const wasFlipped = isCardFlipped;
                 if (wasFlipped) {
                     cardPreview.classList.remove('flipped');
                     isCardFlipped = false;
                 }
-                
+
                 html2canvas(cardPreview, {
                     scale: 2,
                     backgroundColor: null,
@@ -2322,9 +2364,9 @@
                     link.download = `cardcraft-${Date.now()}.png`;
                     link.href = canvas.toDataURL('image/png');
                     link.click();
-                    
+
                     showToast('Download Ready', 'PNG image saved successfully', 'success');
-                    
+
                     // Restore card flip state if needed
                     if (wasFlipped) {
                         cardPreview.classList.add('flipped');
@@ -2335,34 +2377,34 @@
                     showToast('Export Failed', 'Could not generate PNG image', 'error');
                 });
             }
-            
+
             // Export as PDF using jsPDF
             function exportAsPDF() {
                 showToast('Processing', 'Generating PDF document...', 'info');
-                
+
                 // Temporarily flip card to front if needed
                 const wasFlipped = isCardFlipped;
                 if (wasFlipped) {
                     cardPreview.classList.remove('flipped');
                     isCardFlipped = false;
                 }
-                
+
                 html2canvas(cardPreview, {
                     scale: 2,
                     useCORS: true
                 }).then(canvas => {
                     const { jsPDF } = window.jspdf;
                     const pdf = new jsPDF('p', 'mm', 'a4');
-                    
+
                     const imgData = canvas.toDataURL('image/png');
                     const imgWidth = 190;
                     const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                    
+
                     pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
                     pdf.save(`cardcraft-${Date.now()}.pdf`);
-                    
+
                     showToast('Download Ready', 'PDF document saved successfully', 'success');
-                    
+
                     // Restore card flip state if needed
                     if (wasFlipped) {
                         cardPreview.classList.add('flipped');
@@ -2373,7 +2415,7 @@
                     showToast('Export Failed', 'Could not generate PDF', 'error');
                 });
             }
-            
+
             // Export as JSON
             function exportAsJSON() {
                 const designData = {
@@ -2394,18 +2436,18 @@
                     iconColor: iconColor.value,
                     timestamp: new Date().toISOString()
                 };
-                
+
                 const dataStr = JSON.stringify(designData, null, 2);
-                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-                
+                const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+
                 const link = document.createElement('a');
                 link.download = `cardcraft-template-${Date.now()}.json`;
                 link.href = dataUri;
                 link.click();
-                
+
                 showToast('Export Complete', 'JSON template exported', 'success');
             }
-            
+
             // Export as HTML
             function exportAsHTML() {
                 const htmlContent = `
@@ -2499,16 +2541,16 @@
     </div>
 </body>
 </html>`;
-                
+
                 const blob = new Blob([htmlContent], { type: 'text/html' });
                 const link = document.createElement('a');
                 link.download = `cardcraft-${Date.now()}.html`;
                 link.href = URL.createObjectURL(blob);
                 link.click();
-                
+
                 showToast('Export Complete', 'HTML template exported', 'success');
             }
-            
+
             // Share card
             function shareCard() {
                 if (navigator.share) {
@@ -2530,36 +2572,36 @@
                     });
                 }
             }
-            
+
             // Export all designs
             function exportAllDesigns() {
                 if (cardDesigns.length === 0) {
                     showToast('No Designs', 'No saved designs to export', 'warning');
                     return;
                 }
-                
+
                 const exportData = {
                     designs: cardDesigns,
                     templates: cardTemplates,
                     exportDate: new Date().toISOString(),
                     app: 'CardCraft Pro'
                 };
-                
+
                 const dataStr = JSON.stringify(exportData, null, 2);
-                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-                
+                const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+
                 const link = document.createElement('a');
                 link.download = `cardcraft-backup-${Date.now()}.json`;
                 link.href = dataUri;
                 link.click();
-                
+
                 showToast('Backup Complete', 'All designs exported successfully', 'success');
             }
-            
+
             // Toggle theme (dark/light)
             function toggleTheme() {
                 isDarkMode = !isDarkMode;
-                
+
                 if (isDarkMode) {
                     // Switch to dark mode
                     document.documentElement.style.setProperty('--primary-color', '#0d1b2a');
@@ -2567,14 +2609,14 @@
                     document.documentElement.style.setProperty('--text-primary', '#e2e8f0');
                     document.documentElement.style.setProperty('--text-secondary', '#94a3b8');
                     darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-                    
+
                     // Animate theme change
                     gsap.to('body', {
                         backgroundColor: '#0d1b2a',
                         color: '#e2e8f0',
                         duration: 0.5
                     });
-                    
+
                     showToast('Dark Mode', 'Switched to dark theme', 'success');
                 } else {
                     // Switch to light mode
@@ -2583,28 +2625,28 @@
                     document.documentElement.style.setProperty('--text-primary', '#0f172a');
                     document.documentElement.style.setProperty('--text-secondary', '#475569');
                     darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-                    
+
                     // Animate theme change
                     gsap.to('body', {
                         backgroundColor: '#f8fafc',
                         color: '#0f172a',
                         duration: 0.5
                     });
-                    
+
                     showToast('Light Mode', 'Switched to light theme', 'success');
                 }
             }
-            
+
             // Progress navigation
             function goToPreviousStep() {
                 if (currentStep > 1) {
                     currentStep--;
                     updateProgress(currentStep);
-                    
+
                     if (currentStep === 1) {
                         builderSection.classList.add('hidden');
                         cardTypeSection.classList.remove('hidden');
-                        
+
                         // Animate transition
                         gsap.from(cardTypeSection, {
                             opacity: 0,
@@ -2615,26 +2657,26 @@
                     }
                 }
             }
-            
+
             function goToNextStep() {
                 if (currentStep < 4) {
                     currentStep++;
                     updateProgress(currentStep);
-                    
+
                     if (currentStep === 3) {
                         finalizeCard();
                     }
                 }
             }
-            
+
             // Update progress indicator
             function updateProgress(step) {
                 currentStep = step;
-                
+
                 // Update progress bar width
                 const progressWidths = ['0%', '33%', '66%', '100%'];
                 progressBar.style.width = progressWidths[step - 1];
-                
+
                 // Update step states
                 steps.forEach((stepEl, index) => {
                     if (index < step - 1) {
@@ -2647,12 +2689,12 @@
                         stepEl.classList.remove('active', 'completed');
                     }
                 });
-                
+
                 // Update navigation buttons
                 prevStepBtn.style.display = step > 1 ? 'flex' : 'none';
                 nextStepBtn.style.display = step < 4 ? 'flex' : 'none';
                 nextStepBtn.textContent = step === 3 ? 'Export' : `Step ${step + 1}`;
-                
+
                 // Animate progress bar
                 gsap.from(progressBar, {
                     width: progressWidths[step - 2] || '0%',
@@ -2660,7 +2702,7 @@
                     ease: "power2.out"
                 });
             }
-            
+
             // Handle scroll
             function handleScroll() {
                 if (window.scrollY > 50) {
@@ -2669,16 +2711,16 @@
                     header.classList.remove('scrolled');
                 }
             }
-            
+
             // Show toast notification
             function showToast(title, message, type = 'success') {
                 const toast = document.createElement('div');
                 toast.className = 'toast';
-                
+
                 // Set icon based on type
                 let icon = 'fas fa-check-circle';
                 let borderColor = 'var(--accent-color)';
-                
+
                 if (type === 'error') {
                     icon = 'fas fa-exclamation-circle';
                     borderColor = 'var(--danger-color)';
@@ -2689,7 +2731,7 @@
                     icon = 'fas fa-info-circle';
                     borderColor = 'var(--accent-light)';
                 }
-                
+
                 toast.innerHTML = `
                     <i class="${icon} toast-icon"></i>
                     <div class="toast-content">
@@ -2698,10 +2740,10 @@
                     </div>
                     <div class="toast-progress"></div>
                 `;
-                
+
                 toast.style.borderLeftColor = borderColor;
                 toastContainer.appendChild(toast);
-                
+
                 // Animate toast in
                 gsap.to(toast, {
                     x: 0,
@@ -2728,7 +2770,7 @@
                         });
                     }
                 });
-                
+
                 // Set timeout for auto-removal
                 setTimeout(() => {
                     if (toast.parentNode) {
@@ -2743,7 +2785,7 @@
                     }
                 }, 5000);
             }
-            
+
             // Animate on load
             function animateOnLoad() {
                 // Animate header
@@ -2753,7 +2795,7 @@
                     duration: 0.8,
                     ease: "power2.out"
                 });
-                
+
                 // Animate logo
                 gsap.from('.logo', {
                     scale: 0.8,
@@ -2762,7 +2804,7 @@
                     delay: 0.2,
                     ease: "back.out(1.2)"
                 });
-                
+
                 // Animate progress steps
                 gsap.from('.step', {
                     y: 20,
@@ -2771,7 +2813,7 @@
                     stagger: 0.1,
                     delay: 0.4
                 });
-                
+
                 // Animate card options
                 gsap.from('.card-option', {
                     y: 30,
@@ -2782,7 +2824,7 @@
                     ease: "power2.out"
                 });
             }
-            
+
             // Helper function: Convert hex to RGB
             function hexToRgb(hex) {
                 const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -2792,10 +2834,11 @@
                     b: parseInt(result[3], 16)
                 } : { r: 0, g: 0, b: 0 };
             }
-            
+
             // Initialize the application
             init();
         });
     </script>
 </body>
+
 </html>
