@@ -2721,25 +2721,7 @@
                 let icon = 'fas fa-check-circle';
                 let borderColor = 'var(--accent-color)';
 
-                if (type === 'error') {
-                    icon = 'fas fa-exclamation-circle';
-                    borderColor = 'var(--danger-color)';
-                } else if (type === 'warning') {
-                    icon = 'fas fa-exclamation-triangle';
-                    borderColor = 'var(--warning-color)';
-                } else if (type === 'info') {
-                    icon = 'fas fa-info-circle';
-                    borderColor = 'var(--accent-light)';
-                }
-
-                toast.innerHTML = `
-                    <i class="${icon} toast-icon"></i>
-                    <div class="toast-content">
-                        <div class="toast-title">${title}</div>
-                        <div class="toast-message">${message}</div>
-                    </div>
-                    <div class="toast-progress"></div>
-                `;
+             
 
                 toast.style.borderLeftColor = borderColor;
                 toastContainer.appendChild(toast);
