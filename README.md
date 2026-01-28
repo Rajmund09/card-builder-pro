@@ -4,17 +4,46 @@ Card Builder Pro is a web-based application that allows users to create and cust
 
 ## 🔄 Project Update
 
-**Current Progress (Latest Update):**
-- Added a premium landing page with modern UI and animations
-- Implemented typewriter text effect for multiple card types
-- Added interactive hero card stack with hover & floating animations
-- Improved responsiveness for mobile and tablet screens
-- Added smooth scrolling navigation and animated statistics
+## 📅 Development Progress (Day-wise)
 
-🚧 This project is still under active development.  
-More features, optimizations, and the complete card builder functionality will be added soon.
+### Day 1
+- Project planning and idea finalization
+- Decided core features and card categories
+- Initial folder structure setup
 
----
+### Day 2
+- Created base HTML structure for landing page
+- Implemented responsive layout using CSS
+- Added navigation bar and hero section
+
+### Day 3
+- Designed premium UI with modern colors and typography
+- Added animated hero card stack
+- Implemented hover and floating animations
+
+### Day 4
+- Added typewriter effect to showcase different card types
+- Implemented smooth scrolling navigation
+- Improved mobile and tablet responsiveness
+
+### Day 5
+- Started card builder functionality
+- Added live card preview section
+- Implemented text, font, and color customization
+
+### Day 6
+- Added theme selection options
+- Enabled background image upload feature
+- Improved UI stability during live updates
+
+### Day 7
+- Added logo upload functionality
+- Provided full control over card size and border radius
+- Added more card type options
+- Improved overall performance and code structure
+
+🚧 Development is ongoing. Advanced export features, better image handling, and backend integration are planned next.
+
 
 ## ✨ Features
 
