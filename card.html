@@ -67,7 +67,12 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             line-height: 1.2;
@@ -106,8 +111,13 @@
         }
 
         @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
         }
 
         .header.scrolled {
@@ -141,8 +151,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         .logo-text {
@@ -224,10 +241,21 @@
             animation-fill-mode: both;
         }
 
-        .step:nth-child(1) { animation-delay: 0.1s; }
-        .step:nth-child(2) { animation-delay: 0.2s; }
-        .step:nth-child(3) { animation-delay: 0.3s; }
-        .step:nth-child(4) { animation-delay: 0.4s; }
+        .step:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .step:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .step:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .step:nth-child(4) {
+            animation-delay: 0.4s;
+        }
 
         .step-circle {
             width: 44px;
@@ -255,8 +283,15 @@
         }
 
         @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         .step.completed .step-circle {
@@ -332,8 +367,13 @@
         }
 
         @keyframes expandWidth {
-            from { width: 0; }
-            to { width: 100px; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100px;
+            }
         }
 
         .section-subtitle {
@@ -369,20 +409,44 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .card-option:nth-child(1) { animation-delay: 0.1s; }
-        .card-option:nth-child(2) { animation-delay: 0.2s; }
-        .card-option:nth-child(3) { animation-delay: 0.3s; }
-        .card-option:nth-child(4) { animation-delay: 0.4s; }
-        .card-option:nth-child(5) { animation-delay: 0.5s; }
-        .card-option:nth-child(6) { animation-delay: 0.6s; }
-        .card-option:nth-child(7) { animation-delay: 0.7s; }
-        .card-option:nth-child(8) { animation-delay: 0.8s; }
+        .card-option:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card-option:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card-option:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card-option:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .card-option:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .card-option:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .card-option:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .card-option:nth-child(8) {
+            animation-delay: 0.8s;
+        }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -461,8 +525,15 @@
         }
 
         @keyframes slideInLeft {
-            from { transform: translateX(-30px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .card-preview-wrapper {
@@ -498,14 +569,16 @@
             height: 100%;
             background: inherit;
             z-index: 1;
-            opacity: 0.85; /* Reduced opacity to show background image better */
+            opacity: 0.85;
+            /* Reduced opacity to show background image better */
         }
 
         .card-preview.flipped {
             transform: rotateY(180deg);
         }
 
-        .card-front, .card-back {
+        .card-front,
+        .card-back {
             backface-visibility: hidden;
             position: absolute;
             width: 100%;
@@ -531,7 +604,8 @@
         }
 
         .card-content {
-            z-index: 3; /* Increased z-index to ensure content is above everything */
+            z-index: 3;
+            /* Increased z-index to ensure content is above everything */
             position: relative;
         }
 
@@ -549,7 +623,8 @@
             object-fit: contain;
             border-radius: 8px;
             position: relative;
-            z-index: 4; /* Higher z-index to ensure visibility */
+            z-index: 4;
+            /* Higher z-index to ensure visibility */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             background: rgba(255, 255, 255, 0.1);
             padding: 5px;
@@ -623,8 +698,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.25; /* Increased opacity for better visibility */
-            z-index: 2; /* Lower z-index than content */
+            opacity: 0.25;
+            /* Increased opacity for better visibility */
+            z-index: 2;
+            /* Lower z-index than content */
             filter: brightness(0.8);
         }
 
@@ -651,8 +728,15 @@
         }
 
         @keyframes slideInRight {
-            from { transform: translateX(30px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .control-panel::-webkit-scrollbar {
@@ -677,10 +761,21 @@
             animation-fill-mode: both;
         }
 
-        .control-group:nth-child(1) { animation-delay: 0.1s; }
-        .control-group:nth-child(2) { animation-delay: 0.2s; }
-        .control-group:nth-child(3) { animation-delay: 0.3s; }
-        .control-group:nth-child(4) { animation-delay: 0.4s; }
+        .control-group:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .control-group:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .control-group:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .control-group:nth-child(4) {
+            animation-delay: 0.4s;
+        }
 
         .control-group:last-child {
             border-bottom: none;
@@ -779,8 +874,15 @@
         }
 
         @keyframes colorPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(100, 255, 218, 0);
+            }
         }
 
         .color-preview:hover {
@@ -880,11 +982,11 @@
             border-radius: 50%;
         }
 
-        input:checked + .toggle-slider {
+        input:checked+.toggle-slider {
             background: var(--accent-color);
         }
 
-        input:checked + .toggle-slider:before {
+        input:checked+.toggle-slider:before {
             transform: translateX(28px);
         }
 
@@ -1058,8 +1160,13 @@
         }
 
         @keyframes toastProgress {
-            from { transform: scaleX(1); }
-            to { transform: scaleX(0); }
+            from {
+                transform: scaleX(1);
+            }
+
+            to {
+                transform: scaleX(0);
+            }
         }
 
         /* Footer */
@@ -1138,7 +1245,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Modal */
@@ -1231,7 +1340,7 @@
             .container {
                 max-width: 1200px;
             }
-            
+
             .builder-container {
                 gap: 2rem;
             }
@@ -1242,11 +1351,11 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .card-preview-container {
                 position: static;
             }
-            
+
             .control-panel {
                 position: static;
                 max-height: none;
@@ -1257,25 +1366,25 @@
             .section {
                 padding: 2rem;
             }
-            
+
             .card-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 gap: 1.5rem;
             }
-            
+
             .card-preview {
                 min-height: 350px;
                 padding: 2rem;
             }
-            
+
             .control-grid {
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             }
-            
+
             .progress-steps {
                 gap: 10px;
             }
-            
+
             .step {
                 width: 80px;
             }
@@ -1285,65 +1394,65 @@
             .container {
                 padding: 0 15px;
             }
-            
+
             .header-content {
                 flex-direction: column;
                 gap: 1.25rem;
                 text-align: center;
             }
-            
+
             .section {
                 padding: 1.5rem;
                 border-radius: 16px;
             }
-            
+
             .card-grid {
                 grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                 gap: 1.25rem;
             }
-            
+
             .card-preview {
                 min-height: 320px;
                 padding: 1.5rem;
             }
-            
+
             .control-panel {
                 padding: 1.5rem;
             }
-            
+
             .control-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            
+
             .builder-actions {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            
+
             .progress-steps {
                 margin-bottom: 1rem;
                 justify-content: space-around;
             }
-            
+
             .step {
                 width: 70px;
             }
-            
+
             .step-circle {
                 width: 36px;
                 height: 36px;
                 font-size: 0.9rem;
             }
-            
+
             .step-label {
                 font-size: 0.8rem;
             }
-            
+
             .preview-controls {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .footer-links {
                 flex-direction: column;
                 gap: 1rem;
@@ -1354,46 +1463,46 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.75rem;
             }
-            
+
             h3 {
                 font-size: 1.25rem;
             }
-            
+
             .card-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .card-preview {
                 min-height: 280px;
                 padding: 1.25rem;
             }
-            
+
             .card-title {
                 font-size: 1.75rem;
             }
-            
+
             .preview-controls {
                 grid-template-columns: 1fr;
             }
-            
+
             .progress-steps {
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 20px;
             }
-            
+
             .step {
                 width: 60px;
             }
-            
+
             .step-label {
                 font-size: 0.75rem;
             }
-            
+
             .section-title::after {
                 width: 80px;
             }
@@ -1403,22 +1512,22 @@
             .container {
                 padding: 0 10px;
             }
-            
+
             .section {
                 padding: 1.25rem;
                 border-radius: 12px;
             }
-            
+
             .card-preview {
                 min-height: 250px;
                 padding: 1rem;
             }
-            
+
             .btn {
                 padding: 0.75rem 1.5rem;
                 font-size: 0.9rem;
             }
-            
+
             .control-group-title {
                 font-size: 1.1rem;
             }
@@ -1429,20 +1538,20 @@
             .btn:hover {
                 transform: none;
             }
-            
+
             .card-option:hover {
                 transform: none;
             }
-            
+
             .color-preview:hover {
                 transform: none;
             }
-            
+
             .slider::-webkit-slider-thumb {
                 width: 28px;
                 height: 28px;
             }
-            
+
             .control-input:focus {
                 transform: none;
             }
@@ -1453,15 +1562,15 @@
             .main-content {
                 padding: 1rem 0;
             }
-            
+
             .progress-container {
                 margin-bottom: 1.5rem;
             }
-            
+
             .card-preview {
                 min-height: 280px;
             }
-            
+
             .control-panel {
                 max-height: 60vh;
             }
@@ -1469,16 +1578,22 @@
 
         /* Print Styles */
         @media print {
-            .header, .footer, .control-panel, .progress-container, .preview-controls, .btn {
+
+            .header,
+            .footer,
+            .control-panel,
+            .progress-container,
+            .preview-controls,
+            .btn {
                 display: none !important;
             }
-            
+
             .card-preview {
                 box-shadow: none !important;
                 break-inside: avoid;
                 transform: none !important;
             }
-            
+
             body {
                 background: white !important;
                 color: black !important;
@@ -1495,13 +1610,25 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Custom Scrollbar for Firefox */
@@ -1512,7 +1639,10 @@
 
         /* Performance Optimizations */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -1567,7 +1697,7 @@
                             <div class="step-label">Export</div>
                         </div>
                     </div>
-                    
+
                     <div class="progress-actions" id="progress-actions">
                         <button class="btn btn-secondary" id="prev-step-btn" style="display: none;">
                             <i class="fas fa-arrow-left"></i> Previous
@@ -1581,8 +1711,9 @@
                 <!-- Card Type Selection -->
                 <section class="section fade-in" id="card-type-section">
                     <h2 class="section-title">Choose Your Card Type</h2>
-                    <p class="section-subtitle">Select a professionally designed template to get started. Each template includes pre-filled content optimized for its purpose.</p>
-                    
+                    <p class="section-subtitle">Select a professionally designed template to get started. Each template
+                        includes pre-filled content optimized for its purpose.</p>
+
                     <div class="card-grid">
                         <div class="card-option" data-type="business">
                             <div class="option-icon"><i class="fas fa-briefcase"></i></div>
@@ -1630,7 +1761,8 @@
                 <!-- Card Builder -->
                 <section class="section hidden" id="builder-section">
                     <h2 class="section-title">Customize Your Card</h2>
-                    <p class="section-subtitle">Adjust every detail of your card design with real-time preview. Changes update instantly as you type.</p>
+                    <p class="section-subtitle">Adjust every detail of your card design with real-time preview. Changes
+                        update instantly as you type.</p>
 
                     <div class="builder-container">
                         <!-- Card Preview -->
@@ -1640,13 +1772,15 @@
                                     <div class="card-front">
                                         <div class="card-content">
                                             <div class="card-header">
-                                                <img src="" alt="Logo" class="card-logo" id="card-logo" style="display: none;">
+                                                <img src="" alt="Logo" class="card-logo" id="card-logo"
+                                                    style="display: none;">
                                                 <div class="card-icon" id="card-icon"></div>
                                             </div>
                                             <h2 class="card-title" id="preview-title">Your Name</h2>
                                             <h3 class="card-subtitle" id="preview-subtitle">Your Position/Role</h3>
                                             <div class="card-message" id="preview-text">
-                                                Your message goes here. Customize this text to create the perfect card for your occasion.
+                                                Your message goes here. Customize this text to create the perfect card
+                                                for your occasion.
                                             </div>
                                             <div class="card-contact" id="preview-contact">
                                                 <p>Email: example@email.com</p>
@@ -1656,15 +1790,18 @@
                                                 <p>Additional footer information can go here</p>
                                             </div>
                                         </div>
-                                        <img src="" alt="Background" class="card-background" id="card-background" style="display: none;">
+                                        <img src="" alt="Background" class="card-background" id="card-background"
+                                            style="display: none;">
                                     </div>
-                                    
+
                                     <div class="card-back">
                                         <div class="card-back-content">
-                                            <i class="fas fa-layer-group card-icon" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+                                            <i class="fas fa-layer-group card-icon"
+                                                style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
                                             <h3 class="card-title">Card Back</h3>
                                             <div class="card-message" id="preview-back-text">
-                                                This is the back of your card. Add additional information, notes, or a personalized message here.
+                                                This is the back of your card. Add additional information, notes, or a
+                                                personalized message here.
                                             </div>
                                             <div class="card-footer" style="margin-top: 2rem;">
                                                 <p>Created with CardCraft Pro</p>
@@ -1715,7 +1852,8 @@
                                         <label class="control-label">Primary Color</label>
                                         <div class="color-picker-wrapper">
                                             <div class="color-preview" id="color-preview"></div>
-                                            <input type="color" id="color-picker" class="control-input" value="#64ffda" style="height: 48px; padding: 0;">
+                                            <input type="color" id="color-picker" class="control-input" value="#64ffda"
+                                                style="height: 48px; padding: 0;">
                                         </div>
                                     </div>
 
@@ -1745,7 +1883,8 @@
                                 <div class="control">
                                     <label class="control-label">Border Radius</label>
                                     <div class="slider-container">
-                                        <input type="range" min="0" max="30" value="20" class="slider" id="border-radius-slider">
+                                        <input type="range" min="0" max="30" value="20" class="slider"
+                                            id="border-radius-slider">
                                         <span class="slider-value" id="border-radius-value">20px</span>
                                     </div>
                                 </div>
@@ -1767,7 +1906,8 @@
                                     <div class="control">
                                         <label class="control-label" for="title-input">Title/Name</label>
                                         <div class="input-with-icon">
-                                            <input type="text" id="title-input" class="control-input" placeholder="Enter title or name">
+                                            <input type="text" id="title-input" class="control-input"
+                                                placeholder="Enter title or name">
                                             <i class="fas fa-heading input-icon"></i>
                                         </div>
                                     </div>
@@ -1775,7 +1915,8 @@
                                     <div class="control">
                                         <label class="control-label" for="subtitle-input">Subtitle/Role</label>
                                         <div class="input-with-icon">
-                                            <input type="text" id="subtitle-input" class="control-input" placeholder="Enter subtitle or role">
+                                            <input type="text" id="subtitle-input" class="control-input"
+                                                placeholder="Enter subtitle or role">
                                             <i class="fas fa-text-height input-icon"></i>
                                         </div>
                                     </div>
@@ -1783,23 +1924,27 @@
 
                                 <div class="control">
                                     <label class="control-label" for="text-input">Card Message</label>
-                                    <textarea id="text-input" class="control-input" placeholder="Enter your card message"></textarea>
+                                    <textarea id="text-input" class="control-input"
+                                        placeholder="Enter your card message"></textarea>
                                 </div>
 
                                 <div class="control">
                                     <label class="control-label" for="back-text-input">Back Side Text</label>
-                                    <textarea id="back-text-input" class="control-input" placeholder="Enter text for the back of the card"></textarea>
+                                    <textarea id="back-text-input" class="control-input"
+                                        placeholder="Enter text for the back of the card"></textarea>
                                 </div>
 
                                 <div class="control-grid">
                                     <div class="control">
                                         <label class="control-label" for="contact-input">Contact Info</label>
-                                        <textarea id="contact-input" class="control-input" placeholder="Enter contact information" rows="3"></textarea>
+                                        <textarea id="contact-input" class="control-input"
+                                            placeholder="Enter contact information" rows="3"></textarea>
                                     </div>
 
                                     <div class="control">
                                         <label class="control-label" for="footer-input">Footer Text</label>
-                                        <textarea id="footer-input" class="control-input" placeholder="Enter footer text" rows="3"></textarea>
+                                        <textarea id="footer-input" class="control-input"
+                                            placeholder="Enter footer text" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -1808,7 +1953,7 @@
                                 <div class="control-group-title">
                                     <i class="fas fa-image"></i> Images & Media
                                 </div>
-                                
+
                                 <div class="control">
                                     <label class="control-label" for="bg-image">Background Image</label>
                                     <input type="file" id="bg-image" class="control-input" accept="image/*">
@@ -1844,7 +1989,8 @@
 
                                     <div class="control">
                                         <label class="control-label">Icon Color</label>
-                                        <input type="color" id="icon-color" class="control-input" value="#ffffff" style="height: 48px; padding: 0;">
+                                        <input type="color" id="icon-color" class="control-input" value="#ffffff"
+                                            style="height: 48px; padding: 0;">
                                     </div>
                                 </div>
 
@@ -1923,7 +2069,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Set current year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             // DOM Elements
             const header = document.getElementById('header');
             const cardTypeSection = document.getElementById('card-type-section');
@@ -1933,7 +2079,7 @@
             const nextStepBtn = document.getElementById('next-step-btn');
             const progressBar = document.getElementById('progress-bar');
             const steps = document.querySelectorAll('.step');
-            
+
             // Card Preview Elements
             const cardPreview = document.getElementById('card-preview');
             const previewTitle = document.getElementById('preview-title');
@@ -1946,7 +2092,7 @@
             const cardLogo = document.getElementById('card-logo');
             const cardBackground = document.getElementById('card-background');
             const previewBackDate = document.getElementById('preview-back-date');
-            
+
             // Control Elements
             const themeSelect = document.getElementById('theme-select');
             const colorPicker = document.getElementById('color-picker');
@@ -1967,7 +2113,7 @@
             const iconSelect = document.getElementById('icon-select');
             const iconColor = document.getElementById('icon-color');
             const keepBgToggle = document.getElementById('keep-bg-toggle');
-            
+
             // Button Elements
             const flipCardBtn = document.getElementById('flip-card-btn');
             const downloadPngBtn = document.getElementById('download-png-btn');
@@ -1977,7 +2123,7 @@
             const finalizeCardBtn = document.getElementById('finalize-card-btn');
             const addSampleImageBtn = document.getElementById('add-sample-image');
             const exportAllBtn = document.getElementById('export-all-btn');
-            
+
             // Application State
             let currentStep = 1;
             let currentCardType = '';
@@ -1986,7 +2132,7 @@
             let currentBackgroundImage = null;
             let currentLogoImage = null;
             let cardDesigns = JSON.parse(localStorage.getItem('cardDesigns') || '[]');
-            
+
             // Theme Data
             const themes = {
                 modern: {
@@ -2037,10 +2183,10 @@
             function init() {
                 setupEventListeners();
                 colorPreview.style.backgroundColor = colorPicker.value;
-                previewBackDate.textContent = new Date().toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
+                previewBackDate.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
                 });
                 window.addEventListener('scroll', handleScroll);
             }
@@ -2050,7 +2196,7 @@
                 cardOptions.forEach(option => {
                     option.addEventListener('click', handleCardTypeSelect);
                 });
-                
+
                 prevStepBtn.addEventListener('click', goToPreviousStep);
                 nextStepBtn.addEventListener('click', goToNextStep);
                 flipCardBtn.addEventListener('click', toggleCardFlip);
@@ -2061,10 +2207,10 @@
                 finalizeCardBtn.addEventListener('click', finalizeCard);
                 addSampleImageBtn.addEventListener('click', addSampleBackground);
                 exportAllBtn.addEventListener('click', exportAllDesigns);
-                
+
                 bgImageInput.addEventListener('change', handleBackgroundImageUpload);
                 logoImageInput.addEventListener('change', handleLogoImageUpload);
-                
+
                 titleInput.addEventListener('input', updatePreview);
                 subtitleInput.addEventListener('input', updatePreview);
                 textInput.addEventListener('input', updatePreview);
@@ -2079,8 +2225,8 @@
                 iconSelect.addEventListener('change', updatePreview);
                 iconColor.addEventListener('input', updatePreview);
                 themeSelect.addEventListener('change', handleThemeChange);
-                
-                keepBgToggle.addEventListener('change', function() {
+
+                keepBgToggle.addEventListener('change', function () {
                     if (currentBackgroundImage && this.checked) {
                         cardBackground.style.display = 'block';
                     } else {
@@ -2093,13 +2239,13 @@
             function handleCardTypeSelect(e) {
                 const cardOption = e.currentTarget;
                 currentCardType = cardOption.dataset.type;
-                
+
                 cardTypeSection.classList.add('hidden');
                 builderSection.classList.remove('hidden');
-                
+
                 setupCardBuilder();
                 updateProgress(2);
-                
+
                 showToast('Template Selected', `You've selected ${cardOption.querySelector('h3').textContent} template`, 'success');
             }
 
@@ -2110,7 +2256,7 @@
                 currentLogoImage = null;
                 cardBackground.style.display = 'none';
                 cardLogo.style.display = 'none';
-                
+
                 // Set default values
                 themeSelect.value = currentTheme;
                 colorPicker.value = '#64ffda';
@@ -2118,7 +2264,7 @@
                 fontSelect.value = "'Poppins', sans-serif";
                 iconSelect.value = '';
                 iconColor.value = '#ffffff';
-                
+
                 applyTheme(themes[currentTheme]);
                 updatePreview();
             }
@@ -2138,42 +2284,42 @@
                 previewSubtitle.textContent = subtitleInput.value || 'Your Position/Role';
                 previewText.textContent = textInput.value || 'Your message goes here. Customize this text to create the perfect card for your occasion.';
                 previewBackText.textContent = backTextInput.value || 'This is the back of your card. Add additional information, notes, or a personalized message here.';
-                
+
                 if (contactInput.value.trim()) {
                     const contactLines = contactInput.value.split('\n');
                     previewContact.innerHTML = contactLines.map(line => `<p>${line}</p>`).join('');
                 } else {
                     previewContact.innerHTML = '<p>Contact information will appear here</p>';
                 }
-                
+
                 if (footerInput.value.trim()) {
                     previewFooter.innerHTML = `<p>${footerInput.value.replace(/\n/g, '<br>')}</p>`;
                 } else {
                     previewFooter.innerHTML = '<p>Additional footer information can go here</p>';
                 }
-                
+
                 const color = colorPicker.value;
                 const colorRgb = hexToRgb(color);
                 const darkerColor = `rgb(${Math.max(colorRgb.r - 40, 0)}, ${Math.max(colorRgb.g - 40, 0)}, ${Math.max(colorRgb.b - 40, 0)})`;
                 const cardFront = cardPreview.querySelector('.card-front');
-                
+
                 // Only apply gradient if no background image is showing
                 if (!currentBackgroundImage || !keepBgToggle.checked) {
                     cardFront.style.background = `linear-gradient(135deg, ${color} 0%, ${darkerColor} 100%)`;
                 } else {
                     cardFront.style.background = color; // Solid color when background image is shown
                 }
-                
+
                 colorPreview.style.backgroundColor = color;
                 cardPreview.style.fontFamily = fontSelect.value;
-                
+
                 const borderRadius = `${borderRadiusSlider.value}px`;
                 cardPreview.style.borderRadius = borderRadius;
                 borderRadiusValue.textContent = borderRadius;
-                
+
                 cardPreview.style.boxShadow = shadowToggle.checked ? 'var(--shadow-lg)' : 'none';
                 updateCardIcon();
-                
+
                 // Update background image visibility
                 if (currentBackgroundImage && keepBgToggle.checked) {
                     cardBackground.style.display = 'block';
@@ -2203,7 +2349,7 @@
             function toggleCardFlip() {
                 isCardFlipped = !isCardFlipped;
                 cardPreview.classList.toggle('flipped');
-                flipCardBtn.innerHTML = isCardFlipped 
+                flipCardBtn.innerHTML = isCardFlipped
                     ? '<i class="fas fa-sync-alt"></i> Flip to Front'
                     : '<i class="fas fa-sync-alt"></i> Flip Card';
             }
@@ -2212,29 +2358,29 @@
             function handleBackgroundImageUpload(e) {
                 const file = e.target.files[0];
                 if (!file) return;
-                
+
                 if (!file.type.startsWith('image/')) {
                     showToast('Invalid File', 'Please select an image file', 'error');
                     return;
                 }
-                
+
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = function (event) {
                     currentBackgroundImage = event.target.result;
                     cardBackground.src = currentBackgroundImage;
-                    
+
                     // Apply the image with proper styling
                     cardBackground.style.objectFit = 'cover';
                     cardBackground.style.opacity = '0.25';
                     cardBackground.style.filter = 'brightness(0.8)';
-                    
+
                     if (keepBgToggle.checked) {
                         cardBackground.style.display = 'block';
                         // Apply overlay effect
                         const cardFront = cardPreview.querySelector('.card-front');
                         cardFront.style.background = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), ${colorPicker.value}`;
                     }
-                    
+
                     showToast('Background Added', 'Image uploaded successfully', 'success');
                     updatePreview();
                 };
@@ -2245,14 +2391,14 @@
             function handleLogoImageUpload(e) {
                 const file = e.target.files[0];
                 if (!file) return;
-                
+
                 if (!file.type.startsWith('image/')) {
                     showToast('Invalid File', 'Please select an image file', 'error');
                     return;
                 }
-                
+
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = function (event) {
                     currentLogoImage = event.target.result;
                     cardLogo.src = currentLogoImage;
                     cardLogo.style.display = 'block';
@@ -2265,7 +2411,7 @@
                     cardLogo.style.padding = '5px';
                     cardLogo.style.backdropFilter = 'blur(5px)';
                     cardLogo.style.zIndex = '10';
-                    
+
                     showToast('Logo Added', 'Logo uploaded successfully', 'success');
                 };
                 reader.readAsDataURL(file);
@@ -2279,18 +2425,18 @@
                     'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                     'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
                 ];
-                
+
                 const randomImage = sampleImages[Math.floor(Math.random() * sampleImages.length)];
                 currentBackgroundImage = randomImage;
                 cardBackground.src = currentBackgroundImage;
                 cardBackground.style.objectFit = 'cover';
                 cardBackground.style.opacity = '0.25';
                 cardBackground.style.filter = 'brightness(0.8)';
-                
+
                 if (keepBgToggle.checked) {
                     cardBackground.style.display = 'block';
                 }
-                
+
                 showToast('Sample Added', 'Sample background image applied', 'success');
             }
 
@@ -2317,7 +2463,7 @@
                     hasLogo: !!currentLogoImage,
                     timestamp: new Date().toISOString()
                 };
-                
+
                 cardDesigns.push(designData);
                 localStorage.setItem('cardDesigns', JSON.stringify(cardDesigns));
                 showToast('Design Saved', 'Your card design has been saved successfully', 'success');
@@ -2332,44 +2478,44 @@
             // Download as PNG
             async function downloadAsPNG() {
                 showToast('Processing', 'Generating PNG image...', 'info');
-                
+
                 try {
                     const wasFlipped = isCardFlipped;
                     if (wasFlipped) {
                         cardPreview.classList.remove('flipped');
                         isCardFlipped = false;
                     }
-                    
+
                     const originalText = downloadPngBtn.innerHTML;
                     downloadPngBtn.innerHTML = '<span class="spinner"></span> Generating...';
                     downloadPngBtn.disabled = true;
-                    
+
                     const canvas = await html2canvas(cardPreview, {
                         scale: 3,
                         backgroundColor: null,
                         useCORS: true,
                         logging: false
                     });
-                    
+
                     const link = document.createElement('a');
                     link.download = `cardcraft-${Date.now()}.png`;
                     link.href = canvas.toDataURL('image/png', 1.0);
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                    
+
                     downloadPngBtn.innerHTML = originalText;
                     downloadPngBtn.disabled = false;
-                    
+
                     if (wasFlipped) {
                         cardPreview.classList.add('flipped');
                         isCardFlipped = true;
                     }
-                    
+
                     showToast('Download Ready', 'PNG image saved successfully', 'success');
                     updateProgress(4);
                     setTimeout(() => updateProgress(3), 2000);
-                    
+
                 } catch (error) {
                     console.error('Error generating PNG:', error);
                     showToast('Export Failed', 'Could not generate PNG image', 'error');
@@ -2379,24 +2525,24 @@
             // Download as PDF
             async function downloadAsPDF() {
                 showToast('Processing', 'Generating PDF document...', 'info');
-                
+
                 try {
                     const wasFlipped = isCardFlipped;
                     if (wasFlipped) {
                         cardPreview.classList.remove('flipped');
                         isCardFlipped = false;
                     }
-                    
+
                     const originalText = downloadPdfBtn.innerHTML;
                     downloadPdfBtn.innerHTML = '<span class="spinner"></span> Generating...';
                     downloadPdfBtn.disabled = true;
-                    
+
                     const canvas = await html2canvas(cardPreview, {
                         scale: 2,
                         useCORS: true,
                         backgroundColor: null
                     });
-                    
+
                     const { jsPDF } = window.jspdf;
                     const pdf = new jsPDF('p', 'mm', 'a4');
                     const imgData = canvas.toDataURL('image/png');
@@ -2405,22 +2551,22 @@
                     const imgHeight = (canvas.height * imgWidth) / canvas.width;
                     const xOffset = (210 - imgWidth) / 2;
                     const yOffset = (pageHeight - imgHeight) / 2;
-                    
+
                     pdf.addImage(imgData, 'PNG', xOffset, yOffset, imgWidth, imgHeight);
                     pdf.save(`cardcraft-${Date.now()}.pdf`);
-                    
+
                     downloadPdfBtn.innerHTML = originalText;
                     downloadPdfBtn.disabled = false;
-                    
+
                     if (wasFlipped) {
                         cardPreview.classList.add('flipped');
                         isCardFlipped = true;
                     }
-                    
+
                     showToast('Download Ready', 'PDF document saved successfully', 'success');
                     updateProgress(4);
                     setTimeout(() => updateProgress(3), 2000);
-                    
+
                 } catch (error) {
                     console.error('Error generating PDF:', error);
                     showToast('Export Failed', 'Could not generate PDF', 'error');
@@ -2454,21 +2600,21 @@
                     showToast('No Designs', 'No saved designs to export', 'warning');
                     return;
                 }
-                
+
                 const exportData = {
                     designs: cardDesigns,
                     exportDate: new Date().toISOString(),
                     app: 'CardCraft Pro'
                 };
-                
+
                 const dataStr = JSON.stringify(exportData, null, 2);
-                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-                
+                const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+
                 const link = document.createElement('a');
                 link.download = `cardcraft-backup-${Date.now()}.json`;
                 link.href = dataUri;
                 link.click();
-                
+
                 showToast('Backup Complete', 'All designs exported successfully', 'success');
             }
 
@@ -2477,19 +2623,19 @@
                 if (currentStep > 1) {
                     currentStep--;
                     updateProgress(currentStep);
-                    
+
                     if (currentStep === 1) {
                         builderSection.classList.add('hidden');
                         cardTypeSection.classList.remove('hidden');
                     }
                 }
             }
-            
+
             function goToNextStep() {
                 if (currentStep < 4) {
                     currentStep++;
                     updateProgress(currentStep);
-                    
+
                     if (currentStep === 3) {
                         finalizeCard();
                     }
@@ -2501,7 +2647,7 @@
                 currentStep = step;
                 const progressWidths = ['0%', '33%', '66%', '100%'];
                 progressBar.style.width = progressWidths[step - 1];
-                
+
                 steps.forEach((stepEl, index) => {
                     if (index < step - 1) {
                         stepEl.classList.add('completed');
@@ -2513,7 +2659,7 @@
                         stepEl.classList.remove('active', 'completed');
                     }
                 });
-                
+
                 prevStepBtn.style.display = step > 1 ? 'flex' : 'none';
                 nextStepBtn.style.display = step < 4 ? 'flex' : 'none';
                 nextStepBtn.textContent = step === 3 ? 'Export' : `Step ${step + 1}`;
@@ -2528,10 +2674,10 @@
             function showToast(title, message, type = 'success') {
                 const toast = document.createElement('div');
                 toast.className = 'toast';
-                
+
                 let icon = 'fas fa-check-circle';
                 let borderColor = 'var(--accent-color)';
-                
+
                 if (type === 'error') {
                     icon = 'fas fa-exclamation-circle';
                     borderColor = 'var(--danger-color)';
@@ -2542,7 +2688,7 @@
                     icon = 'fas fa-info-circle';
                     borderColor = 'var(--accent-color)';
                 }
-                
+
                 toast.innerHTML = `
                     <i class="${icon} toast-icon"></i>
                     <div class="toast-content">
@@ -2551,10 +2697,10 @@
                     </div>
                     <div class="toast-progress"></div>
                 `;
-                
+
                 toast.style.borderLeftColor = borderColor;
                 toastContainer.appendChild(toast);
-                
+
                 setTimeout(() => {
                     toast.style.transform = 'translateX(100px)';
                     toast.style.opacity = '0';
@@ -2581,4 +2727,5 @@
         });
     </script>
 </body>
+
 </html>
