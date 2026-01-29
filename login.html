@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
@@ -637,7 +638,7 @@
             height: 200px;
             background: linear-gradient(145deg, var(--char-color), #1d4ed8);
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-            box-shadow: 
+            box-shadow:
                 inset 0 -15px 30px rgba(0, 0, 0, 0.4),
                 0 15px 40px rgba(59, 130, 246, 0.4);
             display: flex;
@@ -648,8 +649,15 @@
         }
 
         @keyframes float1 {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-15px);
+            }
         }
 
         .char1-face {
@@ -735,8 +743,13 @@
         }
 
         @keyframes shieldGlow {
-            0% { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5)); }
-            100% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8)); }
+            0% {
+                filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+            }
+
+            100% {
+                filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
+            }
         }
 
         .char1-shield i {
@@ -746,8 +759,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         /* Enhanced Character 2 - Helper Bot (Rectangle Shape) */
@@ -765,7 +785,7 @@
             height: 220px;
             background: linear-gradient(145deg, var(--char-color), #0d9668);
             border-radius: 25px 25px 12px 12px;
-            box-shadow: 
+            box-shadow:
                 inset 0 -15px 30px rgba(0, 0, 0, 0.4),
                 0 15px 40px rgba(16, 185, 129, 0.4);
             display: flex;
@@ -777,8 +797,15 @@
         }
 
         @keyframes float2 {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-20px);
+            }
         }
 
         .char2-screen {
@@ -807,8 +834,13 @@
         }
 
         @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(16, 185, 129, 0.8); }
+            0% {
+                text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+            }
+
+            100% {
+                text-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+            }
         }
 
         .char2-eyes {
@@ -831,8 +863,16 @@
         }
 
         @keyframes eyeBlink {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
+
+            0%,
+            90%,
+            100% {
+                transform: scaleY(1);
+            }
+
+            95% {
+                transform: scaleY(0.1);
+            }
         }
 
         .char2-arms {
@@ -869,7 +909,7 @@
             height: 240px;
             background: linear-gradient(145deg, var(--char-color), #7c3aed);
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            box-shadow: 
+            box-shadow:
                 inset 0 -15px 30px rgba(0, 0, 0, 0.4),
                 0 15px 40px rgba(139, 92, 246, 0.4);
             display: flex;
@@ -881,9 +921,19 @@
         }
 
         @keyframes float3 {
-            0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
-            25% { transform: translateX(-50%) translateY(-10px) rotate(1deg); }
-            75% { transform: translateX(-50%) translateY(-10px) rotate(-1deg); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateX(-50%) translateY(-10px) rotate(1deg);
+            }
+
+            75% {
+                transform: translateX(-50%) translateY(-10px) rotate(-1deg);
+            }
         }
 
         .char3-face {
@@ -963,8 +1013,13 @@
         }
 
         @keyframes antennaPulse {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-50%) scale(1.2); }
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            100% {
+                transform: translateX(-50%) scale(1.2);
+            }
         }
 
         .character-name {
@@ -1142,6 +1197,7 @@
             0% {
                 transform: translateY(0) rotate(0deg);
             }
+
             100% {
                 transform: translateY(-1000px) rotate(720deg);
             }
@@ -1155,7 +1211,8 @@
                 max-width: 900px;
             }
 
-            .login-section, .character-section {
+            .login-section,
+            .character-section {
                 padding: 40px 30px;
                 min-width: auto;
             }
@@ -1181,21 +1238,21 @@
             .login-section {
                 padding: 40px 35px;
             }
-            
+
             .character {
                 width: 160px;
                 height: 230px;
             }
-            
+
             .characters-container {
                 height: 320px;
             }
-            
+
             .security-indicators {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .security-indicator {
                 flex: 0 0 calc(50% - 10px);
                 margin-bottom: 15px;
@@ -1215,7 +1272,7 @@
             .form-title {
                 font-size: 1.9rem;
             }
-            
+
             .row {
                 flex-direction: column;
                 gap: 0;
@@ -1261,16 +1318,16 @@
                 margin-bottom: 0;
                 font-size: 1.8rem;
             }
-            
+
             .progress-indicator {
                 margin: 30px 0;
             }
-            
+
             .step-circle {
                 width: 42px;
                 height: 42px;
             }
-            
+
             .step-label {
                 font-size: 0.8rem;
             }
@@ -1280,7 +1337,7 @@
             .login-section {
                 padding: 30px 20px;
             }
-            
+
             .logo-text {
                 font-size: 2rem;
             }
@@ -1288,7 +1345,7 @@
             .tagline {
                 font-size: 1rem;
             }
-            
+
             .form-title {
                 font-size: 1.7rem;
             }
@@ -1306,53 +1363,54 @@
             .step-label {
                 font-size: 0.75rem;
             }
-            
+
             .character-section {
                 padding: 40px 25px;
             }
-            
+
             .email-notification {
                 width: calc(100% - 40px);
                 right: 20px;
                 left: 20px;
             }
-            
-            .finish-btn, .submit-btn {
+
+            .finish-btn,
+            .submit-btn {
                 padding: 18px;
                 font-size: 1.1rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .logo {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .logo-icon {
                 margin-right: 0;
             }
-            
+
             .toggle-btn {
                 padding: 16px 8px;
                 font-size: 1rem;
             }
-            
+
             .input-field {
                 padding: 16px 18px;
             }
-            
+
             .form-step .row {
                 flex-direction: column;
                 gap: 0;
             }
-            
+
             .form-step .row .submit-btn {
                 width: 100%;
                 margin-bottom: 15px;
             }
-            
+
             .form-step .row .submit-btn:last-child {
                 margin-bottom: 0;
             }
@@ -1364,16 +1422,17 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         #signupForm .form-step .row button {
             flex: 1;
         }
-        
+
         #signupSubmit {
             display: flex !important;
         }
     </style>
 </head>
+
 <body>
     <!-- Email Notification -->
     <div class="email-notification" id="emailNotification">
@@ -1384,11 +1443,11 @@
         </div>
         <div class="email-content" id="emailContent">Your account has been created successfully!</div>
     </div>
-    
+
     <div class="container">
         <!-- Floating background elements -->
         <div class="floating-elements" id="floatingElements"></div>
-        
+
         <!-- Left side - Login Form -->
         <div class="login-section">
             <div class="header">
@@ -1396,37 +1455,40 @@
                     <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
                     <div class="logo-text">SECURE ACCESS PRO</div>
                 </div>
-                <p class="tagline">Enterprise-grade authentication with advanced security protocols and AI-powered assistance.</p>
+                <p class="tagline">Enterprise-grade authentication with advanced security protocols and AI-powered
+                    assistance.</p>
             </div>
-            
+
             <div class="toggle-form">
                 <div class="toggle-btn active" id="loginToggle">LOGIN</div>
                 <div class="toggle-btn" id="signupToggle">CREATE ACCOUNT</div>
             </div>
-            
+
             <div class="form-container">
                 <!-- Login Form -->
                 <form class="form active" id="loginForm">
                     <h2 class="form-title">Access Your Dashboard</h2>
                     <p class="form-subtitle">Enter your credentials to securely access your account</p>
-                    
+
                     <div class="input-group">
                         <label class="input-label"><i class="fas fa-envelope"></i> Email Address</label>
-                        <input type="email" class="input-field" id="loginEmail" placeholder="your.email@company.com" required>
+                        <input type="email" class="input-field" id="loginEmail" placeholder="your.email@company.com"
+                            required>
                         <div class="error-message" id="loginEmailError"></div>
                     </div>
-                    
+
                     <div class="input-group">
                         <label class="input-label"><i class="fas fa-lock"></i> Password</label>
                         <div class="password-container">
-                            <input type="password" class="input-field" id="loginPassword" placeholder="Enter your password" required>
+                            <input type="password" class="input-field" id="loginPassword"
+                                placeholder="Enter your password" required>
                             <button type="button" class="password-toggle" id="loginPasswordToggle">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                         <div class="error-message" id="loginPasswordError"></div>
                     </div>
-                    
+
                     <div class="form-options">
                         <div class="remember-me">
                             <input type="checkbox" class="remember-checkbox" id="rememberLogin">
@@ -1434,28 +1496,28 @@
                         </div>
                         <a href="#" class="forgot-password">Forgot password?</a>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn" id="loginSubmit">
                         <i class="fas fa-sign-in-alt"></i> SIGN IN TO DASHBOARD
                     </button>
-                    
+
                     <div class="alternate-action">
                         Don't have an account? <a href="#" id="switchToSignup">Create Account</a>
                     </div>
-                    
+
                     <div class="success-message" id="loginSuccess"></div>
                 </form>
-                
+
                 <!-- Signup Form -->
                 <form class="form hidden" id="signupForm">
                     <h2 class="form-title">Create Your Account</h2>
                     <p class="form-subtitle">Fill in your details to create a secure account</p>
-                    
+
                     <!-- Progress Indicator -->
                     <div class="progress-indicator">
                         <div class="progress-line"></div>
                         <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                        
+
                         <div class="progress-step">
                             <div class="step-circle active" id="step1">1</div>
                             <div class="step-label active">Personal</div>
@@ -1469,29 +1531,31 @@
                             <div class="step-label">Security</div>
                         </div>
                     </div>
-                    
+
                     <!-- Step 1: Personal Information -->
                     <div class="form-step active" id="step1Form">
                         <div class="row">
                             <div class="input-group">
                                 <label class="input-label"><i class="fas fa-user"></i> First Name</label>
-                                <input type="text" class="input-field" id="signupFirstName" placeholder="Enter your first name" required>
+                                <input type="text" class="input-field" id="signupFirstName"
+                                    placeholder="Enter your first name" required>
                                 <div class="error-message" id="signupFirstNameError"></div>
                             </div>
-                            
+
                             <div class="input-group">
                                 <label class="input-label"><i class="fas fa-user"></i> Last Name</label>
-                                <input type="text" class="input-field" id="signupLastName" placeholder="Enter your last name" required>
+                                <input type="text" class="input-field" id="signupLastName"
+                                    placeholder="Enter your last name" required>
                                 <div class="error-message" id="signupLastNameError"></div>
                             </div>
                         </div>
-                        
+
                         <div class="input-group">
                             <label class="input-label"><i class="fas fa-calendar"></i> Date of Birth</label>
                             <input type="date" class="input-field" id="signupDob" required>
                             <div class="error-message" id="signupDobError"></div>
                         </div>
-                        
+
                         <div class="input-group">
                             <label class="input-label"><i class="fas fa-venus-mars"></i> Gender</label>
                             <div class="gender-selection">
@@ -1511,42 +1575,46 @@
                             <input type="hidden" id="selectedGender" value="">
                             <div class="error-message" id="signupGenderError"></div>
                         </div>
-                        
+
                         <button type="button" class="submit-btn" id="nextStep1">
                             <i class="fas fa-arrow-right"></i> CONTINUE TO ACCOUNT DETAILS
                         </button>
                     </div>
-                    
+
                     <!-- Step 2: Account Information -->
                     <div class="form-step hidden" id="step2Form">
                         <div class="input-group">
                             <label class="input-label"><i class="fas fa-envelope"></i> Email Address</label>
-                            <input type="email" class="input-field" id="signupEmail" placeholder="your.email@company.com" required>
+                            <input type="email" class="input-field" id="signupEmail"
+                                placeholder="your.email@company.com" required>
                             <div class="error-message" id="signupEmailError"></div>
                         </div>
-                        
+
                         <div class="input-group">
                             <label class="input-label"><i class="fas fa-at"></i> Username</label>
-                            <input type="text" class="input-field" id="signupUsername" placeholder="Choose a username" required>
+                            <input type="text" class="input-field" id="signupUsername" placeholder="Choose a username"
+                                required>
                             <div class="error-message" id="signupUsernameError"></div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="input-group">
                                 <label class="input-label"><i class="fas fa-lock"></i> Password</label>
                                 <div class="password-container">
-                                    <input type="password" class="input-field" id="signupPassword" placeholder="Create a strong password" required>
+                                    <input type="password" class="input-field" id="signupPassword"
+                                        placeholder="Create a strong password" required>
                                     <button type="button" class="password-toggle" id="signupPasswordToggle">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                 </div>
                                 <div class="error-message" id="signupPasswordError"></div>
                             </div>
-                            
+
                             <div class="input-group">
                                 <label class="input-label"><i class="fas fa-lock"></i> Confirm Password</label>
                                 <div class="password-container">
-                                    <input type="password" class="input-field" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                                    <input type="password" class="input-field" id="signupConfirmPassword"
+                                        placeholder="Confirm your password" required>
                                     <button type="button" class="password-toggle" id="signupConfirmPasswordToggle">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -1554,7 +1622,7 @@
                                 <div class="error-message" id="signupConfirmPasswordError"></div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <button type="button" class="submit-btn" id="prevStep2">
                                 <i class="fas fa-arrow-left"></i> BACK
@@ -1564,7 +1632,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <!-- Step 3: Security & Finish -->
                     <div class="form-step hidden" id="step3Form">
                         <div class="input-group">
@@ -1578,7 +1646,7 @@
                                 <label for="securityEmails">Send me security alerts and notifications</label>
                             </div>
                         </div>
-                        
+
                         <div class="input-group">
                             <label class="input-label"><i class="fas fa-file-contract"></i> Terms & Conditions</label>
                             <div class="remember-me">
@@ -1587,7 +1655,7 @@
                             </div>
                             <div class="error-message" id="termsError"></div>
                         </div>
-                        
+
                         <div class="row">
                             <button type="button" class="submit-btn" id="prevStep3">
                                 <i class="fas fa-arrow-left"></i> BACK
@@ -1596,17 +1664,17 @@
                                 <i class="fas fa-check-circle"></i> COMPLETE ACCOUNT CREATION
                             </button>
                         </div>
-                        
+
                         <div class="success-message" id="signupSuccess"></div>
                     </div>
-                    
+
                     <div class="alternate-action">
                         Already have an account? <a href="#" id="switchToLogin">Sign In</a>
                     </div>
                 </form>
             </div>
         </div>
-        
+
         <!-- Right side - Professional Characters -->
         <div class="character-section">
             <div class="characters-container">
@@ -1628,7 +1696,7 @@
                     </div>
                     <div class="character-name">Security Shield</div>
                 </div>
-                
+
                 <!-- Character 2 - Helper Bot (Rectangle) -->
                 <div class="character-wrapper">
                     <div class="character character-2" id="character2">
@@ -1648,7 +1716,7 @@
                     </div>
                     <div class="character-name">Data Assistant</div>
                 </div>
-                
+
                 <!-- Character 3 - Guide Bot (Triangle) -->
                 <div class="character-wrapper">
                     <div class="character character-3" id="character3">
@@ -1666,11 +1734,11 @@
                     <div class="character-name">Guidance System</div>
                 </div>
             </div>
-            
+
             <div class="status-message" id="characterStatus">
                 Our AI assistants are ready to guide you through the secure account creation process.
             </div>
-            
+
             <div class="security-indicators">
                 <div class="security-indicator" id="encryptionIndicator">
                     <div class="indicator-icon"><i class="fas fa-lock"></i></div>
@@ -1696,7 +1764,7 @@
         const signupForm = document.getElementById('signupForm');
         const switchToSignup = document.getElementById('switchToSignup');
         const switchToLogin = document.getElementById('switchToLogin');
-        
+
         // Form step elements
         const step1Form = document.getElementById('step1Form');
         const step2Form = document.getElementById('step2Form');
@@ -1712,30 +1780,30 @@
         const nextStep2 = document.getElementById('nextStep2');
         const prevStep2 = document.getElementById('prevStep2');
         const prevStep3 = document.getElementById('prevStep3');
-        
+
         // Character elements
         const char1Mouth = document.getElementById('char1Mouth');
         const char2Screen = document.getElementById('screenContent');
         const char3Mouth = document.getElementById('char3Mouth');
         const char2LeftArm = document.getElementById('char2LeftArm');
         const char2RightArm = document.getElementById('char2RightArm');
-        
+
         const characterStatus = document.getElementById('characterStatus');
-        
+
         // Email notification elements
         const emailNotification = document.getElementById('emailNotification');
         const emailTitle = document.getElementById('emailTitle');
         const emailContent = document.getElementById('emailContent');
         const closeEmail = document.getElementById('closeEmail');
-        
+
         // Security indicators
         const encryptionIndicator = document.getElementById('encryptionIndicator');
         const validationIndicator = document.getElementById('validationIndicator');
         const sessionIndicator = document.getElementById('sessionIndicator');
-        
+
         // Current form step
         let currentStep = 1;
-        
+
         // Form toggle functionality
         function showLoginForm() {
             loginToggle.classList.add('active');
@@ -1747,7 +1815,7 @@
             updateCharacterStatus("Welcome back! Ready to securely access your dashboard.", 1);
             resetCharacterExpressions();
         }
-        
+
         function showSignupForm() {
             signupToggle.classList.add('active');
             loginToggle.classList.remove('active');
@@ -1759,19 +1827,19 @@
             resetCharacterExpressions();
             goToStep(1);
         }
-        
+
         loginToggle.addEventListener('click', showLoginForm);
         signupToggle.addEventListener('click', showSignupForm);
         switchToSignup.addEventListener('click', showSignupForm);
         switchToLogin.addEventListener('click', showLoginForm);
-        
+
         // Form step navigation
         function goToStep(step) {
             // Hide all steps
             step1Form.classList.add('hidden');
             step2Form.classList.add('hidden');
             step3Form.classList.add('hidden');
-            
+
             // Remove active classes from all steps
             step1Circle.classList.remove('active', 'completed');
             step2Circle.classList.remove('active', 'completed');
@@ -1779,7 +1847,7 @@
             step1Label.classList.remove('active');
             step2Label.classList.remove('active');
             step3Label.classList.remove('active');
-            
+
             // Show current step
             if (step === 1) {
                 step1Form.classList.remove('hidden');
@@ -1806,48 +1874,48 @@
                 updateCharacterStatus("Final step! Configure security preferences and finish.", 3);
                 animateCharacterHappy(3);
             }
-            
+
             currentStep = step;
         }
-        
+
         // Step navigation event listeners
-        nextStep1.addEventListener('click', function() {
+        nextStep1.addEventListener('click', function () {
             // Validate step 1
             if (validateStep1()) {
                 goToStep(2);
             }
         });
-        
-        nextStep2.addEventListener('click', function() {
+
+        nextStep2.addEventListener('click', function () {
             // Validate step 2
             if (validateStep2()) {
                 goToStep(3);
             }
         });
-        
-        prevStep2.addEventListener('click', function() {
+
+        prevStep2.addEventListener('click', function () {
             goToStep(1);
         });
-        
-        prevStep3.addEventListener('click', function() {
+
+        prevStep3.addEventListener('click', function () {
             goToStep(2);
         });
-        
+
         // Step validation functions
         function validateStep1() {
             const firstName = document.getElementById('signupFirstName').value;
             const lastName = document.getElementById('signupLastName').value;
             const dob = document.getElementById('signupDob').value;
             const gender = document.getElementById('selectedGender').value;
-            
+
             let isValid = true;
-            
+
             // Reset errors
             document.getElementById('signupFirstNameError').style.display = 'none';
             document.getElementById('signupLastNameError').style.display = 'none';
             document.getElementById('signupDobError').style.display = 'none';
             document.getElementById('signupGenderError').style.display = 'none';
-            
+
             // Validate first name
             if (!firstName.trim()) {
                 document.getElementById('signupFirstNameError').textContent = 'First name is required';
@@ -1855,7 +1923,7 @@
                 isValid = false;
                 animateCharacterSad(1);
             }
-            
+
             // Validate last name
             if (!lastName.trim()) {
                 document.getElementById('signupLastNameError').textContent = 'Last name is required';
@@ -1863,7 +1931,7 @@
                 isValid = false;
                 animateCharacterSad(2);
             }
-            
+
             // Validate date of birth
             if (!dob) {
                 document.getElementById('signupDobError').textContent = 'Date of birth is required';
@@ -1881,7 +1949,7 @@
                     animateCharacterSad(1);
                 }
             }
-            
+
             // Validate gender
             if (!gender) {
                 document.getElementById('signupGenderError').textContent = 'Please select your gender';
@@ -1889,7 +1957,7 @@
                 isValid = false;
                 animateCharacterSad(2);
             }
-            
+
             if (isValid) {
                 updateCharacterStatus("Great! Personal information looks good.", 1);
                 animateCharacterHappy(1);
@@ -1899,21 +1967,21 @@
                 return false;
             }
         }
-        
+
         function validateStep2() {
             const email = document.getElementById('signupEmail').value;
             const username = document.getElementById('signupUsername').value;
             const password = document.getElementById('signupPassword').value;
             const confirmPassword = document.getElementById('signupConfirmPassword').value;
-            
+
             let isValid = true;
-            
+
             // Reset errors
             document.getElementById('signupEmailError').style.display = 'none';
             document.getElementById('signupUsernameError').style.display = 'none';
             document.getElementById('signupPasswordError').style.display = 'none';
             document.getElementById('signupConfirmPasswordError').style.display = 'none';
-            
+
             // Validate email
             if (!email.trim()) {
                 document.getElementById('signupEmailError').textContent = 'Email is required';
@@ -1924,7 +1992,7 @@
                 document.getElementById('signupEmailError').style.display = 'block';
                 isValid = false;
             }
-            
+
             // Validate username
             if (!username.trim()) {
                 document.getElementById('signupUsernameError').textContent = 'Username is required';
@@ -1935,7 +2003,7 @@
                 document.getElementById('signupUsernameError').style.display = 'block';
                 isValid = false;
             }
-            
+
             // Validate password
             if (!password) {
                 document.getElementById('signupPasswordError').textContent = 'Password is required';
@@ -1946,7 +2014,7 @@
                 document.getElementById('signupPasswordError').style.display = 'block';
                 isValid = false;
             }
-            
+
             // Validate confirm password
             if (!confirmPassword) {
                 document.getElementById('signupConfirmPasswordError').textContent = 'Please confirm your password';
@@ -1957,7 +2025,7 @@
                 document.getElementById('signupConfirmPasswordError').style.display = 'block';
                 isValid = false;
             }
-            
+
             if (isValid) {
                 updateCharacterStatus("Account credentials are secure and valid.", 2);
                 animateCharacterWave(2);
@@ -1967,12 +2035,12 @@
                 return false;
             }
         }
-        
+
         // Password toggle functionality
         function setupPasswordToggle(passwordFieldId, toggleButtonId) {
             const passwordField = document.getElementById(passwordFieldId);
             const toggleButton = document.getElementById(toggleButtonId);
-            
+
             toggleButton.addEventListener('click', () => {
                 if (passwordField.type === 'password') {
                     passwordField.type = 'text';
@@ -1993,16 +2061,16 @@
                 }
             });
         }
-        
+
         // Set up password toggles
         setupPasswordToggle('loginPassword', 'loginPasswordToggle');
         setupPasswordToggle('signupPassword', 'signupPasswordToggle');
         setupPasswordToggle('signupConfirmPassword', 'signupConfirmPasswordToggle');
-        
+
         // Gender selection
         const genderOptions = document.querySelectorAll('.gender-option');
         const selectedGenderInput = document.getElementById('selectedGender');
-        
+
         genderOptions.forEach(option => {
             option.addEventListener('click', () => {
                 genderOptions.forEach(opt => opt.classList.remove('selected'));
@@ -2013,16 +2081,16 @@
                 updateCharacterStatus(`Gender preference saved: ${option.querySelector('span').textContent}`, 2);
             });
         });
-        
+
         // Enhanced Character animations
         function updateCharacterStatus(message, charIndex = null) {
             characterStatus.textContent = message;
-            
+
             // Update character 2 screen
             if (charIndex === 2) {
                 char2Screen.textContent = message.length > 20 ? message.substring(0, 20) + "..." : message;
             }
-            
+
             // Character reactions based on message
             if (message.includes("Great!") || message.includes("secure") || message.includes("valid") || message.includes("success")) {
                 char1Mouth.classList.add('smiling');
@@ -2034,7 +2102,7 @@
                 animateCharacterSad(charIndex || 1);
             }
         }
-        
+
         function resetCharacterExpressions() {
             char1Mouth.className = 'char1-mouth';
             char3Mouth.className = 'char3-mouth';
@@ -2042,19 +2110,19 @@
             char2LeftArm.style.transform = 'rotate(0deg)';
             char2RightArm.style.transform = 'rotate(0deg)';
         }
-        
+
         function animateCharacterWave(charIndex) {
             if (charIndex === 2) {
                 char2LeftArm.style.transform = 'rotate(-40deg)';
                 char2RightArm.style.transform = 'rotate(40deg)';
-                
+
                 setTimeout(() => {
                     char2LeftArm.style.transform = 'rotate(0deg)';
                     char2RightArm.style.transform = 'rotate(0deg)';
                 }, 600);
             }
         }
-        
+
         function animateCharacterHappy(charIndex) {
             if (charIndex === 1) {
                 char1Mouth.classList.add('smiling');
@@ -2068,13 +2136,13 @@
                 }, 2500);
             }
         }
-        
+
         function animateCharacterSad(charIndex) {
             if (charIndex === 1) {
                 char1Mouth.style.borderRadius = '25px 25px 0 0';
                 char1Mouth.style.transform = 'translateY(8px)';
                 char1Mouth.style.background = '#ef4444';
-                
+
                 setTimeout(() => {
                     char1Mouth.style.borderRadius = '';
                     char1Mouth.style.transform = '';
@@ -2084,7 +2152,7 @@
                 char3Mouth.style.borderRadius = '25px 25px 0 0';
                 char3Mouth.style.transform = 'translateY(8px)';
                 char3Mouth.style.background = '#ef4444';
-                
+
                 setTimeout(() => {
                     char3Mouth.style.borderRadius = '';
                     char3Mouth.style.transform = '';
@@ -2094,7 +2162,7 @@
                 char2LeftArm.style.transform = 'rotate(20deg)';
                 char2RightArm.style.transform = 'rotate(-20deg)';
                 char2Screen.textContent = "Oh no!";
-                
+
                 setTimeout(() => {
                     char2LeftArm.style.transform = 'rotate(0deg)';
                     char2RightArm.style.transform = 'rotate(0deg)';
@@ -2102,13 +2170,13 @@
                 }, 1800);
             }
         }
-        
+
         // Regular character animations
         setInterval(() => {
             // Random character actions
             const randomChar = Math.floor(Math.random() * 3) + 1;
             const randomAction = Math.floor(Math.random() * 3);
-            
+
             if (randomAction === 0 && randomChar === 2) {
                 animateCharacterWave(2);
             } else if (randomAction === 1 && randomChar === 1) {
@@ -2123,12 +2191,12 @@
                 }, 1200);
             }
         }, 10000);
-        
+
         // Character reactions to form interactions
         const allInputs = document.querySelectorAll('.input-field');
         allInputs.forEach(input => {
             // When focusing on input (especially password)
-            input.addEventListener('focus', function() {
+            input.addEventListener('focus', function () {
                 if (this.type === 'password') {
                     updateCharacterStatus("Your password is encrypted and secure.", 1);
                     char1Mouth.classList.add('smiling');
@@ -2138,70 +2206,70 @@
                     updateCharacterStatus("Please provide your full legal name.", 3);
                 }
             });
-            
+
             // When leaving input
-            input.addEventListener('blur', function() {
+            input.addEventListener('blur', function () {
                 if (this.type === 'password') {
                     char1Mouth.classList.remove('smiling');
                 }
             });
         });
-        
+
         // Email notification
         function showEmailNotification(title, content) {
             emailTitle.textContent = title;
             emailContent.textContent = content;
             emailNotification.classList.add('show');
-            
+
             // Auto-hide after 8 seconds
             setTimeout(() => {
                 emailNotification.classList.remove('show');
             }, 8000);
         }
-        
+
         closeEmail.addEventListener('click', () => {
             emailNotification.classList.remove('show');
         });
-        
+
         // Simulate sending email
         function sendEmail(to, subject, body) {
             console.log(`Email sent to: ${to}`);
             console.log(`Subject: ${subject}`);
             console.log(`Body: ${body}`);
-            
+
             // Show notification
             showEmailNotification(subject, `Email sent to ${to}. ${body.substring(0, 60)}...`);
-            
+
             // In a real app, you would make an API call to send the email
         }
-        
+
         // Validation functions
         function validateEmail(email) {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         }
-        
+
         function validatePassword(password) {
             // At least 8 characters, 1 uppercase, 1 lowercase, 1 number
             const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
             return re.test(String(password));
         }
-        
+
         // Login form submission
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             const rememberMe = document.getElementById('rememberLogin').checked;
-            
+
             let isValid = true;
-            
+
             // Reset errors
             document.getElementById('loginEmailError').style.display = 'none';
             document.getElementById('loginPasswordError').style.display = 'none';
             document.getElementById('loginSuccess').style.display = 'none';
-            
+
             // Validate email
             if (!email) {
                 document.getElementById('loginEmailError').textContent = 'Email is required';
@@ -2212,7 +2280,7 @@
                 document.getElementById('loginEmailError').style.display = 'block';
                 isValid = false;
             }
-            
+
             // Validate password
             if (!password) {
                 document.getElementById('loginPasswordError').textContent = 'Password is required';
@@ -2223,36 +2291,36 @@
                 document.getElementById('loginPasswordError').style.display = 'block';
                 isValid = false;
             }
-            
+
             if (isValid) {
                 // Simulate authentication process with visual feedback
                 updateCharacterStatus("Authenticating your credentials...", 1);
                 char1Mouth.classList.add('surprised');
                 char3Mouth.classList.add('surprised');
-                
+
                 // Show security indicators
                 encryptionIndicator.classList.add('active');
                 setTimeout(() => validationIndicator.classList.add('active'), 500);
-                
+
                 // Simulate API call
                 setTimeout(() => {
                     // Check if credentials exist in localStorage
                     const storedUser = localStorage.getItem('secureUser');
-                    
+
                     if (storedUser) {
                         const userData = JSON.parse(storedUser);
                         if (email === userData.email && password === userData.password) {
                             // Login successful
                             document.getElementById('loginSuccess').textContent = 'Login successful! Redirecting to dashboard...';
                             document.getElementById('loginSuccess').style.display = 'block';
-                            
+
                             // Update characters
                             char1Mouth.classList.remove('surprised');
                             char3Mouth.classList.remove('surprised');
                             char1Mouth.classList.add('smiling');
                             char3Mouth.classList.add('smiling');
                             updateCharacterStatus("Authentication successful! Welcome to your secure dashboard.", 2);
-                            
+
                             // Store session if remember me is checked
                             if (rememberMe) {
                                 const sessionData = {
@@ -2263,14 +2331,14 @@
                                 sessionIndicator.classList.add('active');
                                 updateCharacterStatus("Secure session established. You won't need to login again.", 3);
                             }
-                            
+
                             // Send login notification email
                             sendEmail(
                                 userData.email,
                                 "Secure Access: New Login Detected",
                                 `Hello ${userData.firstName},\n\nA new login was detected on your Secure Access Pro account.\n\nTime: ${new Date().toLocaleString()}\nIf this was not you, please secure your account immediately.\n\nBest regards,\nSecure Access Pro Team`
                             );
-                            
+
                             // Simulate redirect
                             setTimeout(() => {
                                 alert(`Welcome ${userData.firstName}! You are now securely logged in.`);
@@ -2295,23 +2363,23 @@
                         char1Mouth.classList.remove('surprised');
                         char3Mouth.classList.remove('surprised');
                     }
-                    
+
                     // Reset security indicators after a delay
                     setTimeout(() => {
                         encryptionIndicator.classList.remove('active');
                         validationIndicator.classList.remove('active');
                     }, 2000);
-                    
+
                 }, 1500);
             } else {
                 updateCharacterStatus("Please check the form for errors.", 3);
             }
         });
-        
+
         // Signup form submission (FINAL FINISH BUTTON)
-        signupForm.addEventListener('submit', function(e) {
+        signupForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Get all form values
             const firstName = document.getElementById('signupFirstName').value;
             const lastName = document.getElementById('signupLastName').value;
@@ -2323,30 +2391,30 @@
             const twoFactorAuth = document.getElementById('twoFactorAuth').checked;
             const securityEmails = document.getElementById('securityEmails').checked;
             const termsAgreed = document.getElementById('termsAgreement').checked;
-            
+
             // Validate terms
             let isValid = true;
             document.getElementById('termsError').style.display = 'none';
             document.getElementById('signupSuccess').style.display = 'none';
-            
+
             if (!termsAgreed) {
                 document.getElementById('termsError').textContent = 'You must agree to the terms and conditions';
                 document.getElementById('termsError').style.display = 'block';
                 isValid = false;
                 animateCharacterSad(1);
             }
-            
+
             if (isValid) {
                 // Simulate account creation process with visual feedback
                 updateCharacterStatus("Creating your secure account...", 1);
                 char1Mouth.classList.add('surprised');
                 char3Mouth.classList.add('surprised');
-                
+
                 // Show all security indicators
                 encryptionIndicator.classList.add('active');
                 validationIndicator.classList.add('active');
                 sessionIndicator.classList.add('active');
-                
+
                 // Simulate API call
                 setTimeout(() => {
                     // Check if user already exists
@@ -2371,14 +2439,14 @@
                             createdAt: new Date().toISOString(),
                             verified: false
                         };
-                        
+
                         // Store user in localStorage (in a real app, this would be a secure API call)
                         localStorage.setItem('secureUser', JSON.stringify(userData));
-                        
+
                         // Success message
                         document.getElementById('signupSuccess').textContent = 'Account created successfully! Check your email for verification.';
                         document.getElementById('signupSuccess').style.display = 'block';
-                        
+
                         // Update characters
                         char1Mouth.classList.remove('surprised');
                         char3Mouth.classList.remove('surprised');
@@ -2386,14 +2454,14 @@
                         char3Mouth.classList.add('smiling');
                         updateCharacterStatus("Account created successfully! Welcome to Secure Access Pro.", 2);
                         animateCharacterWave(2);
-                        
+
                         // Send welcome email
                         sendEmail(
                             email,
                             "Welcome to Secure Access Pro!",
                             `Hello ${firstName},\n\nYour Secure Access Pro account has been successfully created.\n\nAccount Details:\n- Name: ${firstName} ${lastName}\n- Username: ${username}\n- Email: ${email}\n- Account Created: ${new Date().toLocaleDateString()}\n\nWe're committed to keeping your data secure with enterprise-grade encryption.\n\nBest regards,\nSecure Access Pro Team`
                         );
-                        
+
                         // Switch to login form after a delay
                         setTimeout(() => {
                             showLoginForm();
@@ -2403,29 +2471,29 @@
                             updateCharacterStatus("Credentials filled. Ready for secure login!", 3);
                         }, 3000);
                     }
-                    
+
                     // Reset security indicators after a delay
                     setTimeout(() => {
                         encryptionIndicator.classList.remove('active');
                         validationIndicator.classList.remove('active');
                         sessionIndicator.classList.remove('active');
                     }, 3000);
-                    
+
                 }, 1500);
             } else {
                 updateCharacterStatus("Please agree to the terms and conditions to finish.", 3);
             }
         });
-        
+
         // Check for existing session on page load
         function checkExistingSession() {
             const existingSession = localStorage.getItem('secureSession');
-            
+
             if (existingSession) {
                 const sessionData = JSON.parse(existingSession);
                 const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
                 const now = new Date().getTime();
-                
+
                 // Check if session is still valid (less than 7 days old)
                 if (now - sessionData.timestamp < oneWeek) {
                     // Auto-fill email if user data exists
@@ -2444,63 +2512,63 @@
                 }
             }
         }
-        
+
         // Create floating background elements
         function createFloatingElements() {
             const container = document.getElementById('floatingElements');
             const elementCount = 30;
-            
+
             for (let i = 0; i < elementCount; i++) {
                 const element = document.createElement('div');
                 element.classList.add('floating-element');
-                
+
                 // Random size
                 const size = Math.random() * 100 + 15;
                 element.style.width = `${size}px`;
                 element.style.height = `${size}px`;
-                
+
                 // Random position
                 element.style.left = `${Math.random() * 100}%`;
                 element.style.top = `${Math.random() * 100 + 100}%`;
-                
+
                 // Random animation delay and duration
                 const delay = Math.random() * 5;
                 const duration = Math.random() * 20 + 30;
                 element.style.animationDelay = `${delay}s`;
                 element.style.animationDuration = `${duration}s`;
-                
+
                 // Random color based on character colors
                 const colors = ['rgba(59, 130, 246, 0.08)', 'rgba(16, 185, 129, 0.06)', 'rgba(139, 92, 246, 0.07)', 'rgba(245, 158, 11, 0.05)'];
                 element.style.background = colors[Math.floor(Math.random() * colors.length)];
-                
+
                 // Random shape
                 const shapes = ['50%', '0%', '30%', '10px'];
                 element.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
-                
+
                 // Add subtle shadow
                 element.style.boxShadow = '0 0 30px rgba(255, 255, 255, 0.05)';
-                
+
                 container.appendChild(element);
             }
         }
-        
+
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             checkExistingSession();
             createFloatingElements();
-            
+
             // Initial character status
             setTimeout(() => {
                 encryptionIndicator.classList.add('active');
                 updateCharacterStatus("Security systems initialized. All protections active.", 1);
                 animateCharacterWave(1);
             }, 500);
-            
+
             setTimeout(() => {
                 validationIndicator.classList.add('active');
                 updateCharacterStatus("Real-time validation ready. We're here to assist.", 2);
             }, 1500);
-            
+
             setTimeout(() => {
                 encryptionIndicator.classList.remove('active');
                 validationIndicator.classList.remove('active');
@@ -2510,4 +2578,5 @@
         });
     </script>
 </body>
+
 </html>
