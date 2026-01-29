@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         /* ===== CSS Variables - Enhanced Glass Dark Theme ===== */
         :root {
@@ -22,32 +24,32 @@
             --warning: #f59e0b;
             --danger: #ef4444;
             --pink: #ec4899;
-            
+
             --bg-dark: #0a0a0f;
             --bg-darker: #07070b;
             --bg-card: rgba(20, 20, 30, 0.7);
             --bg-card-hover: rgba(30, 30, 45, 0.9);
             --border-color: rgba(255, 255, 255, 0.08);
             --border-light: rgba(255, 255, 255, 0.12);
-            
+
             --text-primary: #ffffff;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
-            
+
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             --glass-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
-            
+
             --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6);
             --gradient-secondary: linear-gradient(135deg, #10b981, #0d9488);
             --gradient-accent: linear-gradient(135deg, #8b5cf6, #ec4899);
             --gradient-dark: linear-gradient(135deg, #0a0a0f, #1e1b2e);
             --gradient-gold: linear-gradient(135deg, #fbbf24, #d97706);
-            
+
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.2s ease;
-            
+
             --border-radius: 16px;
             --border-radius-lg: 24px;
             --border-radius-xl: 32px;
@@ -75,7 +77,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: var(--text-primary);
@@ -88,7 +95,8 @@
             transition: var(--transition-fast);
         }
 
-        ul, ol {
+        ul,
+        ol {
             list-style: none;
         }
 
@@ -561,7 +569,7 @@
             z-index: 1;
         }
 
-        .showcase-card > * {
+        .showcase-card>* {
             position: relative;
             z-index: 2;
         }
@@ -799,9 +807,17 @@
             border-radius: 50%;
         }
 
-        .dot:nth-child(1) { background: #ff5f57; }
-        .dot:nth-child(2) { background: #ffbd2e; }
-        .dot:nth-child(3) { background: #28ca42; }
+        .dot:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .dot:nth-child(2) {
+            background: #ffbd2e;
+        }
+
+        .dot:nth-child(3) {
+            background: #28ca42;
+        }
 
         .preview-toolbar {
             display: flex;
@@ -862,7 +878,7 @@
             z-index: 1;
         }
 
-        .design-canvas > * {
+        .design-canvas>* {
             position: relative;
             z-index: 2;
         }
@@ -1536,8 +1552,13 @@
 
         /* ===== Animations ===== */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
@@ -1545,6 +1566,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1556,6 +1578,7 @@
                 opacity: 0;
                 transform: translateX(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1567,6 +1590,7 @@
                 opacity: 0;
                 transform: translateX(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -1574,10 +1598,13 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
             }
+
             50% {
                 transform: scale(1.05);
                 box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
@@ -1585,25 +1612,43 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) translateX(0) rotate(0deg);
             }
+
             33% {
                 transform: translateY(-30px) translateX(20px) rotate(5deg);
             }
+
             66% {
                 transform: translateY(20px) translateX(-10px) rotate(-5deg);
             }
         }
 
         @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
         }
 
         /* Animation classes */
@@ -1653,11 +1698,11 @@
             .hero-container {
                 gap: 60px;
             }
-            
+
             .hero-content h1 {
                 font-size: 3.5rem;
             }
-            
+
             .section-title h2 {
                 font-size: 3rem;
             }
@@ -1669,117 +1714,119 @@
                 text-align: center;
                 gap: 60px;
             }
-            
+
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .hero-content h1 {
                 font-size: 3rem;
             }
-            
+
             .card-showcase {
                 order: -1;
                 margin-bottom: 60px;
                 height: 350px;
             }
-            
+
             .nav-links {
                 gap: 25px;
             }
-            
+
             .hero-stats {
                 justify-content: center;
             }
         }
 
         @media (max-width: 768px) {
+
             /* Mobile Menu */
-            .nav-links, .nav-cta {
+            .nav-links,
+            .nav-cta {
                 display: none;
             }
-            
+
             .mobile-menu-btn {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            
+
             /* Hero Section */
             .hero {
                 padding-top: 160px;
                 padding-bottom: 100px;
             }
-            
+
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-content p {
                 font-size: 1.1rem;
             }
-            
+
             .section-title h2 {
                 font-size: 2.5rem;
             }
-            
+
             .section-title p {
                 font-size: 1.1rem;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .hero-stats {
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
             }
-            
+
             /* Services & Templates */
             .features-grid,
             .gallery-grid,
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             /* Card Showcase */
             .card-showcase {
                 height: 300px;
             }
-            
+
             .showcase-card {
                 width: 250px;
                 height: 170px;
                 padding: 20px;
             }
-            
+
             /* CTA Section */
             .cta-content {
                 padding: 60px 30px;
             }
-            
+
             .cta-content h2 {
                 font-size: 2.5rem;
             }
-            
+
             .interactive-stats {
                 padding: 60px 30px;
                 margin: 60px auto;
             }
-            
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
-            
+
             /* Design Preview */
             .preview-container {
                 max-width: 100%;
             }
-            
+
             .design-canvas {
                 width: 300px;
                 height: 190px;
@@ -1790,79 +1837,79 @@
             .container {
                 padding: 0 20px;
             }
-            
+
             section {
                 padding: 70px 0;
             }
-            
+
             .hero {
                 padding-top: 140px;
             }
-            
+
             .hero-content h1 {
                 font-size: 2.2rem;
             }
-            
+
             .section-title h2 {
                 font-size: 2.2rem;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
-            
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
             }
-            
+
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .card-showcase {
                 height: 250px;
             }
-            
+
             .showcase-card {
                 width: 200px;
                 height: 140px;
                 padding: 15px;
             }
-            
+
             .design-logo {
                 width: 40px;
                 height: 40px;
                 margin-bottom: 10px;
             }
-            
+
             .design-text h4 {
                 font-size: 1rem;
             }
-            
+
             .design-text p {
                 font-size: 0.8rem;
             }
-            
+
             .contact-item span {
                 font-size: 0.7rem;
             }
-            
+
             .design-canvas {
                 width: 280px;
                 height: 180px;
             }
-            
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .scroll-top {
                 bottom: 20px;
                 right: 20px;
@@ -1876,63 +1923,63 @@
             .hero-content h1 {
                 font-size: 1.8rem;
             }
-            
+
             .btn {
                 padding: 14px 24px;
                 font-size: 0.95rem;
             }
-            
+
             .gallery-controls {
                 flex-direction: column;
                 align-items: center;
                 gap: 15px;
             }
-            
+
             .card-showcase {
                 height: 220px;
             }
-            
+
             .showcase-card {
                 width: 180px;
                 height: 120px;
                 padding: 10px;
             }
-            
+
             .design-logo {
                 width: 30px;
                 height: 30px;
                 margin-bottom: 8px;
                 font-size: 1rem;
             }
-            
+
             .design-text h4 {
                 font-size: 0.9rem;
                 margin-bottom: 5px;
             }
-            
+
             .design-text p {
                 font-size: 0.7rem;
                 line-height: 1.3;
             }
-            
+
             .contact-item {
                 gap: 5px;
                 margin-bottom: 5px;
             }
-            
+
             .contact-item i {
                 font-size: 0.7rem;
             }
-            
+
             .contact-item span {
                 font-size: 0.65rem;
             }
-            
+
             .design-canvas {
                 width: 250px;
                 height: 160px;
             }
-            
+
             .newsletter-form {
                 flex-direction: column;
             }
@@ -1943,19 +1990,19 @@
             .card-showcase:hover .showcase-card:nth-child(1) {
                 transform: translateX(-55%) rotate(-8deg) translateY(-15px);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(2) {
                 transform: translateX(-27.5%) rotate(-4deg) translateY(-8px);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(3) {
                 transform: translateY(-10px) scale(1.03);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(4) {
                 transform: translateX(27.5%) rotate(4deg) translateY(-8px);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(5) {
                 transform: translateX(55%) rotate(8deg) translateY(-15px);
             }
@@ -1965,19 +2012,19 @@
             .card-showcase:hover .showcase-card:nth-child(1) {
                 transform: translateX(-52.5%) rotate(-6deg) translateY(-10px);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(2) {
                 transform: translateX(-26.25%) rotate(-3deg) translateY(-5px);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(3) {
                 transform: translateY(-8px) scale(1.02);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(4) {
                 transform: translateX(26.25%) rotate(3deg) translateY(-5px);
             }
-            
+
             .card-showcase:hover .showcase-card:nth-child(5) {
                 transform: translateX(52.5%) rotate(6deg) translateY(-10px);
             }
@@ -1994,7 +2041,7 @@
         <div class="floater"></div>
         <div class="floater"></div>
     </div>
-    
+
     <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop">
         <i class="fas fa-chevron-up"></i>
@@ -2051,7 +2098,8 @@
         <div class="container hero-container">
             <div class="hero-content animate-fade-left">
                 <h1>Create <span class="typewriter-text" id="typewriter">Stunning Cards</span> That Impress</h1>
-                <p>Transform your ideas into breathtaking, professional cards with our AI-powered design platform. No skills needed—just creativity.</p>
+                <p>Transform your ideas into breathtaking, professional cards with our AI-powered design platform. No
+                    skills needed—just creativity.</p>
 
                 <div class="hero-buttons animate-fade-up delay-1">
                     <a href="card.html" class="btn btn-primary">
@@ -2192,7 +2240,8 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>AI Design Assistant</h3>
-                    <p>Our intelligent AI suggests perfect layouts, colors, and fonts based on your content and preferences.</p>
+                    <p>Our intelligent AI suggests perfect layouts, colors, and fonts based on your content and
+                        preferences.</p>
                 </div>
 
                 <div class="feature-card animate-fade-up delay-2">
@@ -2200,7 +2249,8 @@
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3>Advanced Customization</h3>
-                    <p>Complete control over every design element with real-time previews and professional templates.</p>
+                    <p>Complete control over every design element with real-time previews and professional templates.
+                    </p>
                 </div>
 
                 <div class="feature-card animate-fade-up delay-3">
@@ -2358,7 +2408,8 @@
     <div class="interactive-stats">
         <div class="stats-content">
             <h2 style="color: var(--text-primary); margin-bottom: 20px;">Trusted by Thousands Worldwide</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Join our growing community of satisfied customers</p>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Join our growing community of
+                satisfied customers</p>
             <div class="stats-grid">
                 <div class="stat-item animate-fade-up delay-1">
                     <div class="stat-number" id="totalUsers">0</div>
@@ -2391,10 +2442,12 @@
             <div class="testimonial-slider animate-fade-up">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        "CardCraft Pro completely transformed how we create business cards. The AI suggestions saved us hours of design time, and the print quality exceeded all expectations!"
+                        "CardCraft Pro completely transformed how we create business cards. The AI suggestions saved us
+                        hours of design time, and the print quality exceeded all expectations!"
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Michael" alt="Michael Chen" class="author-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Michael" alt="Michael Chen"
+                            class="author-avatar">
                         <div class="author-info">
                             <h4>Michael Chen</h4>
                             <p>CEO, Tech Innovations LLC</p>
@@ -2410,7 +2463,8 @@
         <div class="container">
             <div class="cta-content animate-fade-up">
                 <h2>Ready to Create Something Amazing?</h2>
-                <p>Join thousands of professionals who trust CardCraft Pro for their card design needs. Start your free trial today!</p>
+                <p>Join thousands of professionals who trust CardCraft Pro for their card design needs. Start your free
+                    trial today!</p>
                 <div class="cta-buttons">
                     <a href="card.html" class="btn btn-primary">
                         <i class="fas fa-play-circle"></i> Start Free Trial
@@ -2429,7 +2483,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <a href="#" class="footer-logo">Card<span>Craft</span> Pro</a>
-                    <p>Premium card creation platform with AI-powered design tools, professional templates, and global printing services.</p>
+                    <p>Premium card creation platform with AI-powered design tools, professional templates, and global
+                        printing services.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -2608,7 +2663,7 @@
             filteredTemplates.forEach((template, index) => {
                 const templateCard = document.createElement('div');
                 templateCard.className = `gallery-item animate-fade-up delay-${(index % 4) + 1}`;
-                
+
                 templateCard.innerHTML = `
                     ${template.premium ? '<div class="gallery-item-badge">PREMIUM</div>' : ''}
                     <div class="gallery-preview">
@@ -2629,7 +2684,7 @@
                         </button>
                     </div>
                 `;
-                
+
                 templatesGrid.appendChild(templateCard);
             });
         }
@@ -2638,16 +2693,16 @@
         function previewTemplate(templateId) {
             const template = templates.find(t => t.id === templateId);
             if (!template) return;
-            
+
             const categoryImages = {
                 'business': 'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
                 'personal': 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
                 'event': 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
                 'creative': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
             };
-            
+
             designCanvas.style.backgroundImage = `url('${categoryImages[template.category] || categoryImages.business}')`;
-            
+
             // Set logo icon based on category
             const logoIcons = {
                 'business': 'fas fa-briefcase',
@@ -2655,10 +2710,10 @@
                 'event': 'fas fa-calendar-alt',
                 'creative': 'fas fa-paint-brush'
             };
-            
+
             previewLogo.innerHTML = `<i class="${logoIcons[template.category] || 'fas fa-star'}"></i>`;
             previewLogo.style.background = 'rgba(99, 102, 241, 0.9)';
-            
+
             // Animate the preview
             designCanvas.style.transform = 'scale(1.05)';
             designCanvas.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.4)';
@@ -2666,7 +2721,7 @@
                 designCanvas.style.transform = 'scale(1)';
                 designCanvas.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
             }, 300);
-            
+
             showNotification(`Now previewing: ${template.name}`);
         }
 
@@ -2685,10 +2740,10 @@
                 animation: slideIn 0.3s ease;
                 font-weight: 600;
             `;
-            
+
             notification.textContent = message;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.style.animation = 'slideOut 0.3s ease';
                 setTimeout(() => {
@@ -2710,40 +2765,40 @@
             const emails = ['alex@digitalsolutions.com', 'sarah@luxuryevents.com', 'michael@techinnovations.com', 'emma@creativeminds.com'];
             const logoIcons = ['fas fa-briefcase', 'fas fa-code', 'fas fa-paint-brush', 'fas fa-calendar-alt'];
             const colors = ['rgba(99, 102, 241, 0.9)', 'rgba(16, 185, 129, 0.9)', 'rgba(245, 158, 11, 0.9)', 'rgba(236, 72, 153, 0.9)'];
-            
+
             const professionalImages = [
                 'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
                 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
                 'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
                 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
             ];
-            
+
             let currentIndex = 0;
-            
+
             function updatePreview() {
                 currentIndex = (currentIndex + 1) % names.length;
-                
+
                 designCanvas.style.backgroundImage = `url('${professionalImages[currentIndex]}')`;
-                
+
                 previewLogo.innerHTML = `<i class="${logoIcons[currentIndex]}"></i>`;
                 previewLogo.style.background = colors[currentIndex];
                 previewName.textContent = names[currentIndex];
                 previewTitle.innerHTML = titles[currentIndex];
                 previewPhone.textContent = phones[currentIndex];
                 previewEmail.textContent = emails[currentIndex];
-                
+
                 designCanvas.style.opacity = '0.8';
                 designCanvas.style.transform = 'scale(1.02)';
-                
+
                 setTimeout(() => {
                     designCanvas.style.opacity = '1';
                     designCanvas.style.transform = 'scale(1)';
                 }, 300);
             }
-            
+
             // Initial setup
             updatePreview();
-            
+
             // Rotate preview content every 5 seconds
             setInterval(updatePreview, 5000);
         }
@@ -2756,7 +2811,7 @@
                 } else {
                     header.classList.remove('scrolled');
                 }
-                
+
                 if (window.scrollY > 500) {
                     scrollTopBtn.classList.add('visible');
                 } else {
@@ -2772,7 +2827,7 @@
                 mobileMenu.classList.toggle('active');
                 document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
             });
-            
+
             document.addEventListener('click', (e) => {
                 if (mobileMenu.classList.contains('active') &&
                     !mobileMenu.contains(e.target) &&
@@ -2781,7 +2836,7 @@
                     document.body.style.overflow = '';
                 }
             });
-            
+
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
@@ -2797,12 +2852,12 @@
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
+
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         const headerHeight = header.offsetHeight;
                         const targetPosition = targetElement.offsetTop - headerHeight;
-                        
+
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -2810,7 +2865,7 @@
                     }
                 });
             });
-            
+
             scrollTopBtn.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
@@ -2825,7 +2880,7 @@
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     e.target.classList.add('active');
-                    
+
                     const filter = e.target.dataset.filter;
                     renderTemplates(filter);
                 });
@@ -2836,25 +2891,25 @@
         function initGalleryNavigation() {
             document.getElementById('prevTemplate').addEventListener('click', () => {
                 const currentFilter = document.querySelector('.filter-btn.active').dataset.filter;
-                const filteredTemplates = currentFilter === 'all' 
-                    ? templates 
+                const filteredTemplates = currentFilter === 'all'
+                    ? templates
                     : templates.filter(t => t.category === currentFilter);
-                
+
                 const last = filteredTemplates.pop();
                 filteredTemplates.unshift(last);
-                
+
                 renderTemplates(currentFilter);
             });
-            
+
             document.getElementById('nextTemplate').addEventListener('click', () => {
                 const currentFilter = document.querySelector('.filter-btn.active').dataset.filter;
-                const filteredTemplates = currentFilter === 'all' 
-                    ? templates 
+                const filteredTemplates = currentFilter === 'all'
+                    ? templates
                     : templates.filter(t => t.category === currentFilter);
-                
+
                 const first = filteredTemplates.shift();
                 filteredTemplates.push(first);
-                
+
                 renderTemplates(currentFilter);
             });
         }
@@ -2864,17 +2919,17 @@
             newsletterSubmit.addEventListener('click', (e) => {
                 e.preventDefault();
                 const email = newsletterEmail.value.trim();
-                
+
                 if (validateEmail(email)) {
                     const originalContent = newsletterSubmit.innerHTML;
                     newsletterSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                    
+
                     setTimeout(() => {
                         newsletterSubmit.innerHTML = '<i class="fas fa-check"></i>';
                         newsletterSubmit.style.background = 'var(--secondary)';
                         showNotification('Thank you for subscribing! Check your email for confirmation.');
                         newsletterEmail.value = '';
-                        
+
                         setTimeout(() => {
                             newsletterSubmit.innerHTML = originalContent;
                             newsletterSubmit.style.background = '';
@@ -2900,7 +2955,7 @@
                 animateCounter(stat2, 8920, 2000);
                 animateCounter(stat3, 567, 2000);
             }, 1000);
-            
+
             setTimeout(() => {
                 animateCounter(document.getElementById('totalUsers'), 15420, 2000);
                 animateCounter(document.getElementById('cardsCreated'), 89256, 2000);
@@ -2913,13 +2968,13 @@
         function initCardShowcaseAnimation() {
             const showcase = document.querySelector('.card-showcase');
             const cards = document.querySelectorAll('.showcase-card');
-            
+
             showcase.addEventListener('mouseenter', () => {
                 cards.forEach(card => {
                     card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
                 });
             });
-            
+
             showcase.addEventListener('mouseleave', () => {
                 cards.forEach(card => {
                     card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -2931,7 +2986,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Start typewriter effect
             setTimeout(typeWriter, 1000);
-            
+
             // Initialize all systems
             initHeaderScroll();
             initMobileMenu();
@@ -2942,10 +2997,10 @@
             initDesignPreview();
             initAnimatedStats();
             initCardShowcaseAnimation();
-            
+
             // Render initial content
             renderTemplates();
-            
+
             // Add intersection observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -2954,25 +3009,25 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             document.querySelectorAll('.feature-card, .pricing-card, .stat-item, .testimonial-card, .gallery-item').forEach(el => {
                 observer.observe(el);
             });
-            
+
             // Add keyboard shortcuts
             document.addEventListener('keydown', (e) => {
                 if (e.key === '/' && !e.target.matches('input, textarea')) {
                     e.preventDefault();
                     document.getElementById('templates').scrollIntoView({ behavior: 'smooth' });
                 }
-                
+
                 if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                     mobileMenu.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
         });
-        
+
         // ===== Window Resize Handler =====
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
@@ -2982,4 +3037,5 @@
         });
     </script>
 </body>
+
 </html>
