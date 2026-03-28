@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextStepBtn = document.getElementById('next-step-btn');
     const progressBar = document.getElementById('progress-bar');
     const steps = document.querySelectorAll('.step');
+    const toastContainer = document.getElementById('toast-container');
 
     // Card Preview Elements
     const cardPreview = document.getElementById('card-preview');
@@ -55,6 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const finalizeCardBtn = document.getElementById('finalize-card-btn');
     const addSampleImageBtn = document.getElementById('add-sample-image');
     const exportAllBtn = document.getElementById('export-all-btn');
+    const exportModal = document.getElementById('export-modal');
+    const exportModalCloseBtn = document.getElementById('export-modal-close');
+    const exportModalCancelBtn = document.getElementById('export-modal-cancel');
+    const exportPngBtn = document.getElementById('export-png-btn');
+    const exportPdfBtn = document.getElementById('export-pdf-btn');
+    const exportJsonBtn = document.getElementById('export-json-btn');
+    const exportHtmlBtn = document.getElementById('export-html-btn');
 
     // Application State
     let currentStep = 1;
@@ -113,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize the application
     function init() {
+        setupAccessibleCards();
         setupEventListeners();
         colorPreview.style.backgroundColor = colorPicker.value;
         previewBackDate.textContent = new Date().toLocaleDateString('en-US', {
@@ -121,6 +130,19 @@ document.addEventListener('DOMContentLoaded', function () {
             day: 'numeric'
         });
         window.addEventListener('scroll', handleScroll);
+    }
+
+    function setupAccessibleCards() {
+        cardOptions.forEach(option => {
+            option.setAttribute('role', 'button');
+            option.setAttribute('tabindex', '0');
+            option.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    option.click();
+                }
+            });
+        });
     }
 
     // Set up all event listeners
@@ -139,6 +161,18 @@ document.addEventListener('DOMContentLoaded', function () {
         finalizeCardBtn.addEventListener('click', finalizeCard);
         addSampleImageBtn.addEventListener('click', addSampleBackground);
         exportAllBtn.addEventListener('click', exportAllDesigns);
+        exportModalCloseBtn.addEventListener('click', hideExportModal);
+        exportModalCancelBtn.addEventListener('click', hideExportModal);
+        exportPngBtn.addEventListener('click', async () => {
+            hideExportModal();
+            await downloadAsPNG();
+        });
+        exportPdfBtn.addEventListener('click', async () => {
+            hideExportModal();
+            await downloadAsPDF();
+        });
+        exportJsonBtn.addEventListener('click', exportCurrentDesignAsJSON);
+        exportHtmlBtn.addEventListener('click', exportCurrentDesignAsHTML);
 
         bgImageInput.addEventListener('change', handleBackgroundImageUpload);
         logoImageInput.addEventListener('change', handleLogoImageUpload);
@@ -163,6 +197,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 cardBackground.style.display = 'block';
             } else {
                 cardBackground.style.display = 'none';
+            }
+        });
+
+        exportModal.addEventListener('click', function (e) {
+            if (e.target === exportModal) {
+                hideExportModal();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && exportModal.classList.contains('show')) {
+                hideExportModal();
             }
         });
     }
@@ -196,6 +242,11 @@ document.addEventListener('DOMContentLoaded', function () {
         fontSelect.value = "'Poppins', sans-serif";
         iconSelect.value = '';
         iconColor.value = '#ffffff';
+        cardLayoutSelect.value = 'standard';
+        borderRadiusSlider.value = 20;
+        borderRadiusValue.textContent = '20px';
+        shadowToggle.checked = true;
+        keepBgToggle.checked = true;
 
         applyTheme(themes[currentTheme]);
         updatePreview();
@@ -250,12 +301,19 @@ document.addEventListener('DOMContentLoaded', function () {
         borderRadiusValue.textContent = borderRadius;
 
         cardPreview.style.boxShadow = shadowToggle.checked ? 'var(--shadow-lg)' : 'none';
+        applyCardLayout();
         updateCardIcon();
 
         // Update background image visibility
         if (currentBackgroundImage && keepBgToggle.checked) {
             cardBackground.style.display = 'block';
         }
+    }
+
+    function applyCardLayout() {
+        const layoutClasses = ['layout-standard', 'layout-centered', 'layout-split', 'layout-modern'];
+        cardPreview.classList.remove(...layoutClasses);
+        cardPreview.classList.add(`layout-${cardLayoutSelect.value}`);
     }
 
     // Update card icon
