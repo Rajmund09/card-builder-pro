@@ -458,6 +458,13 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .card-option:focus-visible {
+            outline: 3px solid rgba(100, 255, 218, 0.55);
+            outline-offset: 4px;
+            border-color: rgba(100, 255, 218, 0.45);
+            box-shadow: 0 0 0 6px rgba(100, 255, 218, 0.12);
+        }
+
         .card-option:hover::before {
             transform: scaleX(1);
         }
@@ -883,6 +890,14 @@
             border-color: var(--accent-color);
             box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
             transform: translateY(-2px);
+        }
+
+        .btn:focus-visible,
+        .control-input:focus-visible,
+        .modal-close:focus-visible,
+        .footer-link:focus-visible {
+            outline: 3px solid rgba(100, 255, 218, 0.55);
+            outline-offset: 3px;
         }
 
         .input-with-icon {
@@ -1477,6 +1492,17 @@
                 padding: 1.5rem;
             }
 
+            .header-controls,
+            .header-controls .btn,
+            .progress-actions .btn,
+            .builder-actions .btn {
+                width: 100%;
+            }
+
+            .progress-actions {
+                flex-direction: column;
+            }
+
             .control-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -1558,6 +1584,18 @@
 
             .preview-controls {
                 grid-template-columns: 1fr;
+            }
+
+            .toast-container {
+                left: 12px;
+                right: 12px;
+                bottom: 16px;
+                max-width: none;
+            }
+
+            .modal {
+                width: 100%;
+                padding: 1.5rem;
             }
 
             .progress-steps {
