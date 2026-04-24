@@ -1098,6 +1098,13 @@
             color: var(--text-primary);
             padding: 1.25rem 1.5rem;
             border-radius: var(--border-radius-sm);
+        .btn:disabled {
+            opacity: 0.72;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
             box-shadow: var(--shadow-lg);
             display: flex;
             align-items: center;

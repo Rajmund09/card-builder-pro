@@ -679,15 +679,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Download as PNG
     async function downloadAsPNG() {
         showToast('Processing', 'Generating PNG image...', 'info');
+        const originalText = downloadPngBtn.innerHTML;
+        const wasFlipped = isCardFlipped;
 
         try {
-            const wasFlipped = isCardFlipped;
             if (wasFlipped) {
                 cardPreview.classList.remove('flipped');
                 isCardFlipped = false;
             }
 
-            const originalText = downloadPngBtn.innerHTML;
             downloadPngBtn.innerHTML = '<span class="spinner"></span> Generating...';
             downloadPngBtn.disabled = true;
 
@@ -708,11 +708,6 @@ document.addEventListener('DOMContentLoaded', function () {
             downloadPngBtn.innerHTML = originalText;
             downloadPngBtn.disabled = false;
 
-            if (wasFlipped) {
-                cardPreview.classList.add('flipped');
-                isCardFlipped = true;
-            }
-
             showToast('Download Ready', 'PNG image saved successfully', 'success');
             updateProgress(4);
             setTimeout(() => updateProgress(3), 2000);
@@ -720,21 +715,28 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error generating PNG:', error);
             showToast('Export Failed', 'Could not generate PNG image', 'error');
+        } finally {
+            if (wasFlipped) {
+                cardPreview.classList.add('flipped');
+                isCardFlipped = true;
+            }
+            downloadPngBtn.innerHTML = originalText;
+            downloadPngBtn.disabled = false;
         }
     }
 
     // Download as PDF
     async function downloadAsPDF() {
         showToast('Processing', 'Generating PDF document...', 'info');
+        const originalText = downloadPdfBtn.innerHTML;
+        const wasFlipped = isCardFlipped;
 
         try {
-            const wasFlipped = isCardFlipped;
             if (wasFlipped) {
                 cardPreview.classList.remove('flipped');
                 isCardFlipped = false;
             }
 
-            const originalText = downloadPdfBtn.innerHTML;
             downloadPdfBtn.innerHTML = '<span class="spinner"></span> Generating...';
             downloadPdfBtn.disabled = true;
 
@@ -759,11 +761,6 @@ document.addEventListener('DOMContentLoaded', function () {
             downloadPdfBtn.innerHTML = originalText;
             downloadPdfBtn.disabled = false;
 
-            if (wasFlipped) {
-                cardPreview.classList.add('flipped');
-                isCardFlipped = true;
-            }
-
             showToast('Download Ready', 'PDF document saved successfully', 'success');
             updateProgress(4);
             setTimeout(() => updateProgress(3), 2000);
@@ -771,6 +768,13 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error generating PDF:', error);
             showToast('Export Failed', 'Could not generate PDF', 'error');
+        } finally {
+            if (wasFlipped) {
+                cardPreview.classList.add('flipped');
+                isCardFlipped = true;
+            }
+            downloadPdfBtn.innerHTML = originalText;
+            downloadPdfBtn.disabled = false;
         }
     }
 
