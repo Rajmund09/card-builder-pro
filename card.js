@@ -837,12 +837,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function goToNextStep() {
+        if (currentStep === 3) {
+            showExportModal();
+            updateProgress(4);
+            setTimeout(() => updateProgress(3), 1500);
+            return;
+        }
+
         if (currentStep < 4) {
             currentStep++;
             updateProgress(currentStep);
 
             if (currentStep === 3) {
-                finalizeCard();
+                showToast('Review Ready', 'Check your design and choose export when you are ready.', 'info');
             }
         }
     }
@@ -867,7 +874,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         prevStepBtn.style.display = step > 1 ? 'flex' : 'none';
         nextStepBtn.style.display = step < 4 ? 'flex' : 'none';
-        nextStepBtn.textContent = step === 3 ? 'Export' : `Step ${step + 1}`;
+        nextStepBtn.innerHTML = step === 3
+            ? 'Export <i class="fas fa-file-export"></i>'
+            : `Step ${step + 1} <i class="fas fa-arrow-right"></i>`;
     }
 
     // Handle scroll
