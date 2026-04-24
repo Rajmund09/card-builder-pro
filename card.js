@@ -433,26 +433,57 @@ document.addEventListener('DOMContentLoaded', function () {
     // Save design
     function saveDesign() {
         const designData = {
+            ...getCurrentDesignData(),
+            hasBackground: !!currentBackgroundImage,
+            hasLogo: !!currentLogoImage
+        };
+
+        cardDesigns.push(designData);
+        localStorage.setItem('cardDesigns', JSON.stringify(cardDesigns));
+        showToast('Design Saved', 'Your card design has been saved successfully', 'success');
+    }
+
+    // Finalize card
+    function finalizeCard() {
+        updateProgress(3);
+        showToast('Card Finalized', 'Your card is ready for export!', 'success');
+        showExportModal();
+    }
+
+    function showExportModal() {
+        exportModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function hideExportModal() {
+        exportModal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    function getCurrentDesignData() {
+        return {
             id: Date.now(),
-            type: currentCardType,
+            type: currentCardType || 'custom',
             theme: currentTheme,
-            title: titleInput.value,
-            subtitle: subtitleInput.value,
-            text: textInput.value,
-            backText: backTextInput.value,
+            title: titleInput.value || 'Your Name',
+            subtitle: subtitleInput.value || 'Your Position/Role',
+            text: textInput.value || 'Your message goes here. Customize this text to create the perfect card for your occasion.',
+            backText: backTextInput.value || 'This is the back of your card. Add additional information, notes, or a personalized message here.',
             contact: contactInput.value,
             footer: footerInput.value,
             color: colorPicker.value,
             font: fontSelect.value,
             layout: cardLayoutSelect.value,
-            borderRadius: borderRadiusSlider.value,
+            borderRadius: Number(borderRadiusSlider.value),
             shadow: shadowToggle.checked,
             icon: iconSelect.value,
             iconColor: iconColor.value,
-            hasBackground: !!currentBackgroundImage,
-            hasLogo: !!currentLogoImage,
+            backgroundImage: currentBackgroundImage,
+            logoImage: currentLogoImage,
+            keepBackground: keepBgToggle.checked,
             timestamp: new Date().toISOString()
         };
+    }
 
         cardDesigns.push(designData);
         localStorage.setItem('cardDesigns', JSON.stringify(cardDesigns));
