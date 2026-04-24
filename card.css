@@ -602,6 +602,69 @@
             margin-bottom: 1.5rem;
         }
 
+        .card-preview.layout-centered .card-front,
+        .card-preview.layout-centered .card-back {
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-preview.layout-centered .card-header {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .card-preview.layout-centered .card-content,
+        .card-preview.layout-centered .card-back-content {
+            width: 100%;
+        }
+
+        .card-preview.layout-split .card-content {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .card-preview.layout-split .card-header,
+        .card-preview.layout-split .card-title,
+        .card-preview.layout-split .card-subtitle,
+        .card-preview.layout-split .card-message {
+            grid-column: 1;
+        }
+
+        .card-preview.layout-split .card-contact,
+        .card-preview.layout-split .card-footer {
+            grid-column: 2;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+            padding-left: 1.25rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .card-preview.layout-modern::after {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            right: -80px;
+            bottom: -120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 72%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .card-preview.layout-modern .card-front::after {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: calc(var(--border-radius) - 6px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
         /* FIXED: Logo positioning */
         .card-logo {
             max-width: 120px;
@@ -1473,6 +1536,20 @@
             .card-preview {
                 min-height: 280px;
                 padding: 1.25rem;
+            .card-preview.layout-split .card-content {
+                grid-template-columns: 1fr;
+            }
+
+            .card-preview.layout-split .card-contact,
+            .card-preview.layout-split .card-footer {
+                grid-column: 1;
+                border-left: none;
+                padding-left: 0;
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.18);
+            }
+
             }
 
             .card-title {
