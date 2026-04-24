@@ -485,15 +485,195 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-        cardDesigns.push(designData);
-        localStorage.setItem('cardDesigns', JSON.stringify(cardDesigns));
-        showToast('Design Saved', 'Your card design has been saved successfully', 'success');
+    function downloadTextFile(filename, content, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(blobUrl);
     }
 
-    // Finalize card
-    function finalizeCard() {
-        updateProgress(3);
-        showToast('Card Finalized', 'Your card is ready for export!', 'success');
+    function exportCurrentDesignAsJSON() {
+        const designData = getCurrentDesignData();
+        downloadTextFile(
+            `cardcraft-template-${designData.id}.json`,
+            JSON.stringify(designData, null, 2),
+            'application/json;charset=utf-8'
+        );
+        hideExportModal();
+        showToast('Template Exported', 'Design JSON downloaded successfully', 'success');
+    }
+
+    function exportCurrentDesignAsHTML() {
+        const designData = getCurrentDesignData();
+        const layoutLabel = designData.layout.charAt(0).toUpperCase() + designData.layout.slice(1);
+        const safeTitle = escapeHtml(designData.title);
+        const safeSubtitle = escapeHtml(designData.subtitle);
+        const safeText = escapeHtml(designData.text);
+        const safeBackText = escapeHtml(designData.backText);
+        const safeContact = escapeHtml(designData.contact || 'Contact information will appear here').replace(/\n/g, '<br>');
+        const safeFooter = escapeHtml(designData.footer || 'Additional footer information can go here').replace(/\n/g, '<br>');
+        const iconMarkup = designData.icon ? `<i class="${designData.icon}" style="color:${designData.iconColor};"></i>` : '';
+        const logoMarkup = designData.logoImage ? `<img src="${designData.logoImage}" alt="Card logo" class="logo">` : '';
+        const backgroundStyle = designData.backgroundImage && designData.keepBackground
+            ? `background-image:
+                    linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.22)),
+                    url('${designData.backgroundImage}');
+                background-size: cover;
+                background-position: center;`
+            : `background: linear-gradient(135deg, ${designData.color}, #111827);`;
+
+        const htmlTemplate = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${safeTitle} - Card Export</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #07111f;
+            color: white;
+            font-family: ${designData.font};
+            padding: 24px;
+        }
+        .card {
+            width: min(100%, 720px);
+            min-height: 380px;
+            border-radius: ${designData.borderRadius}px;
+            padding: 32px;
+            box-shadow: ${designData.shadow ? '0 24px 50px rgba(0,0,0,0.35)' : 'none'};
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            ${backgroundStyle}
+        }
+        .card.layout-centered {
+            text-align: center;
+            align-items: center;
+        }
+        .card.layout-split .body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        .card.layout-modern::after {
+            content: "";
+            position: absolute;
+            inset: auto -80px -120px auto;
+            width: 240px;
+            height: 240px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+        }
+        .top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            max-width: 120px;
+            max-height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.12);
+            padding: 6px;
+        }
+        .icon {
+            font-size: 2rem;
+        }
+        h1, h2, p {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+        }
+        h2 {
+            font-size: 1.1rem;
+            opacity: 0.88;
+            margin-top: 8px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        .meta {
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        .export-note {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        @media (max-width: 640px) {
+            .card {
+                min-height: auto;
+                padding: 24px;
+            }
+            .card.layout-split .body {
+                grid-template-columns: 1fr;
+            }
+            .top {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="card layout-${designData.layout}">
+        <div class="top">
+            ${logoMarkup}
+            <div class="icon">${iconMarkup}</div>
+        </div>
+        <div class="body">
+            <div>
+                <h1>${safeTitle}</h1>
+                <h2>${safeSubtitle}</h2>
+                <p class="message">${safeText}</p>
+            </div>
+            <div>
+                <p class="message">${safeBackText}</p>
+                <div class="meta">
+                    <div>${safeContact}</div>
+                    <div style="margin-top:12px;">${safeFooter}</div>
+                </div>
+            </div>
+        </div>
+        <p class="export-note">Exported from CardCraft Pro • Theme: ${escapeHtml(themes[currentTheme].name)} • Layout: ${layoutLabel}</p>
+    </article>
+</body>
+</html>`;
+
+        downloadTextFile(
+            `cardcraft-template-${designData.id}.html`,
+            htmlTemplate,
+            'text/html;charset=utf-8'
+        );
+        hideExportModal();
+        showToast('HTML Exported', 'Standalone HTML card downloaded successfully', 'success');
     }
 
     // Download as PNG
@@ -746,3 +926,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize the application
     init();
 });
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
