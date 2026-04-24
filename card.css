@@ -602,13 +602,6 @@
             position: relative;
         }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
         .card-preview.layout-centered .card-front,
         .card-preview.layout-centered .card-back {
             align-items: center;
@@ -670,6 +663,13 @@
             border-radius: calc(var(--border-radius) - 6px);
             z-index: 1;
             pointer-events: none;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
         }
 
         /* FIXED: Logo positioning */
@@ -1098,6 +1098,13 @@
             box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
         }
 
+        .btn:disabled {
+            opacity: 0.72;
+            cursor: wait;
+            transform: none;
+            box-shadow: none;
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
             color: white;
@@ -1176,13 +1183,6 @@
             color: var(--text-primary);
             padding: 1.25rem 1.5rem;
             border-radius: var(--border-radius-sm);
-        .btn:disabled {
-            opacity: 0.72;
-            cursor: wait;
-            transform: none;
-            box-shadow: none;
-        }
-
             box-shadow: var(--shadow-lg);
             display: flex;
             align-items: center;
@@ -1536,6 +1536,20 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .card-preview.layout-split .card-content {
+                grid-template-columns: 1fr;
+            }
+
+            .card-preview.layout-split .card-contact,
+            .card-preview.layout-split .card-footer {
+                grid-column: 1;
+                border-left: none;
+                padding-left: 0;
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.18);
+            }
+
             .footer-links {
                 flex-direction: column;
                 gap: 1rem;
@@ -1562,20 +1576,6 @@
             .card-preview {
                 min-height: 280px;
                 padding: 1.25rem;
-            .card-preview.layout-split .card-content {
-                grid-template-columns: 1fr;
-            }
-
-            .card-preview.layout-split .card-contact,
-            .card-preview.layout-split .card-footer {
-                grid-column: 1;
-                border-left: none;
-                padding-left: 0;
-                margin-top: 1rem;
-                padding-top: 1rem;
-                border-top: 1px solid rgba(255, 255, 255, 0.18);
-            }
-
             }
 
             .card-title {

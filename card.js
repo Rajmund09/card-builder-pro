@@ -936,9 +936,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } : { r: 0, g: 0, b: 0 };
     }
 
-    // Initialize the application
-    init();
-});
     function escapeHtml(value) {
         return String(value)
             .replace(/&/g, '&amp;')
@@ -948,3 +945,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .replace(/'/g, '&#39;');
     }
 
+    // Initialize the application
+    init();
+});
